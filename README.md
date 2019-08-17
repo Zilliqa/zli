@@ -27,6 +27,12 @@ Or you can install the binary:
 go build -o $GOPATH/bin/go-zli main.go
 ```
 
+or just run the script:
+
+```bash
+sh install.sh
+```
+
 #### Commands
 
 <h5> wallet </h5>
