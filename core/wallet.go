@@ -1,9 +1,11 @@
 package core
 
 import (
+	"encoding/json"
 	"github.com/FireStack-Lab/LaksaGo"
 	bech322 "github.com/FireStack-Lab/LaksaGo/bech32"
 	"github.com/FireStack-Lab/LaksaGo/keytools"
+	"io/ioutil"
 )
 
 type Wallet struct {
@@ -50,4 +52,21 @@ func DefaultWallet() (*Wallet, error) {
 		DefaultAccount: defaultAccount,
 		Accounts:       accounts,
 	}, nil
+}
+
+func LoadFromFile(file string) (*Wallet, error) {
+	b, err := ioutil.ReadFile(file)
+	if err != nil {
+		return nil, err
+	}
+
+	wallet := &Wallet{}
+	err1 := json.Unmarshal(b, wallet)
+
+	if err1 != nil {
+		return nil, err1
+	}
+
+	return wallet, nil
+
 }

@@ -38,3 +38,4 @@ sh install.sh
 <h5> wallet </h5>
 
 * init: generate new wallet for zli to use, with random generated private key as default account, ca be modified later
+* echo: try to load wallet file from file system, then print it
