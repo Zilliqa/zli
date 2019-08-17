@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	cloud.google.com/go v0.44.3 // indirect
-	github.com/FireStack-Lab/LaksaGo v0.0.0-20190715101308-2a0ba428a11d // indirect
+	github.com/FireStack-Lab/LaksaGo v0.0.0-20190715101308-2a0ba428a11d
 	github.com/coreos/bbolt v1.3.3 // indirect
 	github.com/coreos/etcd v3.3.13+incompatible // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect

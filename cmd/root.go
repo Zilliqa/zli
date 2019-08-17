@@ -4,9 +4,17 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
+	"zli/cmd/contract"
+	"zli/cmd/wallet"
 )
 
-var rootCmd = &cobra.Command{
+func init() {
+	RootCmd.AddCommand(versionCmd)
+	RootCmd.AddCommand(contract.ContractCmd)
+	RootCmd.AddCommand(wallet.WalletCmd)
+}
+
+var RootCmd = &cobra.Command{
 	Use:   "zli",
 	Short: "Zli is a command line tool based on zilliqa golang sdk",
 	Long:  `A convenient command line tool to generate accounts, run integration testings or run http server .etc`,
@@ -16,7 +24,7 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute() {
-	if err := rootCmd.Execute(); err != nil {
+	if err := RootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
