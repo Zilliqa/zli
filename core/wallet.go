@@ -22,14 +22,10 @@ type Account struct {
 	Bech32Address string `json:"bech_32_address"`
 }
 
-func DefaultWallet() (*Wallet, error) {
-	privateKey, err := keytools.GeneratePrivateKey()
-	if err != nil {
-		return nil, err
-	}
+func FromPrivateKey(privateKey []byte) (*Wallet, error) {
 
-	private := LaksaGo.EncodeHex(privateKey[:])
-	publicKey := keytools.GetPublicKeyFromPrivateKey(privateKey[:], true)
+	private := LaksaGo.EncodeHex(privateKey)
+	publicKey := keytools.GetPublicKeyFromPrivateKey(privateKey, true)
 	public := LaksaGo.EncodeHex(publicKey)
 	address := keytools.GetAddressFromPublic(publicKey)
 	bech32, err2 := bech322.ToBech32Address(address)
@@ -52,6 +48,14 @@ func DefaultWallet() (*Wallet, error) {
 		DefaultAccount: defaultAccount,
 		Accounts:       accounts,
 	}, nil
+}
+
+func DefaultWallet() (*Wallet, error) {
+	privateKey, err := keytools.GeneratePrivateKey()
+	if err != nil {
+		return nil, err
+	}
+	return FromPrivateKey(privateKey[:])
 }
 
 func LoadFromFile(file string) (*Wallet, error) {

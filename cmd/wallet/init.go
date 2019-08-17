@@ -29,7 +29,14 @@ var initCmd = &cobra.Command{
 		}
 
 		home := core.UserHomeDir()
-		f, err3 := os.Create(home + "/" + defaultConfigName)
+		path := home + "/" + defaultConfigName
+
+		_, err2 := os.Stat(path)
+		if err2 == nil {
+			panic("file exist")
+		}
+
+		f, err3 := os.Create(path)
 		if err3 != nil {
 			panic(err3)
 		}
