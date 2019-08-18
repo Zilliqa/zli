@@ -1,0 +1,33 @@
+[
+  {
+    "vname": "_scilla_version",
+    "type": "Uint32",
+    "value": "0"
+  },
+  {
+    "vname": "owner",
+    "type": "ByStr20",
+    "value": "0xcbcb1f07c59f974a1b619d62b57753d83490b801"
+  },
+  {
+    "vname": "total_tokens",
+    "type": "Uint128",
+    "value": "1000000000"
+  },
+  {
+    "vname": "decimals",
+    "type": "Uint32",
+    "value": "0"
+  },
+  {
+    "vname": "name",
+    "type": "String",
+    "value": "BobCoin"
+  },
+  {
+    "vname": "symbol",
+    "type": "String",
+    "value": "BOB"
+  }
+
+]

@@ -17,7 +17,7 @@ var echoCmd = &cobra.Command{
 	Long:  "Try to load wallet file from file system, then print it",
 	Run: func(cmd *cobra.Command, args []string) {
 		home := core.UserHomeDir()
-		wallet, err := core.LoadFromFile(home + "/" + defaultConfigName)
+		wallet, err := core.LoadFromFile(home + "/" + DefaultConfigName)
 		if err != nil {
 			panic(err)
 		}

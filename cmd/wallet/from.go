@@ -22,7 +22,7 @@ var fromCmd = &cobra.Command{
 	Long:  "Generate new wallet from specific private key",
 	Run: func(cmd *cobra.Command, args []string) {
 		home := core.UserHomeDir()
-		path := home + "/" + defaultConfigName
+		path := home + "/" + DefaultConfigName
 
 		_, err := os.Stat(path)
 		if err == nil {

@@ -7,7 +7,7 @@ import (
 	"zli/core"
 )
 
-var defaultConfigName = ".zilliqa"
+var DefaultConfigName = ".zilliqa"
 
 func init() {
 	WalletCmd.AddCommand(initCmd)
@@ -29,7 +29,7 @@ var initCmd = &cobra.Command{
 		}
 
 		home := core.UserHomeDir()
-		path := home + "/" + defaultConfigName
+		path := home + "/" + DefaultConfigName
 
 		_, err2 := os.Stat(path)
 		if err2 == nil {

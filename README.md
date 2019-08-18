@@ -40,3 +40,7 @@ sh install.sh
 * go-zli wallet init: generate new wallet for zli to use, with random generated private key as default account, ca be modified later
 * go-zli wallet echo: try to load wallet file from file system, then print it
 * go-zli wallet from [flags]: generate new wallet from specific private key
+
+<h5> contract </h5>
+
+* go-zli contract deploy [flags]: deploy new contract
