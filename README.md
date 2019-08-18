@@ -9,7 +9,15 @@ golang environment:
 * [download golang](https://golang.org/dl/)
 * [installation instructions](https://golang.org/doc/install)
 
-#### Install
+#### Installation
+
+<h5> dependencies </h5>
+
+We use `go module` to manage dependencies, following command will download all dependencies according to the module file `go.mod`
+
+```
+go get ./...
+```
 
 <h5> build </h5>
 
