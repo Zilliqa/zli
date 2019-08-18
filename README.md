@@ -44,3 +44,4 @@ sh install.sh
 <h5> contract </h5>
 
 * go-zli contract deploy [flags]: deploy new contract
+* go-zli contract call [flags]: call a exist contract
