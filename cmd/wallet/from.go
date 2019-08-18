@@ -9,16 +9,17 @@ import (
 	"zli/core"
 )
 
+var private string
+
 func init() {
-	fromCmd.Flags().StringP("from", "f", "", "from specific private key")
+	fromCmd.Flags().StringVarP(&private, "private", "p", "", "from specific private key")
 	WalletCmd.AddCommand(fromCmd)
 }
 
 var fromCmd = &cobra.Command{
-	Use:   "from",
+	Use:   "from [OPTIONS]",
 	Short: "Generate new wallet from specific private key",
 	Long:  "Generate new wallet from specific private key",
-	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		home := core.UserHomeDir()
 		path := home + "/" + defaultConfigName
@@ -28,7 +29,6 @@ var fromCmd = &cobra.Command{
 			panic("file exist")
 		}
 
-		private := args[0]
 		if !validator.IsPrivateKey(private) {
 			panic("invalid private key")
 		}
