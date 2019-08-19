@@ -17,3 +17,35 @@ func TestLoadFrom(t *testing.T) {
 		panic("load from file failed")
 	}
 }
+
+func TestSplit(t *testing.T) {
+	a := Account{
+		PrivateKey: "a",
+	}
+
+	b := Account{
+		PrivateKey: "b",
+	}
+
+	c := Account{
+		PrivateKey: "c",
+	}
+
+	d := Account{
+		PrivateKey: "d",
+	}
+
+	e := Account{
+		PrivateKey: "e",
+	}
+
+	accounts := Accounts{
+		a, b, c, d, e,
+	}
+
+	accs := Split(accounts, 2)
+	fmt.Println(accs)
+	if len(accs) != 3 {
+		panic("split error")
+	}
+}

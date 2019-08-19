@@ -61,3 +61,7 @@ sh install.sh
 <h5> transfer </h5>
 
 * go-zli transfer [flags]: transfer zilliqa token to a specific account
+
+<h5> spam </h5>
+
+* go-zli spam transfer [flags]: send a large number of transactions to a specific account

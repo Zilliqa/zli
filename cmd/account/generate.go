@@ -25,7 +25,7 @@ var generateCmd = &cobra.Command{
 			panic("number should be even")
 		}
 		fmt.Println("start to generate ", number, " accounts")
-		f, err := os.Create("./testAccounts")
+		f, err := os.Create("./testAccounts.txt")
 		if err != nil {
 			panic(err)
 		}
