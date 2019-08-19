@@ -65,3 +65,4 @@ sh install.sh
 <h5> spam </h5>
 
 * go-zli spam transfer [flags]: send a large number of transactions to a specific account
+* go-zli spam invoke [flags]: invoke a large number of transactions on a exist smart contract
