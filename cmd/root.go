@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
+	"zli/cmd/account"
 	"zli/cmd/contract"
 	"zli/cmd/wallet"
 )
@@ -12,6 +13,7 @@ func init() {
 	RootCmd.AddCommand(versionCmd)
 	RootCmd.AddCommand(contract.ContractCmd)
 	RootCmd.AddCommand(wallet.WalletCmd)
+	RootCmd.AddCommand(account.AccountCmd)
 }
 
 var RootCmd = &cobra.Command{
