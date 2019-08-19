@@ -6,6 +6,7 @@ import (
 	"os"
 	"zli/cmd/account"
 	"zli/cmd/contract"
+	"zli/cmd/transfer"
 	"zli/cmd/wallet"
 )
 
@@ -14,6 +15,7 @@ func init() {
 	RootCmd.AddCommand(contract.ContractCmd)
 	RootCmd.AddCommand(wallet.WalletCmd)
 	RootCmd.AddCommand(account.AccountCmd)
+	RootCmd.AddCommand(transfer.TransferCmd)
 }
 
 var RootCmd = &cobra.Command{

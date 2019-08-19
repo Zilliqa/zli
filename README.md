@@ -57,3 +57,7 @@ sh install.sh
 <h5> account </h5>
 
 * go-zli account generate [flags]: randomly generate some private keys
+
+<h5> transfer </h5>
+
+* go-zli transfer [flags]: transfer zilliqa token to a specific account
