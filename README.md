@@ -53,3 +53,7 @@ sh install.sh
 
 * go-zli contract deploy [flags]: deploy new contract
 * go-zli contract call [flags]: call a exist contract
+
+<h5> account </h5>
+
+* go-zli account generate [flags]: randomly generate some private keys

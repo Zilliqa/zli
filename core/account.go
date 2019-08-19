@@ -38,6 +38,19 @@ func LoadFrom(path string) (Accounts, error) {
 	return accounts, nil
 }
 
+func GeneratePrivateKeys(number int64) ([]keytools.PrivateKey, error) {
+	var i int64
+	var keys []keytools.PrivateKey
+	for i = 0; i < number; i++ {
+		key, err := keytools.GeneratePrivateKey()
+		if err != nil {
+			return nil, err
+		}
+		keys = append(keys, key)
+	}
+	return keys, nil
+}
+
 func fromPrivateKeys(privates []string) ([]Account, error) {
 	var accounts Accounts
 	for _, v := range privates {
@@ -58,5 +71,4 @@ func fromPrivateKeys(privates []string) ([]Account, error) {
 		accounts = append(accounts, account)
 	}
 	return accounts, nil
-
 }
