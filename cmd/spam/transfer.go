@@ -57,7 +57,7 @@ func send(wallet *core.Wallet, group *sync.WaitGroup) {
 	}
 
 	rsp := p.CreateTransaction(tx.ToTransactionPayload())
-	if rep == nil {
+	if rsp == nil {
 		fmt.Println("create transaction error")
 		return
 	}
@@ -76,7 +76,9 @@ var transferCmd = &cobra.Command{
 	Short: "to specific account",
 	Long:  "send a large number of transactions to a specific account ",
 	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("load file from ", accounts)
 		accs, err := core.LoadFrom(accounts)
+		fmt.Println("account number is ",len(accs))
 		if err != nil {
 			panic(err.Error())
 		}
