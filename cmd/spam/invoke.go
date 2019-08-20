@@ -29,6 +29,8 @@ func init() {
 	invokeCmd.Flags().Int32VarP(&invokeLimit, "limit", "l", 10000, "set gas limit")
 	invokeCmd.Flags().StringVarP(&invokeAddress, "address", "a", "", "smart contract address")
 	invokeCmd.Flags().IntVarP(&batch, "batch", "b", 0, "the number of each spam")
+	invokeCmd.Flags().IntVarP(&chainId, "chainId", "d", 333, "chain id")
+	invokeCmd.Flags().StringVarP(&api, "api", "p", "https://dev-api.zilliqa.com/", "api url")
 	SpamCmd.AddCommand(invokeCmd)
 }
 
@@ -52,7 +54,7 @@ var invokeCmd = &cobra.Command{
 			wg := &sync.WaitGroup{}
 			wg.Add(len(value))
 			for _, w := range value {
-				wallet, err := core.FromPrivateKey(LaksaGo.DecodeHex(w.PrivateKey[:]))
+				wallet, err := core.FromPrivateKeyAndChain(LaksaGo.DecodeHex(w.PrivateKey[:]), chainId, api)
 				if err != nil {
 					panic(err.Error())
 				}
@@ -118,6 +120,6 @@ func invoke(wallet *core.Wallet, group *sync.WaitGroup) {
 	if tx == nil {
 		fmt.Println("create tx failed")
 	} else {
-		tx.Confirm(tx.ID, 1000, 3, p)
+		//tx.Confirm(tx.ID, 1000, 3, p)
 	}
 }
