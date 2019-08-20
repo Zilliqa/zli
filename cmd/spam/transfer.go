@@ -20,6 +20,8 @@ var batch int
 var amount string
 var toAddr string
 var interval int32
+var chainId int
+var api string
 
 func init() {
 	transferCmd.Flags().StringVarP(&amount, "amount", "a", "0", "amount to transfer")
@@ -27,6 +29,8 @@ func init() {
 	transferCmd.Flags().StringVarP(&accounts, "accounts", "c", "./testAccounts.txt", "path of testAccounts.txt")
 	transferCmd.Flags().IntVarP(&batch, "batch", "b", 0, "the number of each spam")
 	transferCmd.Flags().Int32VarP(&interval, "interval", "i", 1, "interval time (second) between each batch request")
+	transferCmd.Flags().IntVarP(&chainId, "chainId", "d", 333, "chain id")
+	transferCmd.Flags().StringVarP(&api, "api", "p", "https://dev-api.zilliqa.com/", "api url")
 	SpamCmd.AddCommand(transferCmd)
 }
 
@@ -53,13 +57,17 @@ func send(wallet *core.Wallet, group *sync.WaitGroup) {
 	}
 
 	rsp := p.CreateTransaction(tx.ToTransactionPayload())
+	if rep == nil {
+		fmt.Println("create transaction error")
+		return
+	}
 	if rsp.Error != nil {
 		fmt.Println(rsp.Error)
 	} else {
 		result := rsp.Result.(map[string]interface{})
 		hash := result["TranID"].(string)
 		fmt.Printf("hash is %s", hash)
-		tx.Confirm(hash, 1000, 3, p)
+		//tx.Confirm(hash, 20, 10, p)
 	}
 }
 
@@ -83,7 +91,7 @@ var transferCmd = &cobra.Command{
 			wg := &sync.WaitGroup{}
 			wg.Add(len(value))
 			for _, w := range value {
-				wallet, err := core.FromPrivateKey(LaksaGo.DecodeHex(w.PrivateKey[:]))
+				wallet, err := core.FromPrivateKeyAndChain(LaksaGo.DecodeHex(w.PrivateKey[:]), chainId, api)
 				if err != nil {
 					panic(err.Error())
 				}
