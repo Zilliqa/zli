@@ -19,12 +19,16 @@ var initJson string
 var price int64
 var limit int32
 var wallet *core.Wallet
+var chainId int
+var api string
 
 func init() {
 	deployCmd.Flags().StringVarP(&code, "code", "c", "", "file that contains contract code")
 	deployCmd.Flags().StringVarP(&initJson, "init", "i", "", "file that contains init json")
 	deployCmd.Flags().Int64VarP(&price, "price", "p", 10000000000, "set gas price")
 	deployCmd.Flags().Int32VarP(&limit, "limit", "l", 10000, "set gas limit")
+	deployCmd.Flags().IntVarP(&chainId, "chainId", "d", 333, "chain id")
+	deployCmd.Flags().StringVarP(&api, "api", "u", "https://dev-api.zilliqa.com/", "api url")
 	ContractCmd.AddCommand(deployCmd)
 }
 
@@ -39,6 +43,10 @@ var deployCmd = &cobra.Command{
 			panic(err.Error())
 		}
 		wallet = w
+		if chainId != 0 && api != "" {
+			wallet.API = api
+			wallet.ChainID = chainId
+		}
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		c, err := ioutil.ReadFile(code)
@@ -67,12 +75,11 @@ var deployCmd = &cobra.Command{
 		signer := account.NewWallet()
 		signer.AddByPrivateKey(wallet.DefaultAccount.PrivateKey)
 		contract := contract2.Contract{
-			Code:   string(c),
-			Init:   initArray,
-			Singer: signer,
-			Provider:p,
+			Code:     string(c),
+			Init:     initArray,
+			Singer:   signer,
+			Provider: p,
 		}
-
 
 		deployParams := contract2.DeployParams{
 			Version:      strconv.FormatInt(int64(LaksaGo.Pack(wallet.ChainID, 1)), 10),
