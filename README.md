@@ -53,6 +53,7 @@ sh install.sh
 
 * go-zli contract deploy [flags]: deploy new contract
 * go-zli contract call [flags]: call a exist contract
+* go-zli contract state [flags]: get state data for a specific smart contract
 
 <h5> account </h5>
 
