@@ -27,8 +27,8 @@ func init() {
 	deployCmd.Flags().StringVarP(&initJson, "init", "i", "", "file that contains init json")
 	deployCmd.Flags().Int64VarP(&price, "price", "p", 10000000000, "set gas price")
 	deployCmd.Flags().Int32VarP(&limit, "limit", "l", 10000, "set gas limit")
-	deployCmd.Flags().IntVarP(&chainId, "chainId", "d", 333, "chain id")
-	deployCmd.Flags().StringVarP(&api, "api", "u", "https://dev-api.zilliqa.com/", "api url")
+	deployCmd.Flags().IntVarP(&chainId, "chainId", "d", 0, "chain id")
+	deployCmd.Flags().StringVarP(&api, "api", "u", "", "api url")
 	ContractCmd.AddCommand(deployCmd)
 }
 
