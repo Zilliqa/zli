@@ -30,7 +30,7 @@ func init() {
 	invokeCmd.Flags().StringVarP(&invokeAddress, "address", "a", "", "smart contract address")
 	invokeCmd.Flags().IntVarP(&batch, "batch", "b", 0, "the number of each spam")
 	invokeCmd.Flags().IntVarP(&chainId, "chainId", "d", 333, "chain id")
-	invokeCmd.Flags().StringVarP(&api, "api", "p", "https://dev-api.zilliqa.com/", "api url")
+	invokeCmd.Flags().StringVarP(&api, "api", "i", "https://dev-api.zilliqa.com/", "api url")
 	SpamCmd.AddCommand(invokeCmd)
 }
 
