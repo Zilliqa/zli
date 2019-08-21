@@ -78,6 +78,7 @@ transactions, there are two ways to generate wallet file:
     * go-zli wallet init: randomly generate a private key with no balance
     * go-zli wallet from -p <private key>: using a exist private key (may have balance) to generate wallet file
 
+like `go-zli wallet init` and `go-zli wallet from  -p  3B6674116AF2B954675E6373AC27E6A5CE03BCC8675ECDB7915AC8EE68B7ADCF`
 2. Then, you can use following command to invoke a smart contract:
 
 ```bash
