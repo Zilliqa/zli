@@ -1,0 +1,22 @@
+[
+  {
+    "vname": "_scilla_version",
+    "type": "Uint32",
+    "value": "0"
+  },
+  {
+    "vname": "auctionStart",
+    "type": "BNum",
+    "value": "1"
+  },
+  {
+    "vname": "biddingTime",
+    "type": "Uint128",
+    "value": "1000"
+  },
+  {
+    "vname": "beneficiary",
+    "type": "ByStr20",
+    "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "vname": "_scilla_version",
+    "type": "Uint32",
+    "value": "0"
+  },
+  {
+    "vname": "initialAdmin",
+    "type": "ByStr20",
+    "value": "0x40c086bd05b1f7a474d344a6f50ee3ebefa35987"
+  },
+  {
+    "vname": "registry",
+    "type": "ByStr20",
+    "value": "0xba8adbdafd7b3933095e15d6fa5af308b1ca058f"
+  }
+]

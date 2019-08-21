@@ -1,0 +1,22 @@
+[
+  {
+    "vname": "_scilla_version",
+    "type": "Uint32",
+    "value": "0"
+  },
+  {
+    "vname": "owner",
+    "type": "ByStr20",
+    "value": "0x40c086bd05b1f7a474d344a6f50ee3ebefa35987"
+  },
+  {
+    "vname": "max_block",
+    "type": "BNum",
+    "value": "100000"
+  },
+  {
+    "vname": "goal",
+    "type": "Uint128",
+    "value": "10000000000"
+  }
+]
