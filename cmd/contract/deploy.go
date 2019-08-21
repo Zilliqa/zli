@@ -2,6 +2,7 @@ package contract
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/FireStack-Lab/LaksaGo"
 	"github.com/FireStack-Lab/LaksaGo/account"
 	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
@@ -94,6 +95,8 @@ var deployCmd = &cobra.Command{
 		if err != nil {
 			panic(err.Error())
 		}
+
+		fmt.Println("contract address = ", tx.ContractAddress)
 
 		tx.Confirm(tx.ID, 1000, 3, p)
 
