@@ -75,7 +75,7 @@ sh install.sh
 1. First, you have to generate a wallet configuration (~/.zilliqa) which contains a private key, go-zli will use this private key to sign
 transactions, there are two ways to generate wallet file:
 
-    * go-zli wallet init: randomly generate private key with no balance
+    * go-zli wallet init: randomly generate a private key with no balance
     * go-zli wallet from -p <private key>: using a exist private key (may have balance) to generate wallet file
 
 2. Then, you can use following command to invoke a smart contract:
