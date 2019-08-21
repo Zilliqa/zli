@@ -67,3 +67,30 @@ sh install.sh
 
 * go-zli spam transfer [flags]: send a large number of transactions to a specific account
 * go-zli spam invoke [flags]: invoke a large number of transactions on a exist smart contract
+
+#### Example
+
+<h5> invoke contract </h5>
+
+1. First, you have to generate a wallet configuration (~/.zilliqa) which contains a private key, go-zli will use this private key to sign
+transactions, there are two ways to generate wallet file:
+
+    * go-zli wallet init: randomly generate private key with no balance
+    * go-zli wallet from -p <private key>: using a exist private key (may have balance) to generate wallet file
+
+2. Then, you can use following command to invoke a smart contract:
+
+```bash
+go-zli contract call -a <smart contract address> -t <transition name> -r <parameter>
+```
+
+for instance:
+
+```bash
+go-zli contract call -a 305d5b3acaa2f4a56b5e149400466c58194e695f -t SubmitTransaction -r "[{\"vname\":\"recipient\",\"type\":\"ByStr20\",\"value\":\"0x381f4008505e940ad7681ec3468a719060caf796\"},{\"vname\":\"amount\",\"type\":\"Uint128\",\"value\":\"10\"},{\"vname\":\"tag\",\"type\":\"String\",\"value\":\"a\"}]"
+```
+
+**warning**
+
+Currently, `go-zli` doesn't support pass private key as a parameter to `go-zli contract call` command (but will complete this feature soon),so, every time
+you want to switch a different private key to send transactions, just delete `~/.zilliqa` then generate a new one!
