@@ -4,8 +4,10 @@ import (
 	"encoding/json"
 	"github.com/FireStack-Lab/LaksaGo"
 	"github.com/FireStack-Lab/LaksaGo/account"
+	"github.com/FireStack-Lab/LaksaGo/bech32"
 	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
 	"github.com/FireStack-Lab/LaksaGo/provider"
+	"github.com/FireStack-Lab/LaksaGo/validator"
 	"github.com/spf13/cobra"
 	"strconv"
 	"strings"
@@ -53,6 +55,10 @@ var callCmd = &cobra.Command{
 
 		var a []contract2.Value
 		err := json.Unmarshal([]byte(invokeArgs), &a)
+
+		if !validator.IsBech32(invokeAddress) {
+			invokeAddress, _ = bech32.ToBech32Address(invokeAddress)
+		}
 
 		if err != nil {
 			panic(err.Error())
