@@ -4,4 +4,31 @@ init state: {"operatorApprovals":"\u0012\u0000","ownedTokenCount":"\u0012\u0000"
 
 transition1:
 go-zli contract call -a 7e1fa3a777eeb27bceea825f89e3542145aa0dd1 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "c1302b7a0d5915becda0e7ab6d171f5eac69dcc5381271fb0458d251073b63a4",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "5",
+        "receipt": {
+            "cumulative_gas": "160",
+            "epoch_num": "165",
+            "errors": {
+                "0": [
+                    9
+                ]
+            },
+            "success": false
+        },
+        "senderPubKey": "0x03535EFDE578EFD8406525A35A3A448C7BC62F4A98DF345EFFB483B3BCD6FB6F03",
+        "signature": "0xAF792B9FC1CA274D4A48671517D3143A9FB0AF7233D3AF0B62D55804A1A05364833DDB329874C9764D843C2B64F33BB1325AA48507E54D3E94FC14E38AE21DDE",
+        "toAddr": "7e1fa3a777eeb27bceea825f89e3542145aa0dd1",
+        "version": "131073"
+    }
+}
+{"operatorApprovals":"\u0012\u0000","ownedTokenCount":"\u0012\u0000","tokenApprovals":"\u0012\u0000","tokenOwnerMap":"\u0012\u0000"}
+
 
