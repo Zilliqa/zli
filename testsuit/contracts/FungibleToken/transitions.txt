@@ -1,0 +1,133 @@
+contract address: d906f7ca4323e5910cdc83d210d7c2ef5816e6a8
+api url:  https://lhc-api.dev.z7a.xyz
+init state: {"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"10000"}}
+
+transaction0: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t BalanceOf -r "{\"vname\":\"tokenOwner\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567890\"}"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "b3bf4eb6e71cda43e8ecbb2e41e55769c38dc2218ee20e62cbbb32dd3d119e2c",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "32",
+        "receipt": {
+            "cumulative_gas": "378",
+            "epoch_num": "2171",
+            "event_logs": [
+                {
+                    "_eventname": "BalanceOf",
+                    "address": "0xd906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x1234567890123456789012345678901234567890",
+                            "vname": "address"
+                        },
+                        {
+                            "type": "Uint128",
+                            "value": "0",
+                            "vname": "balance"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02B17575B765DB173D2BCAC2AE04370C1B91E139ECD898A0245049A5AD0EB4B69B",
+        "signature": "0xC8EA5A13E2FB7B3F47D37F5AA8F2FF33EC47A35DECF573A22B7E87CE1AF5CFE3250E2B7A7ADDFF69970A47A0811A11B1CA68454FA111B94093E72615D0665616",
+        "toAddr": "d906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+        "version": "131073"
+    }
+}
+{"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"10000"}}
+
+transaction1: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t TotalSupply -r "[]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "d6c31294884d7b20fd6dd124619dda63b6739844b47da7b3aa8272f7069c3080",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "33",
+        "receipt": {
+            "cumulative_gas": "256",
+            "epoch_num": "2181",
+            "event_logs": [
+                {
+                    "_eventname": "TotalSupply",
+                    "address": "0xd906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x40c086bd05b1f7a474d344a6f50ee3ebefa35987",
+                            "vname": "caller"
+                        },
+                        {
+                            "type": "Uint128",
+                            "value": "10000",
+                            "vname": "balance"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02B17575B765DB173D2BCAC2AE04370C1B91E139ECD898A0245049A5AD0EB4B69B",
+        "signature": "0xF3F623B6E892D9E4ED23ABFA8B65437D7CC4988889A86D58D7E8331E693D87BA8C115918866FCD0A5FD322400EA5B353E597F1072233B670F692A0EA4C015A62",
+        "toAddr": "d906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+        "version": "131073"
+    }
+}
+{"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"10000"}}
+
+transaction2: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t Transfer -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x44345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"20\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "fd05e4ecb13893c3c02877a329c422e7c075ad97de85944bd757d19c5992fdd0",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "34",
+        "receipt": {
+            "cumulative_gas": "563",
+            "epoch_num": "2194",
+            "event_logs": [
+                {
+                    "_eventname": "TransferSuccess",
+                    "address": "0xd906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x40c086bd05b1f7a474d344a6f50ee3ebefa35987",
+                            "vname": "sender"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x44345678901234567890123456789012345678cd",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint128",
+                            "value": "20",
+                            "vname": "amount"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02B17575B765DB173D2BCAC2AE04370C1B91E139ECD898A0245049A5AD0EB4B69B",
+        "signature": "0x3A79E153285939165FF439DD440F12C2FE8F8028562BE1D40D2AC7041748ECEB98E059583A2E6A6812EE468624ADA2FB18DF3ECE1216FEF36F6C260582A9860F",
+        "toAddr": "d906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+        "version": "131073"
+    }
+}
+{"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"9980","0x44345678901234567890123456789012345678cd":"20"}}
+
+
