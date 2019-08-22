@@ -2,7 +2,7 @@ contract address: d906f7ca4323e5910cdc83d210d7c2ef5816e6a8
 api url:  https://lhc-api.dev.z7a.xyz
 init state: {"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"10000"}}
 
-transaction0: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t BalanceOf -r "{\"vname\":\"tokenOwner\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567890\"}"
+transaction0: go-zli contract call -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t BalanceOf -r "{\"vname\":\"tokenOwner\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567890\"}"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -43,7 +43,7 @@ transaction0: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t BalanceOf -r "{\"vn
 }
 {"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"10000"}}
 
-transaction1: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t TotalSupply -r "[]"
+transaction1: go-zli contract call -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t TotalSupply -r "[]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -84,7 +84,7 @@ transaction1: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t TotalSupply -r "[]"
 }
 {"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"10000"}}
 
-transaction2: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t Transfer -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x44345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"20\"}]"
+transaction2: go-zli contract call -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t Transfer -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x44345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"20\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -130,4 +130,94 @@ transaction2: -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t Transfer -r "[{\"vn
 }
 {"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"9980","0x44345678901234567890123456789012345678cd":"20"}}
 
+transaction3: go-zli contract call -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t Transfer -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x44345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"10001\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "7b309b6db6102e3bb89aa804f38fb09d98f90ad2eee8ca0bbdf21e150055a844",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "35",
+        "receipt": {
+            "cumulative_gas": "528",
+            "epoch_num": "2233",
+            "event_logs": [
+                {
+                    "_eventname": "TransferFailure",
+                    "address": "0xd906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x40c086bd05b1f7a474d344a6f50ee3ebefa35987",
+                            "vname": "sender"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x44345678901234567890123456789012345678cd",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint128",
+                            "value": "0",
+                            "vname": "amount"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02B17575B765DB173D2BCAC2AE04370C1B91E139ECD898A0245049A5AD0EB4B69B",
+        "signature": "0xACD104ED8BD40AF6557F99FCCF8BB771A1A6A7C25963800AF5BD0807794116FF5BED0A74C3E59946453F4D934AB0BF684C84FC1ED8FE92C9327D1A2D4CB2B78E",
+        "toAddr": "d906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+        "version": "131073"
+    }
+}
+{"allowed":"\u0012\u0000","balances":{"0x40c086bd05b1f7a474d344a6f50ee3ebefa35987":"9980","0x44345678901234567890123456789012345678cd":"20"}}
 
+transaction4: go-zli contract call -a d906f7ca4323e5910cdc83d210d7c2ef5816e6a8 -t Approve -r "[{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0x54345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"500\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "d32389149499261226f89525b594a803f5af01c3125d12f1281ee433f57f447d",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "36",
+        "receipt": {
+            "cumulative_gas": "501",
+            "epoch_num": "2261",
+            "event_logs": [
+                {
+                    "_eventname": "ApproveSuccess",
+                    "address": "0xd906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x40c086bd05b1f7a474d344a6f50ee3ebefa35987",
+                            "vname": "approver"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x54345678901234567890123456789012345678cd",
+                            "vname": "spender"
+                        },
+                        {
+                            "type": "Uint128",
+                            "value": "500",
+                            "vname": "amount"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02B17575B765DB173D2BCAC2AE04370C1B91E139ECD898A0245049A5AD0EB4B69B",
+        "signature": "0x09BBBCA2677FDDAC45468E17372B018926665E289FB45F225C42D799C5B7B1ED2465248AB7FF88D3D70E0378F9F3D02FF9F61CE9D26078E62459380382177A3E",
+        "toAddr": "d906f7ca4323e5910cdc83d210d7c2ef5816e6a8",
+        "version": "131073"
+    }
+}
+{"error":{"code":-1,"data":null,"message":"Unable To Process"},"id":"1","jsonrpc":"2.0"}
