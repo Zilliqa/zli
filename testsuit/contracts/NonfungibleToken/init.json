@@ -12,11 +12,11 @@
   {
     "vname": "name",
     "type": "String",
-    "value": "Xiaoahuo"
+    "value": "My First NFT"
   },
   {
     "vname": "symbol",
     "type": "String",
-    "value": "Xiaoahuo"
+    "value": "MYNFT"
   }
 ]

@@ -1,0 +1,6 @@
+contract address: d3c4f411ec7dc102bbcf82ae1604452b38794af1
+api url:  https://lhc-api.dev.z7a.xyz
+init state: {"operatorApprovals":"\u0012\u0000","ownedTokenCount":"\u0012\u0000","tokenApprovals":"\u0012\u0000","tokenOwnerMap":"\u0012\u0000"}
+
+transition1:
+go-zli contract call -a d3c4f411ec7dc102bbcf82ae1604452b38794af1 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
