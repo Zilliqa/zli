@@ -1,0 +1,156 @@
+contract address: e42672249c9f669e136bb95f605af5f3f2597baa
+
+deploy
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "7450152dc033475502f6b23e56edcc0cc159ba7b0ca36eea0eb13556d58e75b5",
+        "amount": "0",
+        "gasLimit": "100000",
+        "gasPrice": "10000000000",
+        "nonce": "7",
+        "receipt": {
+            "cumulative_gas": "11855",
+            "epoch_num": "2607",
+            "success": true
+        },
+        "senderPubKey": "0x03535EFDE578EFD8406525A35A3A448C7BC62F4A98DF345EFFB483B3BCD6FB6F03",
+        "signature": "0x1166C3FCE3EF1C85F54EB2EBCD62BE97D50973CC5E331C1DD4ED46667CFF6BA1CFA84EBE4CE30D50203E4EE173EC9E2B2F6D41ABFB3EF6079AD0EB6325391503",
+        "toAddr": "0000000000000000000000000000000000000000",
+        "version": "131073"
+    }
+}
+
+transaction1
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t1 -r "[]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "02e75e3e85028d27b3534b81afb8d76f0875b365770fabdd8646d78d830dc3ab",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "8",
+        "receipt": {
+            "cumulative_gas": "186",
+            "epoch_num": "2621",
+            "success": true
+        },
+        "senderPubKey": "0x03535EFDE578EFD8406525A35A3A448C7BC62F4A98DF345EFFB483B3BCD6FB6F03",
+        "signature": "0xD0DE40D3802E03D7E4BE3C4C9DFA6AEFEFEC0748939CA914125D2D5BA339B6B1AF6A2AB8ADEC57BB2B942345C65A71534B2A88E8E7B173AB03717A8F4AF4E0F2",
+        "toAddr": "e42672249c9f669e136bb95f605af5f3f2597baa",
+        "version": "131073"
+    }
+}
+
+transaction2
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t2 -r "[]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "ebfb61ac8d64b3e6d493dbcefdd13a851e2da16a0a8b8f1c8a7b123d96825ac6",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "9",
+        "receipt": {
+            "cumulative_gas": "189",
+            "epoch_num": "2625",
+            "success": true
+        },
+        "senderPubKey": "0x03535EFDE578EFD8406525A35A3A448C7BC62F4A98DF345EFFB483B3BCD6FB6F03",
+        "signature": "0x83BC1CF5E66EB58296769A23FC3309C56619BCA846E628A7DB4B2D8161069423BB4E3B4D6F47597B8C52FFA9AF76BAE38A4F59C63CD7DA9B9DB6732C665F8C09",
+        "toAddr": "e42672249c9f669e136bb95f605af5f3f2597baa",
+        "version": "131073"
+    }
+}
+
+transaction3
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t3 -r "[]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "e09c935125ca373824b963516b0968e0bfc8dd69992d99ac34d6a978ea989ef9",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "10",
+        "receipt": {
+            "cumulative_gas": "176",
+            "epoch_num": "2631",
+            "success": true
+        },
+        "senderPubKey": "0x03535EFDE578EFD8406525A35A3A448C7BC62F4A98DF345EFFB483B3BCD6FB6F03",
+        "signature": "0x0F0A10626AD4A4F7112513E4CF5DBF8B3738B87424BDE9BB7E43AE6932F1196EB652C380E56959C134A33214C4C4963D162630CBA4C9A2B2B5931EA18E177E8D",
+        "toAddr": "e42672249c9f669e136bb95f605af5f3f2597baa",
+        "version": "131073"
+    }
+}
+
+transaction4
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t4 -r "[]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "5964d0512b56911e86d7b0b50b2a22ffd4de2670a4efd29d64da470e3b3eb37e",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "11",
+        "receipt": {
+            "cumulative_gas": "142",
+            "epoch_num": "2635",
+            "errors": {
+                "0": [
+                    7
+                ]
+            },
+            "success": false
+        },
+        "senderPubKey": "0x03535EFDE578EFD8406525A35A3A448C7BC62F4A98DF345EFFB483B3BCD6FB6F03",
+        "signature": "0xAA1999F1CACCB3169687FF2A898A48A80B53FFF44A086241FC3E38AF1C9B71B73E7442502DBFED4BE01DA39543CC376D425A1B62A7E8BDF0B38DC720FC16A2FE",
+        "toAddr": "e42672249c9f669e136bb95f605af5f3f2597baa",
+        "version": "131073"
+    }
+}
+
+transaction5
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t5 -r "[]"
+
+transaction6
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t6 -r "[]"
+
+transaction7
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t7 -r "[]"
+
+transaction8
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t8 -r "[]"
+
+transaction9
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t9 -r "[]"
+
+transaction10
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t10 -r "[]"
+
+transaction11
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t11 -r "[]"
+
+transaction12
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t12 -r "[]"
+
+transaction13
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t13 -r "[]"
+
+transaction14
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t14 -r "[]"
+
+transaction15
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t15 -r "[]"
+
+transaction16
+go-zli contract call -a e42672249c9f669e136bb95f605af5f3f2597baa -t t16 -r "[]"
