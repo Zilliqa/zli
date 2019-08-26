@@ -68,6 +68,10 @@ sh install.sh
 * go-zli spam transfer [flags]: send a large number of transactions to a specific account
 * go-zli spam invoke [flags]: invoke a large number of transactions on a exist smart contract
 
+<h5> rpc </h5>
+
+* go-zli rpc transaction [flags]: get transaction detail by transaction id
+
 #### Example
 
 <h5> invoke contract </h5>
