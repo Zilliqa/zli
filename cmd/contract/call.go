@@ -20,6 +20,7 @@ var invokeArgs string
 var invokePrice int64
 var invokeLimit int32
 var invokeAddress string
+var invokeAmount string
 
 func init() {
 	callCmd.Flags().StringVarP(&invokeTransition, "transition", "t", "", "transition will be called")
@@ -29,6 +30,7 @@ func init() {
 	callCmd.Flags().StringVarP(&invokeAddress, "address", "a", "", "smart contract address")
 	callCmd.Flags().IntVarP(&chainId, "chainId", "d", 0, "chain id")
 	callCmd.Flags().StringVarP(&api, "api", "u", "", "api url")
+	callCmd.Flags().StringVarP(&invokeAmount, "amount", "m", "0", "token amount to transfer to the contract")
 	ContractCmd.AddCommand(callCmd)
 }
 
@@ -88,7 +90,7 @@ var callCmd = &cobra.Command{
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(limit), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
-			Amount:       "0",
+			Amount:       invokeAmount,
 		}
 
 		err, tx := contract.Call(invokeTransition, a, params, 1000, 3)
