@@ -43,6 +43,32 @@ sh install.sh
 
 #### Commands
 
+You can use `go-zli -h` to see all help messages:
+
+```bash
+A convenient command line tool to generate accounts, run integration testings or run http server .etc
+
+Usage:
+  zli [flags]
+  zli [command]
+
+Available Commands:
+  account     Generate or load a large number of accounts
+  contract    Deploy or call zilliqa smart contract
+  help        Help about any command
+  rpc         readonly json rpc of zilliqa
+  spam        Send a large number of transactions
+  transfer    Transfer zilliqa token to a specific account
+  version     Print the version number of zli
+  wallet      Init a new wallet or get exist wallet info
+
+Flags:
+  -h, --help   help for zli
+
+Use "zli [command] --help" for more information about a command.
+
+```
+
 <h5> wallet </h5>
 
 * go-zli wallet init: generate new wallet for zli to use, with random generated private key as default account, ca be modified later
