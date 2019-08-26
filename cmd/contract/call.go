@@ -51,14 +51,15 @@ var callCmd = &cobra.Command{
 			wallet.ChainID = chainId
 		}
 
-		if privateKey != "" {
-			account, err := core.NewAccount(privateKey)
-			if err != nil {
-				panic(err.Error())
-			}
-			wallet.DefaultAccount = *account
-
-		}
+		//fmt.Println(privateKey)
+		//
+		//if privateKey != "" {
+		//	account, err := core.NewAccount(privateKey)
+		//	if err != nil {
+		//		panic(err.Error())
+		//	}
+		//	wallet.DefaultAccount = *account
+		//}
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(invokeTransition) == 0 {
@@ -77,6 +78,7 @@ var callCmd = &cobra.Command{
 		}
 
 		p := provider.NewProvider(wallet.API)
+		//fmt.Println(wallet.DefaultAccount.Address)
 		result := p.GetBalance(wallet.DefaultAccount.Address)
 		if result.Error != nil {
 			panic(result.Error.Message)
