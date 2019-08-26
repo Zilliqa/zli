@@ -31,6 +31,7 @@ func init() {
 	callCmd.Flags().IntVarP(&chainId, "chainId", "d", 0, "chain id")
 	callCmd.Flags().StringVarP(&api, "api", "u", "", "api url")
 	callCmd.Flags().StringVarP(&invokeAmount, "amount", "m", "0", "token amount to transfer to the contract")
+	callCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to call to the contract")
 	ContractCmd.AddCommand(callCmd)
 }
 
@@ -48,6 +49,15 @@ var callCmd = &cobra.Command{
 		if chainId != 0 && api != "" {
 			wallet.API = api
 			wallet.ChainID = chainId
+		}
+
+		if privateKey != "" {
+			account, err := core.NewAccount(privateKey)
+			if err != nil {
+				panic(err.Error())
+			}
+			wallet.DefaultAccount = *account
+
 		}
 	},
 	Run: func(cmd *cobra.Command, args []string) {

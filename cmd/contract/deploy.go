@@ -22,6 +22,7 @@ var limit int32
 var wallet *core.Wallet
 var chainId int
 var api string
+var privateKey string
 
 func init() {
 	deployCmd.Flags().StringVarP(&code, "code", "c", "", "file that contains contract code")
@@ -30,6 +31,7 @@ func init() {
 	deployCmd.Flags().Int32VarP(&limit, "limit", "l", 10000, "set gas limit")
 	deployCmd.Flags().IntVarP(&chainId, "chainId", "d", 0, "chain id")
 	deployCmd.Flags().StringVarP(&api, "api", "u", "", "api url")
+	deployCmd.Flags().StringVar(&privateKey,"private_key","k","private key used to deploy the contract")
 	ContractCmd.AddCommand(deployCmd)
 }
 
