@@ -98,5 +98,5 @@ go-zli contract call -a 305d5b3acaa2f4a56b5e149400466c58194e695f -t SubmitTransa
 
 **warning**
 
-Currently, `go-zli` doesn't support pass private key as a parameter to `go-zli contract call` command (but will complete this feature soon),so, every time
-you want to switch a different private key to send transactions, just delete `~/.zilliqa` then generate a new one!
+Currently, `go-zli` now support pass private key as a parameter to `go-zli contract deploy or call` command, so, every time
+you want to switch a different private key to send transactions, just use `-k private_key` option.

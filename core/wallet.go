@@ -22,38 +22,45 @@ type Account struct {
 	Bech32Address string `json:"bech_32_address"`
 }
 
-func NewWallet(privateKey []byte, chainId int, api string) (*Wallet, error) {
-	private := LaksaGo.EncodeHex(privateKey)
-	publicKey := keytools.GetPublicKeyFromPrivateKey(privateKey, true)
+func NewAccount(privateKey string) (*Account, error) {
+	publicKey := keytools.GetPublicKeyFromPrivateKey(LaksaGo.DecodeHex(privateKey), true)
 	public := LaksaGo.EncodeHex(publicKey)
 	address := keytools.GetAddressFromPublic(publicKey)
-	bech32, err2 := bech322.ToBech32Address(address)
-	if err2 != nil {
-		return nil, err2
+	bech32, err := bech322.ToBech32Address(address)
+	if err != nil {
+		return nil, err
 	}
 
-	defaultAccount := Account{
-		PrivateKey:    private,
+	return &Account{
+		PrivateKey:    privateKey,
 		PublicKey:     public,
 		Address:       address,
 		Bech32Address: bech32,
+	}, nil
+}
+
+func NewWallet(privateKey []byte, chainId int, api string) (*Wallet, error) {
+
+	defaultAccount, err := NewAccount(LaksaGo.EncodeHex(privateKey))
+	if err != nil {
+		return nil, err
 	}
 
-	accounts := []Account{defaultAccount}
+	accounts := []Account{*defaultAccount}
 
 	return &Wallet{
 		API:            api,
 		ChainID:        chainId,
-		DefaultAccount: defaultAccount,
+		DefaultAccount: *defaultAccount,
 		Accounts:       accounts,
 	}, nil
 }
 
-func FromPrivateKeyAndChain(privateKey []byte, chainId int, api string) (*Wallet, error){
+func FromPrivateKeyAndChain(privateKey []byte, chainId int, api string) (*Wallet, error) {
 	return NewWallet(privateKey, chainId, api);
 }
 func FromPrivateKey(privateKey []byte) (*Wallet, error) {
-	return FromPrivateKeyAndChain(privateKey,333,"https://dev-api.zilliqa.com/")
+	return FromPrivateKeyAndChain(privateKey, 333, "https://dev-api.zilliqa.com/")
 }
 
 func DefaultWallet() (*Wallet, error) {
