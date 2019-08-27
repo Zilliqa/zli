@@ -1,183 +1,50 @@
-contract address: 28d07a203c1f5142761914b197cbe8215e312b5b
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "39fce69325f84405e197c7dc2a1b7d9a953a77d786c0742b5aa7763d69168ab9",
-        "amount": "0",
-        "gasLimit": "100000",
-        "gasPrice": "10000000000",
-        "nonce": "1",
-        "receipt": {
-            "cumulative_gas": "11853",
-            "epoch_num": "13",
-            "success": true
-        },
-        "senderPubKey": "0x02EBD2BD6F6D7429404C2AF75DF8CFCD2E9C8F437FEFDBCD9CDF1FBE90621C33FD",
-        "signature": "0x22CB55922DABDA3A770D16947E9EF052548877DDB2EFB3B7B1E3586EA08D2A654D2C5CD16416D70ED5712A4B8237465F8E67597923ED33F63A933C06BECACD7E",
-        "toAddr": "0000000000000000000000000000000000000000",
-        "version": "131073"
-    }
-}
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "_balance": "0",
-        "f_m": {},
-        "f_m1": {},
-        "f_m2": {},
-        "f_m3": {},
-        "f_s1": "420"
-    }
-}
+contract address: b4989ff09032e973eac3bdd3fdd5a37f4053dfdc
+b28a5596c8b2ed288a3f314dba37409bdb5044c0428b3e2123d3f57dc15c2dd9
 
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t1 -r "[]"
+bdacb5a9aba598147befe86e63160ff6e9587506fb273ed5b5cc2984801f5e64
 
-go-zli contract call -a 28d07a203c1f5142761914b197cbe8215e312b5b -t t1 -r "[]"
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "b61d2d5b2ce80d03459125fd798c563abd75ac12f7c1f90c0e1d1a3a61075862",
-        "amount": "0",
-        "gasLimit": "10000",
-        "gasPrice": "10000000000",
-        "nonce": "2",
-        "receipt": {
-            "cumulative_gas": "186",
-            "epoch_num": "27",
-            "success": true
-        },
-        "senderPubKey": "0x02EBD2BD6F6D7429404C2AF75DF8CFCD2E9C8F437FEFDBCD9CDF1FBE90621C33FD",
-        "signature": "0xAF3F37730978B94B53D0203B44D77FD623F758CA68655058629EF5DE1E88B3130C6E9D3A9283341749CF99C3E7DB8DEE4D9311A75A49A2A30A6443DF2C302FC8",
-        "toAddr": "28d07a203c1f5142761914b197cbe8215e312b5b",
-        "version": "131073"
-    }
-}
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "_balance": "0",
-        "f_m": {},
-        "f_m1": {},
-        "f_m2": {},
-        "f_m3": {},
-        "f_s1": "421"
-    }
-}
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t2 -r "[]"
+0af67a869af92765dd21d8ed76f72a5bb0a050555a5c266a82737854b0d3ef1c
 
-go-zli contract call -a 28d07a203c1f5142761914b197cbe8215e312b5b -t t2 -r "[]"
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "07f0a6b74b7322ccb9e21826117073085924c686b1c1b41b889b0ac53226deb1",
-        "amount": "0",
-        "gasLimit": "10000",
-        "gasPrice": "10000000000",
-        "nonce": "3",
-        "receipt": {
-            "cumulative_gas": "189",
-            "epoch_num": "36",
-            "success": true
-        },
-        "senderPubKey": "0x02EBD2BD6F6D7429404C2AF75DF8CFCD2E9C8F437FEFDBCD9CDF1FBE90621C33FD",
-        "signature": "0xCAD9C07DE463D47B3BF11CEBA82B213C854ADD5BCA8D49A2DB9DF02D8C2FB42E94C9E6E4552D5051BB146262C911ED7576BC39F438739D01292C6EF1C08F4D6F",
-        "toAddr": "28d07a203c1f5142761914b197cbe8215e312b5b",
-        "version": "131073"
-    }
-}
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "_balance": "0",
-        "f_m": {},
-        "f_m1": {
-            "key1": "420"
-        },
-        "f_m2": {},
-        "f_m3": {},
-        "f_s1": "421"
-    }
-}
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t3 -r "[]"
+a16f91b11b31eacef7f7ddb66691289f3b2516f80586d23d56df7705ec15ae66
 
-go-zli contract call -a 28d07a203c1f5142761914b197cbe8215e312b5b -t t3 -r "[]"
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "fdf4cb67c519ac85cac41b479481ce254c70f888bf11573a518f2fc859b180ba",
-        "amount": "0",
-        "gasLimit": "10000",
-        "gasPrice": "10000000000",
-        "nonce": "4",
-        "receipt": {
-            "cumulative_gas": "176",
-            "epoch_num": "41",
-            "success": true
-        },
-        "senderPubKey": "0x02EBD2BD6F6D7429404C2AF75DF8CFCD2E9C8F437FEFDBCD9CDF1FBE90621C33FD",
-        "signature": "0xD6A88116E4D74803259D4EDEECA6336702861255B29C847A86AC1164B6D9FD5CD8DB73BF0E0216C6078AC5B69AB59F520EC246913F34B02A13C33C6BE55540C1",
-        "toAddr": "28d07a203c1f5142761914b197cbe8215e312b5b",
-        "version": "131073"
-    }
-}
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "_balance": "0",
-        "f_m": {},
-        "f_m1": {
-            "key1": "420"
-        },
-        "f_m2": {},
-        "f_m3": {},
-        "f_s1": "421"
-    }
-}
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t4 -r "[]"
+de7f5d3ddf5210f9923d60660f7930bc848cd3a0788f4ba09e44cd6589b6c962
 
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t5 -r "[]"
+a802612145fbe1610f32c5713c041058dc59c36a6baadd4d00b4a2dd0af3e202
 
-go-zli contract call -a 28d07a203c1f5142761914b197cbe8215e312b5b -t t4 -r "[]"
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "8dda66dc30c684aad8c4116312a799a494db5022eea9bf8a6287055875b91fe7",
-        "amount": "0",
-        "gasLimit": "10000",
-        "gasPrice": "10000000000",
-        "nonce": "5",
-        "receipt": {
-            "cumulative_gas": "142",
-            "epoch_num": "45",
-            "errors": {
-                "0": [
-                    7
-                ]
-            },
-            "success": false
-        },
-        "senderPubKey": "0x02EBD2BD6F6D7429404C2AF75DF8CFCD2E9C8F437FEFDBCD9CDF1FBE90621C33FD",
-        "signature": "0xF39557E66EBD3F1CB41A85DC5E13E89D17A7629A123A955A1B21256FF815A19405E34090D2C4AC7BFEBEA340C27A442D79D141752C7A598C76DDAD3E1629570F",
-        "toAddr": "28d07a203c1f5142761914b197cbe8215e312b5b",
-        "version": "131073"
-    }
-}
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "_balance": "0",
-        "f_m": {},
-        "f_m1": {
-            "key1": "420"
-        },
-        "f_m2": {},
-        "f_m3": {},
-        "f_s1": "421"
-    }
-}
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t6 -r "[]"
+c8ece8619d4593fb9d617da065e201b755efc8e2f5b5c33f8b865a9179cdcec0
 
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t7 -r "[]"
+863e4f4a0f7a24591e549b2372bf662ee83adf1044cfa8b12069417eac15f437
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t8 -r "[]"
+f4f5d54fe08fed853eca11de9db837ab6b011c2a39f86c50e6449e5d245571de
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t9 -r "[]"
+f03ae5d5a44b5e3aa272bde35faf14923fab5a893615e059fa352d0c20b28bf5
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t10 -r "[]"
+38538b0c66c1aa03c1e81de9decba2708218ffeba960f0722e8f9d2423615d7c
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t11 -r "[]"
+2db78a6c027f7684f3fe26f2ccb46e63b7d071efa73f47a7ee1322e64994c237
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t12 -r "[]"
+372a21919596bba9368bce5b89988cff0f107a20ac077f2e093c5d64c2ccab8a
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t13 -r "[]"
+ce7e9b149aef4dc635c6e8fc4a1c6c075cb0bbb0154b9e7212cdaf80ee4418e4
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t14 -r "[]"
+ed6a2229de2ee437971435d504e6c6653541682996b60d3d65ecee1ec75f2dce
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t15 -r "[]"
+4b60c0969ea82009ade7e96d5ee2913148a90e38e03b782dd99819006d364719
+
+go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t16 -r "[]"
+7ca547cc9f1569a6e8af00e112d16df0412a471f5466d197293dd91063c1c834

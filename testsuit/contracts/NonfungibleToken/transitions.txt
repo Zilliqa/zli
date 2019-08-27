@@ -1,51 +1,1404 @@
-contract address: 982b7a726be2427be7a39b55980587ad25308c36
-api url:  https://lhc-2-api.dev.z7a.xyz
-init state: {"operatorApprovals":"\u0012\u0000","ownedTokenCount":"\u0012\u0000","tokenApprovals":"\u0012\u0000","tokenOwnerMap":"\u0012\u0000"}
+9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a
+e19d05c5452598e24caad4a0d85a49146f7be089515c905ae6a19e8a578a6930
+
+0f168fda7796d07735d2cf5763c7511e88a37fc0
+24180e6b0c3021aedb8f5a86f75276ee6fc7ff46e67e98e716728326102e91c9
+
+contract address: 657a36a5f536d165169bfb99df5e14eb2bcb15b8
+8df0809f02ad1a3048ba8c3a4759050027e67ad6de65597ca5eff1a145c3c624
+init state
 {
     "id": "1",
     "jsonrpc": "2.0",
     "result": {
-        "ID": "ee7bd041369f5a4af0436291ddafb139ed5b5fec8caa12c3eea8991523b75b0a",
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {},
+        "tokenApprovals": {},
+        "tokenOwnerMap": {}
+    }
+}
+
+
+
+transition1:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "4700958df63896eff3c6db1e7191dc738d697b957524b0021fdf0d1999c21c8d",
         "amount": "0",
-        "gasLimit": "100000",
+        "gasLimit": "10000",
         "gasPrice": "10000000000",
-        "nonce": "17",
+        "nonce": "28",
         "receipt": {
-            "cumulative_gas": "12846",
-            "epoch_num": "3442",
+            "cumulative_gas": "611",
+            "epoch_num": "154",
+            "event_logs": [
+                {
+                    "_eventname": "Mint successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "by"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x1234567890123456789012345678901234567892",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "1",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
             "success": true
         },
-        "senderPubKey": "0x03535EFDE578EFD8406525A35A3A448C7BC62F4A98DF345EFFB483B3BCD6FB6F03",
-        "signature": "0x60D4160F564433E4A7DA2327C0C16C903D74BB8D2CD842AA2B59E6836F1673DFD5A65AA2267AAA4D912E7E7548F1C9AB342D4452ADE42D5C472A9CE18F90A305",
-        "toAddr": "0000000000000000000000000000000000000000",
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xA0C0E2EC47C86085C48F683693D1337998D23262C869E248F53134C98CA8FD5979C7CD62EF9314D94A6005411251A415F2DA294B164657E2AB2ECB7A64994554",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567892": "1"
+        },
+        "tokenApprovals": {},
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892"
+        }
+    }
+}
+
+transition2:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"2\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "e408d80ffa4b4203fda4f668841a0d0be8771cad022ea705b0156a6e45f417e2",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "29",
+        "receipt": {
+            "cumulative_gas": "711",
+            "epoch_num": "158",
+            "event_logs": [
+                {
+                    "_eventname": "Mint successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "by"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x1234567890123456789012345678901234567892",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "2",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xA887C9B57D72CA05E6CEE14515AFB519D61AA163D674692A0F89C9966FCDD55A7C2CC97B624A70CC62FB97A325E36FB5FB8FBB141DC445687597771BA35A982B",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567892": "2"
+        },
+        "tokenApprovals": {},
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892"
+        }
+    }
+}
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "98c1595fd9f3fa6b674b821d46b5a2e8b9ad757993009c08d93c2bf7165c2bff",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "31",
+        "receipt": {
+            "cumulative_gas": "715",
+            "epoch_num": "201",
+            "event_logs": [
+                {
+                    "_eventname": "Mint successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "by"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "3",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x05B755B6A9900F9D4ABADCAA682870896FF15467F1FAD1868A9825894F74A000E3F4A6FCD6B4E823C29B04F4C863C51A88588E918B9A819678AE7625DC6B4FF3",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "1"
+        },
+        "tokenApprovals": {},
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+        }
+    }
+}
+
+transition3:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "6a72bdc147169aea908cb225ecde2c31f4df1d653086dff15ac2ed1d8290e8c0",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "32",
+        "receipt": {
+            "cumulative_gas": "1164",
+            "epoch_num": "206",
+            "event_logs": [
+                {
+                    "_eventname": "transferFrom successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "from"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x1234567890123456789012345678901234567891",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "3",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x3228C1C065E484D7E80C290300088803AA2D214CDDD9AA1F48C7D0B75F108A00A6507C76B16305683D82D6DE998AAA57630A0AB5CC97FE3393BD45492CF92A56",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "0"
+        },
+        "tokenApprovals": {},
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891"
+        }
+    }
+}
+
+transition4:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t balanceOf -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "335bc965a951b3e74bf7595d45f2b5be7b64afefe2d2d3fcd842744fa4196549",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "33",
+        "receipt": {
+            "cumulative_gas": "416",
+            "epoch_num": "213",
+            "event_logs": [
+                {
+                    "_eventname": "balanceOf",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "Uint256",
+                            "value": "1",
+                            "vname": "bal"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xD24321D425C363100176A95C4C98E1729EA94B03C7D5353BCF0DDC2D06D684522E21473AD36401BE167242CAE498B37E9C442B2C23DA831427A0D6CC2164FBC3",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "335bc965a951b3e74bf7595d45f2b5be7b64afefe2d2d3fcd842744fa4196549",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "33",
+        "receipt": {
+            "cumulative_gas": "416",
+            "epoch_num": "213",
+            "event_logs": [
+                {
+                    "_eventname": "balanceOf",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "Uint256",
+                            "value": "1",
+                            "vname": "bal"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xD24321D425C363100176A95C4C98E1729EA94B03C7D5353BCF0DDC2D06D684522E21473AD36401BE167242CAE498B37E9C442B2C23DA831427A0D6CC2164FBC3",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
         "version": "131073"
     }
 }
 
-transition1:
-go-zli contract call -a 982b7a726be2427be7a39b55980587ad25308c36 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+transition5:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t balanceOf -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
     "result": {
-        "ID": "da1807d78d45cbb5183c2aad6f1a868dd0b7e953e2b8d1cdceb6292e8e366011",
+        "ID": "50923093be45276ce7aa5bd8b648244017daafc2782f024c0ad3d05ed5013062",
         "amount": "0",
         "gasLimit": "10000",
         "gasPrice": "10000000000",
-        "nonce": "18",
+        "nonce": "34",
         "receipt": {
-            "cumulative_gas": "160",
-            "epoch_num": "3446",
-            "errors": {
-                "0": [
-                    9
-                ]
-            },
-            "success": false
+            "cumulative_gas": "416",
+            "epoch_num": "221",
+            "event_logs": [
+                {
+                    "_eventname": "balanceOf",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "Uint256",
+                            "value": "1",
+                            "vname": "bal"
+                        }
+                    ]
+                }
+            ],
+            "success": true
         },
-        "senderPubKey": "0x03535EFDE578EFD8406525A35A3A448C7BC62F4A98DF345EFFB483B3BCD6FB6F03",
-        "signature": "0xCC0C6321C3C0BFB10F2DF836D53CD7A900949FA87DBB54DCB1B328E7096D5299D5BF3F0004113AD0B87424A79945342DCE6D890C976E15B1B86AA156EB494FDC",
-        "toAddr": "982b7a726be2427be7a39b55980587ad25308c36",
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x6AAD86E6C81FBD6E0750823E08E9CD6C757ED43583E053FCD2CE26187584D1E7F20508AB98A6B77964EE9B84C4F109F47A079297DFB38FAD1A307C406FDC9AB3",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "50923093be45276ce7aa5bd8b648244017daafc2782f024c0ad3d05ed5013062",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "34",
+        "receipt": {
+            "cumulative_gas": "416",
+            "epoch_num": "221",
+            "event_logs": [
+                {
+                    "_eventname": "balanceOf",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "Uint256",
+                            "value": "1",
+                            "vname": "bal"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x6AAD86E6C81FBD6E0750823E08E9CD6C757ED43583E053FCD2CE26187584D1E7F20508AB98A6B77964EE9B84C4F109F47A079297DFB38FAD1A307C406FDC9AB3",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+
+transition6:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t ownerOf -r "[{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "04bb7275bd867e36921a347d53b5ef80e71f867afa56ab8c3befed3dd832a310",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "35",
+        "receipt": {
+            "cumulative_gas": "399",
+            "epoch_num": "226",
+            "event_logs": [
+                {
+                    "_eventname": "ownerOf",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "Uint256",
+                            "value": "1",
+                            "vname": "id"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x1234567890123456789012345678901234567892",
+                            "vname": "owner"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xB596FDC9AE57C4E8DFAF0D87CA7D7B074F5397342145E6337090BF2577A5024FBED4F935BBDDEC3F366443C6885B6B40217FC74C68262EF4AA63616AF3A47495",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "0"
+        },
+        "tokenApprovals": {},
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891"
+        }
+    }
+}
+
+transition7:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"4\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "71560fb25e972ab8d407bec641390830b6038b63d9e6cf422f867f5975c913eb",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "36",
+        "receipt": {
+            "cumulative_gas": "815",
+            "epoch_num": "241",
+            "event_logs": [
+                {
+                    "_eventname": "Mint successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "by"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "4",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x06596BFC4F8FFE89F070F7F30E619EEB81ECE2BC9BA6525BD156BAB23387B12A5014B879AA5BCF621E7C5779043BB1BD64ECF5BC7C63997FB6A2D1FD61DBC5F1",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "1"
+        },
+        "tokenApprovals": {},
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+        }
+    }
+}
+
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"4\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "04542fb43786209293c724f6273570016504eb9d4201f91007140c87a40322db",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "37",
+        "receipt": {
+            "cumulative_gas": "822",
+            "epoch_num": "252",
+            "event_logs": [
+                {
+                    "_eventname": "Approve successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "from"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                            "vname": "approvedTo"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "4",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x291992365265AEC4ACFCE99883025D9E0080C3C8BA98D43691E8B6FBD7EE35408CAC0031273BFA501027D12214D634EECD2D555D44AA476F4481E69A30271258",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "1"
+        },
+        "tokenApprovals": {
+            "4": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+        },
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+        }
+    }
+}
+
+transition8:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "2f711274d1d4ad7fb472cc1d4204ee4895a27f8489859133756da155dab916fa",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "38",
+        "receipt": {
+            "cumulative_gas": "867",
+            "epoch_num": "262",
+            "event_logs": [
+                {
+                    "_eventname": "Mint successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "by"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "5",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xC283661F567E09A38AC60BC9CCA412CE2EB8FCC18CC663C3C05BA0A289C451F983E9DE26FF49451D2812DD13A6D85E4302409807DD8E20C36C6B0E5366C868BA",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "2"
+        },
+        "tokenApprovals": {
+            "4": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+        },
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "5": "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+        }
+    }
+}
+
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"6\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "cdf0a2e70ad9a34cdbf74ddc800864afe3a6512a1672ec5868bebf8994ec95ce",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "39",
+        "receipt": {
+            "cumulative_gas": "919",
+            "epoch_num": "270",
+            "event_logs": [
+                {
+                    "_eventname": "Mint successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "by"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "6",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x0A72DFCD34B809A6F8B58E8DD92408495A6FD7E1E464EF8D41AE28D046754225341E726C07399E48CE87BBC2D32A568BA528D6F3FA3CBC597E292FAEF1C941EE",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {},
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "3"
+        },
+        "tokenApprovals": {
+            "4": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+        },
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "5": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "6": "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+        }
+    }
+}
+
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "490db7b7bacca608986b4b2f4c9dc52ab9892a82f34c5d56d5f91a0157650a0b",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "40",
+        "receipt": {
+            "cumulative_gas": "642",
+            "epoch_num": "281",
+            "event_logs": [
+                {
+                    "_eventname": "setApprovalForAll successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "from"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "String",
+                            "value": "True",
+                            "vname": "status"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x3E1044B8F3EE23EDC8A2C0A862967949189E60715C40D887DA942B78DA4EFE989DBE3879D199B7651E4C9199E27E01C394377E65D8862A5F21E58B0CCF1F0282",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {
+            "\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"": {
+                "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                }
+            }
+        },
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "3"
+        },
+        "tokenApprovals": {
+            "4": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+        },
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "5": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "6": "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+        }
+    }
+}
+
+transition9:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "a3103ec02e915853e841f8dd68857b587a0a413580762a5f5832698b3907dcbc",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "41",
+        "receipt": {
+            "cumulative_gas": "683",
+            "epoch_num": "285",
+            "event_logs": [
+                {
+                    "_eventname": "setApprovalForAll successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "from"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x0f168fda7796d07735d2cf5763c7511e88a37fc0",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "String",
+                            "value": "True",
+                            "vname": "status"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xD16E45220387BAB832DC70C526E3FA24C1091B33E8E0F4F37F42B47C1F44B0B64327ED14C0509B02B749AB475282B03E9680B153C78C624484A40883E9A05E18",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {
+            "\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"": {
+                "0x0f168fda7796d07735d2cf5763c7511e88a37fc0": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                },
+                "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                }
+            }
+        },
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "3"
+        },
+        "tokenApprovals": {
+            "4": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+        },
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "5": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "6": "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+        }
+    }
+}
+
+transition9:
+go-zli transfer -a 1000000000000 -t zil1n0lvw9dxh4jcljmzkruvexl69t08zs62ds9ats
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "44f306243a5d57662b1c5f9c473763ed060fed5e892c58b0815d63aefdfe2ea5",
+        "amount": "1000000000000",
+        "gasLimit": "10",
+        "gasPrice": "1000000000",
+        "nonce": "42",
+        "receipt": {
+            "cumulative_gas": "1",
+            "epoch_num": "376",
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x05DE28541B6F43110452D3D7B0D18B0D17923CF1DFD6DD6A385615366048D27E18AE0B69D56DAEB7E8AFB250F5A7475F1DBFA0D651DFD73AFA224981324C1DCA",
+        "toAddr": "9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+        "version": "131073"
+    }
+}
+go-zli transfer -a 259999341169000000000 -t zil1n0lvw9dxh4jcljmzkruvexl69t08zs62ds9ats
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "a95a1fe065fbf6f4fe21ad9d575b6c117d3ae638d8782b87e98d143fc5525e23",
+        "amount": "259999341169000000000",
+        "gasLimit": "10",
+        "gasPrice": "1000000000",
+        "nonce": "43",
+        "receipt": {
+            "cumulative_gas": "1",
+            "epoch_num": "401",
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x81AA4941B6E220A9C3864957CC0E03F6BEB1DDCABCF7759303E7D8B9747EAB82202224DE47835A32A891CB4764BC790B1304C679A76949E80671BA701D7B6F7E",
+        "toAddr": "9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+        "version": "131073"
+    }
+}
+
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "490d8932e84dfd21e306a771c2c5827a594c0ec14b36856ace0bb73e9ad78d92",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "44",
+        "receipt": {
+            "cumulative_gas": "1490",
+            "epoch_num": "406",
+            "event_logs": [
+                {
+                    "_eventname": "transferFrom successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+                            "vname": "from"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "5",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0x04D1FFA5AE31D15E3E7D69B957B9B9D981C5EE2304A1C559969C771B7F3A0C078426902D62F5E7D872B06E9A9ABCA0D51F62D31E64698C058548C66AFA9708F0",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {
+            "\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"": {
+                "0x0f168fda7796d07735d2cf5763c7511e88a37fc0": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                },
+                "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                }
+            }
+        },
+        "ownedTokenCount": {
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "2",
+            "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": "1"
+        },
+        "tokenApprovals": {
+            "4": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+        },
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "5": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+            "6": "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+        }
+    }
+}
+
+transition10:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"6\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "5969d8336cc512da1991ce97d00c30d7fc26147a6bba4b4a26301c2cd5eede31",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "1",
+        "receipt": {
+            "cumulative_gas": "1544",
+            "epoch_num": "414",
+            "event_logs": [
+                {
+                    "_eventname": "transferFrom successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                            "vname": "from"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x0f168fda7796d07735d2cf5763c7511e88a37fc0",
+                            "vname": "recipient"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "6",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
+        "signature": "0x34E1BC86960EC2B78066C1E0A2726ABE927D66D300C1BE77711CEF6A5DC871585DD4C521A9B02A78B7FD2B1F7EC9198D1A4FCEE4D70605700D3FF5E4FA10A7D4",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {
+            "\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"": {
+                "0x0f168fda7796d07735d2cf5763c7511e88a37fc0": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                },
+                "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                }
+            }
+        },
+        "ownedTokenCount": {
+            "0x0f168fda7796d07735d2cf5763c7511e88a37fc0": "1",
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "1",
+            "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": "1"
+        },
+        "tokenApprovals": {
+            "4": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+        },
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "5": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+            "6": "0x0f168fda7796d07735d2cf5763c7511e88a37fc0"
+        }
+    }
+}
+
+transition11:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "d8a07edbe1b0361ff6fe13999d88e45ff0732784e2b3c6e32ecf44dfe2c42d72",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "3",
+        "receipt": {
+            "cumulative_gas": "988",
+            "epoch_num": "435",
+            "event_logs": [
+                {
+                    "_eventname": "Approve successful",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "ByStr20",
+                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+                            "vname": "from"
+                        },
+                        {
+                            "type": "ByStr20",
+                            "value": "0x0f168fda7796d07735d2cf5763c7511e88a37fc0",
+                            "vname": "approvedTo"
+                        },
+                        {
+                            "type": "Uint256",
+                            "value": "5",
+                            "vname": "token"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
+        "signature": "0xDC682B689EFF3BA2B115EB7EB9EAA671F25C69A2D151A8F18885267F865424D429AD61FDC4D632B1D8301FBA52B6847F6BA28B9C1FFCEBE8E295814EF977951C",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "_balance": "0",
+        "operatorApprovals": {
+            "\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"": {
+                "0x0f168fda7796d07735d2cf5763c7511e88a37fc0": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                },
+                "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": {
+                    "argtypes": [],
+                    "arguments": [],
+                    "constructor": "True"
+                }
+            }
+        },
+        "ownedTokenCount": {
+            "0x0f168fda7796d07735d2cf5763c7511e88a37fc0": "1",
+            "0x1234567890123456789012345678901234567891": "1",
+            "0x1234567890123456789012345678901234567892": "2",
+            "0x82aa26971ae03b85f42384cf382a25b25a796fdd": "1",
+            "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": "1"
+        },
+        "tokenApprovals": {
+            "4": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+            "5": "0x0f168fda7796d07735d2cf5763c7511e88a37fc0"
+        },
+        "tokenOwnerMap": {
+            "1": "0x1234567890123456789012345678901234567892",
+            "2": "0x1234567890123456789012345678901234567892",
+            "3": "0x1234567890123456789012345678901234567891",
+            "4": "0x82aa26971ae03b85f42384cf382a25b25a796fdd",
+            "5": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
+            "6": "0x0f168fda7796d07735d2cf5763c7511e88a37fc0"
+        }
+    }
+}
+
+transition12:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"7\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "cd935f53c8ca7d956687ca3283fed006656b039b1af5f3c9ee33e00a6fdc94ed",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "4",
+        "receipt": {
+            "cumulative_gas": "483",
+            "epoch_num": "446",
+            "event_logs": [
+                {
+                    "_eventname": "Error",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "String",
+                            "value": "mint",
+                            "vname": "raisedAt"
+                        },
+                        {
+                            "type": "Uint32",
+                            "value": "2",
+                            "vname": "code"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
+        "signature": "0xA2488E992DDF673B4847DA8255BA101E65B0B6B821262BDB5DFF46E9A1D5828CC751604D3CDBF263BACA69EC44E6652DBE701EF6683F6E793064AA8CADEF4A11",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+
+transition13:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "c977f5846974983009590643a3faa8093c8d94cb1e45feb75ddebb552ce023a0",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "45",
+        "receipt": {
+            "cumulative_gas": "799",
+            "epoch_num": "462",
+            "event_logs": [
+                {
+                    "_eventname": "Error",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "String",
+                            "value": "mint",
+                            "vname": "raisedAt"
+                        },
+                        {
+                            "type": "Uint32",
+                            "value": "6",
+                            "vname": "code"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xC60A3A46203FAA9A47DF98A3FCD4578859CB24A68BC9514BE182C800B37C7BD2DF038E8A7A0A0C65AD3602274CA8EE2E3EB6BC13506E7BA882CF9217F8B10C95",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+
+transition14:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "bed44c6ab7bf56e156e0583e372b98ddb975544f644895b38eac3f9395136783",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "46",
+        "receipt": {
+            "cumulative_gas": "1147",
+            "epoch_num": "466",
+            "event_logs": [
+                {
+                    "_eventname": "Error",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "String",
+                            "value": "transferFrom",
+                            "vname": "raisedAt"
+                        },
+                        {
+                            "type": "Uint32",
+                            "value": "5",
+                            "vname": "code"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xF91A4D0B0D91A0588CC73C94C61CB06E07D9A577384BD98DC23DDE79A96CB12613CDA494620BF416EA0A198F5A1ECE02817F298EBAE228CC05E8B9D666793EEB",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+
+transition15:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "6d1a2cf33017be378dced933ab9dbd7b153e2baf6bab1ab5f46794ba99f1827e",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "47",
+        "receipt": {
+            "cumulative_gas": "903",
+            "epoch_num": "476",
+            "event_logs": [
+                {
+                    "_eventname": "Error",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "String",
+                            "value": "approve",
+                            "vname": "raisedAt"
+                        },
+                        {
+                            "type": "Uint32",
+                            "value": "2",
+                            "vname": "code"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x02705903BA67A8D5CB0D80D8B3E65A7D56798B09F5A267449AF46750604451A9D4",
+        "signature": "0xB1C3CCA3C099EB1A6A4215BA01B8916F07E96D232A2489D03A6EDB55B395552B7E13EE81E398FD44BE68DF08D11FA199E50D14FECD882078967140F1686CD763",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+        "version": "131073"
+    }
+}
+
+transition16:
+go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
+{
+    "id": "1",
+    "jsonrpc": "2.0",
+    "result": {
+        "ID": "b75f51c7df692c72e35777d4dadc05a4fd727841265e638cd180746789643390",
+        "amount": "0",
+        "gasLimit": "10000",
+        "gasPrice": "10000000000",
+        "nonce": "6",
+        "receipt": {
+            "cumulative_gas": "636",
+            "epoch_num": "487",
+            "event_logs": [
+                {
+                    "_eventname": "Error",
+                    "address": "0x657a36a5f536d165169bfb99df5e14eb2bcb15b8",
+                    "params": [
+                        {
+                            "type": "String",
+                            "value": "setApprovalForAll",
+                            "vname": "raisedAt"
+                        },
+                        {
+                            "type": "Uint32",
+                            "value": "2",
+                            "vname": "code"
+                        }
+                    ]
+                }
+            ],
+            "success": true
+        },
+        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
+        "signature": "0x9639ECCB8F008125DE3F322FF16B6848073AA80EA1B5BF8D55858F34A1C6BC2A33ED0C229658B12F9892C70A1A98BD0E166E6466F239181E9FA92E3EA03A36E5",
+        "toAddr": "657a36a5f536d165169bfb99df5e14eb2bcb15b8",
         "version": "131073"
     }
 }
