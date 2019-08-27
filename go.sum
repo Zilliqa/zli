@@ -28,6 +28,10 @@ github.com/FireStack-Lab/LaksaGo v0.0.0-20190821103502-5a7c1155012c h1:LO51YsRDi
 github.com/FireStack-Lab/LaksaGo v0.0.0-20190821103502-5a7c1155012c/go.mod h1:4ksBs21eEvBMQj6ehC7mubT2adEqjccdlNr8wduUeyQ=
 github.com/FireStack-Lab/LaksaGo v0.0.0-20190821195830-79ff2b55e8c0 h1:KhFjfDkSsFAU94VmsSgaRhpTOiLUC/LqD40lr/tPq1Y=
 github.com/FireStack-Lab/LaksaGo v0.0.0-20190821195830-79ff2b55e8c0/go.mod h1:4ksBs21eEvBMQj6ehC7mubT2adEqjccdlNr8wduUeyQ=
+github.com/FireStack-Lab/LaksaGo v0.0.0-20190827063541-2735cb8dba55 h1:tQvB1MZ9edKcY+wuhDKWuznBbsTZvjscGfkuo/5214k=
+github.com/FireStack-Lab/LaksaGo v0.0.0-20190827063541-2735cb8dba55/go.mod h1:4ksBs21eEvBMQj6ehC7mubT2adEqjccdlNr8wduUeyQ=
+github.com/FireStack-Lab/LaksaGo v0.0.0-20190827064153-c06703d0aad0 h1:hn9Qu20wU+64pZebEGcLl3ZfGn/kbWx4iVjQ+h02nWE=
+github.com/FireStack-Lab/LaksaGo v0.0.0-20190827064153-c06703d0aad0/go.mod h1:4ksBs21eEvBMQj6ehC7mubT2adEqjccdlNr8wduUeyQ=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/OneOfOne/xxhash v1.2.5/go.mod h1:eZbhyaAYD41SGSSsnmcpxVoRiQ/MPUTjUdIIOT9Um7Q=
 github.com/aead/siphash v1.0.1/go.mod h1:Nywa3cDsYNNK3gaciGTWPwHt0wlpNV15vwmswBAUSII=
