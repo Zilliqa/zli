@@ -21,6 +21,7 @@ var invokePrice int64
 var invokeLimit int32
 var invokeAddress string
 var invokeAmount string
+var invokePriority bool
 
 func init() {
 	callCmd.Flags().StringVarP(&invokeTransition, "transition", "t", "", "transition will be called")
@@ -32,6 +33,7 @@ func init() {
 	callCmd.Flags().StringVarP(&api, "api", "u", "", "api url")
 	callCmd.Flags().StringVarP(&invokeAmount, "amount", "m", "0", "token amount to transfer to the contract")
 	callCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to call to the contract")
+	callCmd.Flags().BoolVarP(&invokePriority, "priority", "f", false, "setup priority of transaction")
 	ContractCmd.AddCommand(callCmd)
 }
 
@@ -105,7 +107,7 @@ var callCmd = &cobra.Command{
 			Amount:       invokeAmount,
 		}
 
-		err, tx := contract.Call(invokeTransition, a, params, 1000, 3)
+		err, tx := contract.Call(invokeTransition, a, params, invokePriority, 1000, 3)
 
 		if err != nil {
 			panic(err.Error())

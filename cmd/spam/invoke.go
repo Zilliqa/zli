@@ -21,6 +21,7 @@ var invokeArgs string
 var invokePrice int64
 var invokeLimit int32
 var invokeAddress string
+var invokePriority bool
 
 func init() {
 	invokeCmd.Flags().StringVarP(&invokeTransition, "transition", "t", "", "transition will be called")
@@ -31,6 +32,7 @@ func init() {
 	invokeCmd.Flags().IntVarP(&batch, "batch", "b", 0, "the number of each spam")
 	invokeCmd.Flags().IntVarP(&chainId, "chainId", "d", 333, "chain id")
 	invokeCmd.Flags().StringVarP(&api, "api", "i", "https://dev-api.zilliqa.com/", "api url")
+	invokeCmd.Flags().BoolVarP(&invokePriority, "priority", "f", false, "setup priority of transaction")
 	SpamCmd.AddCommand(invokeCmd)
 }
 
@@ -111,7 +113,7 @@ func invoke(wallet *core.Wallet, group *sync.WaitGroup) {
 		Amount:       "0",
 	}
 
-	err, tx := contract.Call(invokeTransition, a, params, 1000, 3)
+	err, tx := contract.Call(invokeTransition, a, params, invokePriority, 1000, 3)
 
 	if err != nil {
 		fmt.Println(err.Error())
