@@ -31,7 +31,7 @@ func init() {
 	deployCmd.Flags().Int32VarP(&limit, "limit", "l", 10000, "set gas limit")
 	deployCmd.Flags().IntVarP(&chainId, "chainId", "d", 0, "chain id")
 	deployCmd.Flags().StringVarP(&api, "api", "u", "", "api url")
-	deployCmd.Flags().StringVar(&privateKey,"private_key","k","private key used to deploy the contract")
+	deployCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to deploy the contract")
 	ContractCmd.AddCommand(deployCmd)
 }
 
@@ -50,6 +50,13 @@ var deployCmd = &cobra.Command{
 			wallet.API = api
 			wallet.ChainID = chainId
 		}
+		if privateKey != "" {
+			account, err := core.NewAccount(privateKey)
+			if err != nil {
+				panic(err.Error())
+			}
+			wallet.DefaultAccount = *account
+		}
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		c, err := ioutil.ReadFile(code)
@@ -66,6 +73,7 @@ var deployCmd = &cobra.Command{
 		_ = json.Unmarshal(i, &initArray)
 
 		p := provider.NewProvider(wallet.API)
+		fmt.Println(wallet.DefaultAccount.Address)
 
 		result := p.GetBalance(wallet.DefaultAccount.Address)
 		if result.Error != nil {
