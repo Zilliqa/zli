@@ -7,11 +7,12 @@
   {
     "vname": "initialOwner",
     "type": "ByStr20",
-    "value": "0x40c086bd05b1f7a474d344a6f50ee3ebefa35987"
+    "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
   },
   {
     "vname": "rootNode",
     "type": "ByStr32",
-    "value": "0x40c086bd05b1f7a474d344a6f50ee3ebefa3598740c086bd05b1f7a4dfb1f7a4"
+    "value": "0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3"
   }
 ]
+
