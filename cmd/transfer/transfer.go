@@ -48,6 +48,7 @@ var TransferCmd = &cobra.Command{
 			GasLimit:     "1",
 			Code:         "",
 			Data:         "",
+			Priority:     false,
 		}
 
 		err := signer.Sign(tx, *p)
