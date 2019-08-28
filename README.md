@@ -4,9 +4,10 @@ Zli is a command line tool based on zilliqa golang sdk
 
 #### Requirements
 
-golang environment:
+golang environment: 
 
-* [download golang](https://golang.org/dl/)
+
+* [download golang](https://golang.org/dl/) (minimum version: go.1.12)
 * [installation instructions](https://golang.org/doc/install)
 
 #### Installation
