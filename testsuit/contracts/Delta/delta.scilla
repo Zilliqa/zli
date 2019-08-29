@@ -1,0 +1,12 @@
+scilla_version 0
+
+contract Delta
+(
+)
+
+field data: Map String String = Emp String String
+
+transition put(k: String, v: String)
+   data[k] := v
+end
+

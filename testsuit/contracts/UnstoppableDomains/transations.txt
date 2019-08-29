@@ -1,89 +1,14 @@
 registry address
-da527b85d2764d4d1272bb567c201764d2a59df9
+600b9ed7b9ca4123bb3d648e94329c1a6ae292b9
 
 
-go-zli contract call -a 45fd0af91241a32b2558b114727457c0e6c461f9 -f true -t configureResolver -r "[{\"vname\":\"node\",\"type\":\"ByStr32\",\"value\":\"0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3\"},{\"vname\":\"resolver\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"}]"
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "1e84133a4eb50c336f0fdf9c59b9c5e57e42f80ae5dc32981e3dcb6a6107c5b6",
-        "amount": "0",
-        "gasLimit": "10000",
-        "gasPrice": "10000000000",
-        "nonce": "24",
-        "receipt": {
-            "cumulative_gas": "806",
-            "epoch_num": "1749",
-            "event_logs": [
-                {
-                    "_eventname": "Configured",
-                    "address": "0x45fd0af91241a32b2558b114727457c0e6c461f9",
-                    "params": [
-                        {
-                            "type": "ByStr32",
-                            "value": "0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3",
-                            "vname": "node"
-                        },
-                        {
-                            "type": "ByStr20",
-                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
-                            "vname": "owner"
-                        },
-                        {
-                            "type": "ByStr20",
-                            "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a",
-                            "vname": "resolver"
-                        }
-                    ]
-                }
-            ],
-            "success": true
-        },
-        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
-        "signature": "0x711E47B1893D9587FE7F2F2F0F6B1F2F5FB9BC7538A8F2CE07C1CC2211E6FF9802B038443876720DB66B7B8EF755206FD7A3EA78755F9FB83B0DE5CF73AFECEE",
-        "toAddr": "45fd0af91241a32b2558b114727457c0e6c461f9",
-        "version": "131073"
-    }
-}
+go-zli contract call -a 73ae9cf9c4b6bf5d1ebb54a15943e93481570edd -f true -t configureResolver -r "[{\"vname\":\"node\",\"type\":\"ByStr32\",\"value\":\"0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3\"},{\"vname\":\"resolver\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
+go-zli contract call -a 73ae9cf9c4b6bf5d1ebb54a15943e93481570edd -f true -t onResolverConfigured -r "[{\"vname\":\"node\",\"type\":\"ByStr32\",\"value\":\"0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3\"}]"
+go-zli contract call -a 73ae9cf9c4b6bf5d1ebb54a15943e93481570edd -f true -t setRegistrar -r "[{\"vname\":\"address\",\"type\":\"ByStr32\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
 
 
 holding address
-f99006399b650204e41dab0e8704603a1d91bb94
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "ID": "60d5ecbe4b25266e1ea621a853ac1bd2175c0283147f27ff986657fb83800964",
-        "amount": "0",
-        "gasLimit": "1000000",
-        "gasPrice": "1000000000000",
-        "nonce": "15",
-        "receipt": {
-            "cumulative_gas": "1920",
-            "epoch_num": "1506",
-            "success": true
-        },
-        "senderPubKey": "0x0246E7178DC8253201101E18FD6F6EB9972451D121FC57AA2A06DD5C111E58DC6A",
-        "signature": "0x6F34FA19200435BE0DFD49CE90E28891AC4CF9CD10CDB36A568FB33364FA30B9F1AFC02B7D44956D40AF80CA097E61CA03C0C4289968862896AE22F1A3DAFB0E",
-        "toAddr": "0000000000000000000000000000000000000000",
-        "version": "131073"
-    }
-}
-{
-    "id": "1",
-    "jsonrpc": "2.0",
-    "result": {
-        "_balance": "0",
-        "admins": {
-            "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a": {
-                "argtypes": [],
-                "arguments": [],
-                "constructor": "True"
-            }
-        }
-    }
-}
+b19f14bf23e83faafe6adbac6ea587f766bc6d14
 
-go-zli contract call -a f99006399b650204e41dab0e8704603a1d91bb94 -f true -t bestow -r "[{\"vname\":\"label\",\"type\":\"String\",\"value\":\"xiaohuo\"},{\"vname\":\"owner\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"resolver\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"}]"
-go-zli contract call -a f99006399b650204e41dab0e8704603a1d91bb94 -f true -t setAdmin -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434b\"},{\"vname\":\"isApproved\",\"type\":\"Bool\",\"value\":\"True\"}]"
+go-zli contract call -a 2efdd34ecbb850245c7141b932b58f4b97a43287 -f true -t bestow -r "[{\"vname\":\"label\",\"type\":\"String\",\"value\":\"xiaohuo\"},{\"vname\":\"owner\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"},{\"vname\":\"resolver\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
+go-zli contract call -a 2efdd34ecbb850245c7141b932b58f4b97a43287 -f true -t setAdmin -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434b\"},{\"vname\":\"isApproved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"

@@ -1,50 +1,18 @@
-contract address: b4989ff09032e973eac3bdd3fdd5a37f4053dfdc
-b28a5596c8b2ed288a3f314dba37409bdb5044c0428b3e2123d3f57dc15c2dd9
+contract address: cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b
 
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t1 -r "[]"
-bdacb5a9aba598147befe86e63160ff6e9587506fb273ed5b5cc2984801f5e64
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t2 -r "[]"
-0af67a869af92765dd21d8ed76f72a5bb0a050555a5c266a82737854b0d3ef1c
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t3 -r "[]"
-a16f91b11b31eacef7f7ddb66691289f3b2516f80586d23d56df7705ec15ae66
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t4 -r "[]"
-de7f5d3ddf5210f9923d60660f7930bc848cd3a0788f4ba09e44cd6589b6c962
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t5 -r "[]"
-a802612145fbe1610f32c5713c041058dc59c36a6baadd4d00b4a2dd0af3e202
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t6 -r "[]"
-c8ece8619d4593fb9d617da065e201b755efc8e2f5b5c33f8b865a9179cdcec0
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t7 -r "[]"
-863e4f4a0f7a24591e549b2372bf662ee83adf1044cfa8b12069417eac15f437
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t8 -r "[]"
-f4f5d54fe08fed853eca11de9db837ab6b011c2a39f86c50e6449e5d245571de
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t9 -r "[]"
-f03ae5d5a44b5e3aa272bde35faf14923fab5a893615e059fa352d0c20b28bf5
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t10 -r "[]"
-38538b0c66c1aa03c1e81de9decba2708218ffeba960f0722e8f9d2423615d7c
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t11 -r "[]"
-2db78a6c027f7684f3fe26f2ccb46e63b7d071efa73f47a7ee1322e64994c237
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t12 -r "[]"
-372a21919596bba9368bce5b89988cff0f107a20ac077f2e093c5d64c2ccab8a
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t13 -r "[]"
-ce7e9b149aef4dc635c6e8fc4a1c6c075cb0bbb0154b9e7212cdaf80ee4418e4
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t14 -r "[]"
-ed6a2229de2ee437971435d504e6c6653541682996b60d3d65ecee1ec75f2dce
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t15 -r "[]"
-4b60c0969ea82009ade7e96d5ee2913148a90e38e03b782dd99819006d364719
-
-go-zli contract call -a b4989ff09032e973eac3bdd3fdd5a37f4053dfdc -t t16 -r "[]"
-7ca547cc9f1569a6e8af00e112d16df0412a471f5466d197293dd91063c1c834
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t1 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t2 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t3 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t4 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t5 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t6 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t7 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t8 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t9 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t10 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t11 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t12 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t13 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t14 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t15 -r "[]"
+go-zli contract call -a cfc6ee1b344c6a210afa39f3f0d3ddd040d89c2b -t t16 -r "[]"
