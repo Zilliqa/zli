@@ -8,6 +8,7 @@ import (
 	"zli/cmd/contract"
 	"zli/cmd/rpc"
 	"zli/cmd/spam"
+	"zli/cmd/testsuit"
 	"zli/cmd/transfer"
 	"zli/cmd/wallet"
 )
@@ -20,6 +21,7 @@ func init() {
 	RootCmd.AddCommand(transfer.TransferCmd)
 	RootCmd.AddCommand(spam.SpamCmd)
 	RootCmd.AddCommand(rpc.RPCCmd)
+	RootCmd.AddCommand(testsuit.TestsultCmd)
 }
 
 var RootCmd = &cobra.Command{
