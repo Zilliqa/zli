@@ -54,7 +54,7 @@ var tinyCmd = &cobra.Command{
 		a := []contract2.Value{}
 
 		for index, value := range transitions {
-			fmt.Println("start to invoke transition ", index)
+			fmt.Println("start to invoke transition ", index+1)
 			result := p.GetBalance(wallet.DefaultAccount.Address)
 			if result.Error != nil {
 				panic(result.Error.Message)
