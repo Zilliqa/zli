@@ -1,14 +1,15 @@
 registry address
-600b9ed7b9ca4123bb3d648e94329c1a6ae292b9
+ed950e2d66a99e2eaf1a3dc62ff9630bf4ea157e
 
 
-go-zli contract call -a 73ae9cf9c4b6bf5d1ebb54a15943e93481570edd -f true -t configureResolver -r "[{\"vname\":\"node\",\"type\":\"ByStr32\",\"value\":\"0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3\"},{\"vname\":\"resolver\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
-go-zli contract call -a 73ae9cf9c4b6bf5d1ebb54a15943e93481570edd -f true -t onResolverConfigured -r "[{\"vname\":\"node\",\"type\":\"ByStr32\",\"value\":\"0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3\"}]"
-go-zli contract call -a 73ae9cf9c4b6bf5d1ebb54a15943e93481570edd -f true -t setRegistrar -r "[{\"vname\":\"address\",\"type\":\"ByStr32\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
+go-zli contract call -a ed950e2d66a99e2eaf1a3dc62ff9630bf4ea157e -f true -t configureResolver -r "[{\"vname\":\"node\",\"type\":\"ByStr32\",\"value\":\"0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3\"},{\"vname\":\"resolver\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
+go-zli contract call -a ed950e2d66a99e2eaf1a3dc62ff9630bf4ea157e -f true -t onResolverConfigured -r "[{\"vname\":\"node\",\"type\":\"ByStr32\",\"value\":\"0x9915d0456b878862e822e2361da37232f626a2e47505c8795134a95d36138ed3\"}]"
+go-zli contract call -a ed950e2d66a99e2eaf1a3dc62ff9630bf4ea157e -f true -t setRegistrar -r "[{\"vname\":\"address\",\"type\":\"ByStr32\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
 
 
 holding address
-b19f14bf23e83faafe6adbac6ea587f766bc6d14
+8822092cec45d810046bf79c43ee6bfb5a35d96a
 
-go-zli contract call -a 2efdd34ecbb850245c7141b932b58f4b97a43287 -f true -t bestow -r "[{\"vname\":\"label\",\"type\":\"String\",\"value\":\"xiaohuo\"},{\"vname\":\"owner\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"},{\"vname\":\"resolver\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
-go-zli contract call -a 2efdd34ecbb850245c7141b932b58f4b97a43287 -f true -t setAdmin -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434b\"},{\"vname\":\"isApproved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
+go-zli contract call -a 8822092cec45d810046bf79c43ee6bfb5a35d96a -f true -t bestow -r "[{\"vname\":\"label\",\"type\":\"String\",\"value\":\"xiaohuo\"},{\"vname\":\"owner\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"},{\"vname\":\"resolver\",\"type\":\"ByStr20\",\"value\":\"0x709ac38fc011da8bd05480cb860b056229464243\"}]"
+go-zli contract call -a 8822092cec45d810046bf79c43ee6bfb5a35d96a -f true -t setAdmin -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434b\"},{\"vname\":\"isApproved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
+
