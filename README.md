@@ -101,7 +101,7 @@ Use "zli [command] --help" for more information about a command.
 
 #### Example
 
-<h5> test tiny contract for corner cases </h>
+<h5> test tiny contract for corner cases </h5>
 
 1. Prepare ~/.zilliqa by using `go-zli wallet init` or `go-zli wallet from -p [private_key]`:
 
