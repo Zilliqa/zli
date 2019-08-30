@@ -33,6 +33,7 @@ func init() {
 	invokeCmd.Flags().IntVarP(&chainId, "chainId", "d", 333, "chain id")
 	invokeCmd.Flags().StringVarP(&api, "api", "i", "https://dev-api.zilliqa.com/", "api url")
 	invokeCmd.Flags().BoolVarP(&invokePriority, "priority", "f", false, "setup priority of transaction")
+	invokeCmd.Flags().StringVarP(&accounts, "accounts", "c", "./testAccounts.txt", "path of testAccounts.txt")
 	SpamCmd.AddCommand(invokeCmd)
 }
 
@@ -41,6 +42,8 @@ var invokeCmd = &cobra.Command{
 	Short: "on a specific contract",
 	Long:  "send a large number of invocation transactions on a specific smart contract",
 	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("contract address ", invokeAddress)
+		fmt.Println("load file from ", accounts)
 		accs, err := core.LoadFrom(accounts)
 		if err != nil {
 			panic(err.Error())
@@ -78,6 +81,15 @@ func invoke(wallet *core.Wallet, group *sync.WaitGroup) {
 
 	var a []contract2.Value
 	err := json.Unmarshal([]byte(invokeArgs), &a)
+	//var sb strings.Builder
+	//for i:=0;i<10;i++{
+	//	u, _ := uuid.NewUUID()
+	//	sb.WriteString(u.String())
+	//}
+	//
+	//
+	//a[0].Value = interface{}(sb.String())
+	//a[1].Value = interface{}(sb.String())
 	if err != nil {
 		panic(err.Error())
 	}
