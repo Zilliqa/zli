@@ -38,6 +38,8 @@ github.com/FireStack-Lab/LaksaGo v0.0.0-20190827145512-794b87310da4 h1:mxHDLdFi0
 github.com/FireStack-Lab/LaksaGo v0.0.0-20190827145512-794b87310da4/go.mod h1:4ksBs21eEvBMQj6ehC7mubT2adEqjccdlNr8wduUeyQ=
 github.com/FireStack-Lab/LaksaGo v0.0.0-20190827150755-649557208d9d h1:1DJRi5hL/qZfpZ9D0sh5kD9DAskWU19Ju1gcAik2nHc=
 github.com/FireStack-Lab/LaksaGo v0.0.0-20190827150755-649557208d9d/go.mod h1:4ksBs21eEvBMQj6ehC7mubT2adEqjccdlNr8wduUeyQ=
+github.com/FireStack-Lab/LaksaGo v0.0.0-20190828025158-47475a7d3536 h1:5oPagQzGINwpMemC6KLnNBma8qbiNOQGF1zUgBcdOJc=
+github.com/FireStack-Lab/LaksaGo v0.0.0-20190828025158-47475a7d3536/go.mod h1:4ksBs21eEvBMQj6ehC7mubT2adEqjccdlNr8wduUeyQ=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/OneOfOne/xxhash v1.2.5/go.mod h1:eZbhyaAYD41SGSSsnmcpxVoRiQ/MPUTjUdIIOT9Um7Q=
 github.com/aead/siphash v1.0.1/go.mod h1:Nywa3cDsYNNK3gaciGTWPwHt0wlpNV15vwmswBAUSII=
@@ -110,6 +112,8 @@ github.com/google/pprof v0.0.0-20181206194817-3ea8567a2e57/go.mod h1:zfwlbNMJ+OI
 github.com/google/pprof v0.0.0-20190515194954-54271f7e092f/go.mod h1:zfwlbNMJ+OItoe0UupaVj+oy1omPYYDuagoSzA8v9mc=
 github.com/google/pprof v0.0.0-20190723021845-34ac40c74b70/go.mod h1:zfwlbNMJ+OItoe0UupaVj+oy1omPYYDuagoSzA8v9mc=
 github.com/google/renameio v0.1.0/go.mod h1:KWCgfxg9yswjAJkECMjeO8J8rahYeXnNhOm40UhjYkI=
+github.com/google/uuid v1.1.1 h1:Gkbcsh/GbpXz7lPftLA3P6TYMwjCLYm83jiFQZF/3gY=
+github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/googleapis/gax-go/v2 v2.0.4/go.mod h1:0Wqv26UfaUD9n4G6kQubkQ+KchISgw+vpHVxEJEs9eg=
 github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5mhpdKc/us6bOk=
 github.com/gorilla/websocket v1.4.0/go.mod h1:E7qHFY5m1UJ88s3WnNqhKjPHQ0heANvMoAMk2YaljkQ=
