@@ -101,6 +101,35 @@ Use "zli [command] --help" for more information about a command.
 
 #### Example
 
+<h5> test tiny contract for corner cases </h>
+
+1. Prepare ~/.zilliqa by using `go-zli wallet init` or `go-zli wallet from -p [private_key]`:
+
+```json
+{
+	"api": "https://ipc-ud-api.dev.z7a.xyz",
+	"chain_id": 2,
+	"default_account": {
+		"private_key": "227159779c78c9a920cba73086cf73fb3ee15cdd95380aa3b93757669e345300",
+		"public_key": "0324cdd72db3de0e9f570d550631438d581056fb0d9c4daddbad2928eaf49f54ee",
+		"address": "31f33d13ad6aa724cde1f3d12d75fb344a1df9de",
+		"bech_32_address": "zil1x8en6yadd2njfn0p70gj6a0mx39pm7w7lz3kpm"
+	},
+	"accounts": [{
+		"private_key": "227159779c78c9a920cba73086cf73fb3ee15cdd95380aa3b93757669e345300",
+		"public_key": "0324cdd72db3de0e9f570d550631438d581056fb0d9c4daddbad2928eaf49f54ee",
+		"address": "31f33d13ad6aa724cde1f3d12d75fb344a1df9de",
+		"bech_32_address": "zil1x8en6yadd2njfn0p70gj6a0mx39pm7w7lz3kpm"
+	}]
+}
+```
+
+2. Deploy `tiny contract` using `sh scripts/deploy-tiny-contract.sh`
+
+3. Run `go-zli testsuit tiny -a [contract_address]` like `go-zli testsuit tiny -a zil1yvnhvcage9w0yncuqj3wjp3vkg5qw5yuw4j6p5` or `sh scripts/test-tiny-contract.sh` to do the tests.
+
+if the receipt of any transaction returns false, the whole tests will be stopped.
+
 <h5> invoke contract </h5>
 
 1. First, you have to generate a wallet configuration (~/.zilliqa) which contains a private key, go-zli will use this private key to sign
