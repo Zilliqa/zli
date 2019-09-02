@@ -1,0 +1,316 @@
+scilla_version 0
+
+import ListUtils IntUtils BoolUtils
+
+(***************************************************)
+(*               Associated library                *)
+(***************************************************)
+library Wallet
+
+(* Event emitted when the contract is initialized *)
+let mk_contract_initialized_event =
+  { _eventname : "Contract initialized" }
+
+(* Event for communicating a new transaction id *)
+let mk_transaction_added_event =
+  fun (tc : Uint32) =>
+    { _eventname : "Transaction created" ; transactionId : tc }
+
+(* Event for communicating the signing of a transaction *)
+let mk_transaction_signed_event =
+    { _eventname : "Transaction signed" }
+
+type Error =
+| NonOwnerCannotSign
+| UnknownTransactionId
+| InsufficientFunds
+| NoSignatureListFound
+| AlreadySigned
+| NotAlreadySigned
+| InvalidContract
+| InvalidAmount
+| NotEnoughSignatures
+| SenderMayNotExecute
+| NonOwnerCannotSubmit
+
+(* Error events *)
+let mk_error_event =
+  fun (err : Error) =>
+  let err_code =
+    match err with
+    | NonOwnerCannotSign    => Int32 -1
+    | UnknownTransactionId  => Int32 -2
+    | InsufficientFunds     => Int32 -3
+    | NoSignatureListFound  => Int32 -4
+    | AlreadySigned         => Int32 -5
+    | NotAlreadySigned      => Int32 -6
+    | InvalidContract       => Int32 -7
+    | InvalidAmount         => Int32 -8
+    | NotEnoughSignatures   => Int32 -9
+    | SenderMayNotExecute   => Int32 -10
+    | NonOwnerCannotSubmit  => Int32 -11
+    end in
+  { _eventname : "WalletError" ; err_code : err_code }
+
+let transaction_inc = Uint32 1
+let t = True
+
+(* One (potential) transaction, consisting of a recipient address, an amount, *)
+(* and a tag (in case the recipient is another contract *)
+type Transaction =
+| Trans of ByStr20 Uint128 String
+
+(* Make map of owners *)
+let mk_owners_map =
+  fun (owners : List ByStr20) =>
+    let init = Emp ByStr20 Bool in
+    let iter =
+      fun (acc : Map ByStr20 Bool) =>
+      fun (cur_owner : ByStr20) =>
+        let mem = builtin get acc cur_owner in
+        match mem with
+        | Some True =>
+          (* owner already added *)
+          acc
+        | _ =>
+          (* owner not yet added, or removed *)
+          builtin put acc cur_owner t
+        end in
+    let folder = @list_foldl ByStr20 (Map ByStr20 Bool) in
+    folder iter init owners
+
+(* Check that the number of distinct owners is greater than 0 *)
+let check_contract_validity =
+  fun (owners : List ByStr20) =>
+  fun (required_signatures : Uint32) =>
+    let len = @list_length ByStr20 in
+    let no_of_owners = len owners in
+    let zero = Uint32 0 in
+    let owners_ok = builtin lt zero no_of_owners in
+    let required_sigs_not_too_low = builtin lt zero required_signatures in
+    let required_sigs_too_high = builtin lt no_of_owners required_signatures in
+    let required_sigs_not_too_high = negb required_sigs_too_high in
+    let required_sigs_ok = andb required_sigs_not_too_high required_sigs_not_too_low in
+    andb required_sigs_ok owners_ok
+
+(* Create one transaction message *)
+let transaction_msg =
+  fun (recipient : ByStr20) =>
+  fun (amount : Uint128) =>
+  fun (tag : String) =>
+    {_tag : tag; _recipient : recipient; _amount : amount }
+
+(* Wrap one transaction message as singleton list *)
+let transaction_msg_as_list =
+  fun (recipient : ByStr20) =>
+  fun (amount : Uint128) =>
+  fun (tag : String) =>
+    let one_msg =
+      fun (msg : Message) =>
+        let nil_msg = Nil {Message} in
+        Cons {Message} msg nil_msg in
+    let msg = transaction_msg recipient amount tag in
+    one_msg msg
+
+contract Wallet
+(
+owners_list         : List ByStr20,
+required_signatures : Uint32
+)
+
+(* Funds are not allowed to be added if the contract is not valid *)
+field validity_checked : Bool = False
+field contract_valid   : Bool = False
+
+(* adr -> True indicates that an owner *)
+(* adr not in map indicates non-owner *)
+(* adr -> False is not used *)
+(* The initial owners will be added as owners when funds are *)
+(* initially added to the contract. *)
+field owners           : Map ByStr20 Bool = Emp ByStr20 Bool
+
+field transactionCount : Uint32 = Uint32 0
+
+(* Collected signatures for transactions *)
+field signatures       : Map Uint32 (Map ByStr20 Bool) =
+                           Emp Uint32 (Map ByStr20 Bool)
+(* Transactions *)
+field transactions     : Map Uint32 Transaction =
+                           Emp Uint32 Transaction
+
+(* Submit a transaction for future signoff *)
+transition SubmitTransaction (recipient : ByStr20, amount : Uint128, tag : String)
+  (* Only allow owners to submit new transactions *)
+  sender_is_owner <- exists owners[_sender];
+  match sender_is_owner with
+  | False =>
+    err = NonOwnerCannotSubmit;
+    e = mk_error_event err;
+    event e
+  | True =>
+    tc <- transactionCount;
+    zero = Uint128 0;
+    amount_is_zero = builtin eq amount zero;
+    match amount_is_zero with
+    | True =>
+      (* Illegal transaction *)
+      err = InvalidAmount;
+      e = mk_error_event err;
+      event e
+    | False =>
+      (* Create new transaction *)
+      transaction = Trans recipient amount tag;
+      (* Add transaction to outstanding list of transactions *)
+      transactions[tc] := transaction;
+      (* Sender implicitly signs *)
+      signatures[tc][_sender] := t;
+      (* Increment transaction counter *)
+      tc_new = builtin add tc transaction_inc;
+      (* Update transaction count *)
+      transactionCount := tc_new;
+      (* Create event with transaction Id *)
+      e = mk_transaction_added_event tc;
+      event e
+    end
+  end
+end
+
+(* Sign off on an existing transaction *)
+transition SignTransaction (transactionId : Uint32)
+  (* Only the owner is allowed to sign off transactions *)
+  sender_is_owner <- exists owners[_sender];
+  match sender_is_owner with
+  | False =>
+    err = NonOwnerCannotSign;
+    e = mk_error_event err;
+    event e
+  | True =>
+    (* Transaction must have been submitted *)
+    transaction <- transactions[transactionId];
+    match transaction with
+    | None =>
+      err = UnknownTransactionId;
+      e = mk_error_event err;
+      event e
+    | Some (Trans recipient amount _) =>
+      (* Sender must not have signed already *)
+      sender_has_signed <- exists signatures[transactionId][_sender];
+      match sender_has_signed with
+      | True =>
+        err = AlreadySigned;
+        e = mk_error_event err;
+        event e
+      | False =>
+        (* Signature is valid. Add to collected signatures *)
+        signatures[transactionId][_sender] := t;
+        e = mk_transaction_signed_event;
+        event e
+      end
+    end
+  end
+end
+
+(* Execute signed-off transaction *)
+transition ExecuteTransaction (transactionId : Uint32)
+  transaction_opt <- transactions[transactionId];
+  match transaction_opt with
+  | None =>
+    (* Transaction was not found. *)
+    err = UnknownTransactionId;
+    e = mk_error_event err;
+    event e
+  | Some (Trans recipient amount tag) =>
+    (* Only the recipient can initiate the transaction *)
+    recipient_is_sender = builtin eq recipient _sender;
+    sender_is_owner <- exists owners[_sender];
+    sender_may_execute = orb recipient_is_sender sender_is_owner;
+    match sender_may_execute with
+    | False =>
+      err = SenderMayNotExecute;
+      e = mk_error_event err;
+      event e
+    | True =>
+      (* Check for sufficient funds  *)
+      bal <- _balance;
+      not_enough_money = builtin lt bal amount;
+      match not_enough_money with
+      | True =>
+        err = InsufficientFunds;
+        e = mk_error_event err;
+        event e
+      | False =>
+        sigs_opt <- signatures[transactionId];
+        match sigs_opt with
+        | None =>
+          (* Signatures not found, even though the transaction exists.*)
+          err = NoSignatureListFound;
+          e = mk_error_event err;
+          event e
+        | Some sigs =>
+          (* Check for sufficient number of signatures *)
+          no_of_sigs = builtin size sigs;
+          not_enough_signatures = builtin lt no_of_sigs required_signatures;
+          match not_enough_signatures with
+          | True =>
+            err = NotEnoughSignatures;
+            e = mk_error_event err;
+            event e
+          | False =>
+            (* Transaction approved, and enough money available. *)
+            (* Remove transaction and signatures, and execute. *)
+            delete transactions[transactionId];
+            delete signatures[transactionId];
+            msgs = transaction_msg_as_list recipient amount tag;
+            send msgs
+          end
+        end
+      end
+    end
+  end
+end
+
+(* Revoke signature of existing transaction, if it has not yet been executed. *)
+transition RevokeSignature (transactionId : Uint32)
+  (* Sender must have signed already, and transaction must not have been executed. *)
+  sender_has_signed <- exists signatures[transactionId][_sender];
+  match sender_has_signed with
+  | False =>
+    err = NotAlreadySigned;
+    e = mk_error_event err;
+    event e
+  | True =>
+    delete signatures[transactionId][_sender]
+  end
+end
+
+(* Add funds to wallet *)
+transition AddFunds ()
+  (* Check validity of contract. If the contract is invalid, funds will not be accepted. *)
+  checked <- validity_checked;
+  match checked with
+  | False =>
+    valid_contract = check_contract_validity owners_list required_signatures;
+    contract_valid := valid_contract;
+    validity_checked := t;
+    match valid_contract with
+    | True =>
+      owners_map = mk_owners_map owners_list;
+      owners := owners_map;
+      e = mk_contract_initialized_event;
+      event e
+    | False =>
+    end
+  | True =>
+  end;
+
+  (* Only accept funds if the contract is valid. *)
+  valid <- contract_valid;
+  match valid with
+  | False =>
+    err = InvalidContract;
+    e = mk_error_event err;
+    event e
+  | True =>
+    accept
+  end
+end
