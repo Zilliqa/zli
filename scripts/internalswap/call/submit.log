@@ -1,0 +1,10 @@
+2019/09/03 16:13:57 start to submit transaction for amrit, bech32 address is zil1vuvhslc7qmt2cgyn25ssqlz6d2a2ee9d0ku2re, normal address is 0x6719787f1e06d6ac20935521007c5a6abaace4ad, amount is 1000000000000
+2019/09/03 16:13:58 start to poll transaction: 455980dbd9bf061dacd5cc96cf42bba02d629944bd6ea2e532d522e67f0456eb
+2019/09/03 16:15:24 get recipients for 455980dbd9bf061dacd5cc96cf42bba02d629944bd6ea2e532d522e67f0456eb
+2019/09/03 16:15:24 recipients:
+{"cumulative_gas":"1025","epoch_num":"729125","event_logs":[{"_eventname":"Transaction created","address":"0x305d5b3acaa2f4a56b5e149400466c58194e695f","params":[{"type":"Uint32","value":"31","vname":"transactionId"}]}],"success":true}
+2019/09/03 16:15:42 start to submit transaction for juzar, bech32 address is zil1sk02c9s846qslj7nt32fw56e3nx78p2lxusrt7, normal address is 0x859eac1607ae810fcbd35c549753598ccde3855f, amount is 1000000000000
+2019/09/03 16:15:43 start to poll transaction: 63c9856bcaed0af0b44be320ee576354d7db90e0b8412825f0c8809a8eb01ef4
+2019/09/03 16:17:00 get recipients for 63c9856bcaed0af0b44be320ee576354d7db90e0b8412825f0c8809a8eb01ef4
+2019/09/03 16:17:00 recipients:
+{"cumulative_gas":"1025","epoch_num":"729128","event_logs":[{"_eventname":"Transaction created","address":"0x305d5b3acaa2f4a56b5e149400466c58194e695f","params":[{"type":"Uint32","value":"32","vname":"transactionId"}]}],"success":true}

@@ -7,6 +7,7 @@ import (
 	"github.com/FireStack-Lab/LaksaGo/account"
 	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
 	"github.com/FireStack-Lab/LaksaGo/provider"
+	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
 	"io/ioutil"
 	"strconv"
@@ -23,6 +24,7 @@ var wallet *core.Wallet
 var chainId int
 var api string
 var privateKey string
+var keystore string
 
 func init() {
 	deployCmd.Flags().StringVarP(&code, "code", "c", "", "file that contains contract code")
@@ -32,6 +34,7 @@ func init() {
 	deployCmd.Flags().IntVarP(&chainId, "chainId", "d", 0, "chain id")
 	deployCmd.Flags().StringVarP(&api, "api", "u", "", "api url")
 	deployCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to deploy the contract")
+	deployCmd.Flags().StringVarP(&keystore, "keystore", "s", "", "keystore used to deploy the contract")
 	ContractCmd.AddCommand(deployCmd)
 }
 
@@ -52,6 +55,22 @@ var deployCmd = &cobra.Command{
 		}
 		if privateKey != "" {
 			account, err := core.NewAccount(privateKey)
+			if err != nil {
+				panic(err.Error())
+			}
+			wallet.DefaultAccount = *account
+		}
+		if keystore != "" {
+			fmt.Println("please type password to decrypt your keystore: ")
+			pass, err := gopass.GetPasswd()
+			if err != nil {
+				panic(err.Error())
+			}
+			p, err := core.LoadPirvateKeyFromKeyStore(keystore, string(pass))
+			if err != nil {
+				panic(err.Error())
+			}
+			account, err := core.NewAccount(p)
 			if err != nil {
 				panic(err.Error())
 			}

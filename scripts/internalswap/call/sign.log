@@ -1,0 +1,12 @@
+2019/09/03 15:56:11 start to sign id = 29, toAddr = 0x6719787f1e06d6ac20935521007c5a6abaace4ad, value = 1000000000000
+2019/09/03 15:56:13 start to poll sign transaction: c320ab1c09e5a20b4a24962009c23543d83d0eae54c68a3ec2b14c1b56090e6e
+2019/09/03 15:57:42 get recipients for c320ab1c09e5a20b4a24962009c23543d83d0eae54c68a3ec2b14c1b56090e6e: {"cumulative_gas":"789","epoch_num":"729094","event_logs":[{"_eventname":"Transaction signed","address":"0x305d5b3acaa2f4a56b5e149400466c58194e695f","params":[]}],"success":true}
+2019/09/03 15:57:42 start to execute id = 29, toAddr = 0x6719787f1e06d6ac20935521007c5a6abaace4ad, value = 1000000000000
+2019/09/03 15:57:42 start to poll execution transaction: cba76eac82f04781178a37a0712cbf3ea942a3912383f8abdba80c6509faa838
+2019/09/03 15:59:19 get recipients for cba76eac82f04781178a37a0712cbf3ea942a3912383f8abdba80c6509faa838: {"cumulative_gas":"987","epoch_num":"729097","success":true}
+2019/09/03 15:59:19 start to sign id = 30, toAddr = 0x859eac1607ae810fcbd35c549753598ccde3855f, value = 1000000000000
+2019/09/03 15:59:20 start to poll sign transaction: aec2f8556d6f0a926aa3eeb373a5d2a7bd9470cab4088190b967c5b65a7c5c3d
+2019/09/03 16:02:27 get recipients for aec2f8556d6f0a926aa3eeb373a5d2a7bd9470cab4088190b967c5b65a7c5c3d: {"cumulative_gas":"789","epoch_num":"729101","event_logs":[{"_eventname":"Transaction signed","address":"0x305d5b3acaa2f4a56b5e149400466c58194e695f","params":[]}],"success":true}
+2019/09/03 16:02:27 start to execute id = 30, toAddr = 0x859eac1607ae810fcbd35c549753598ccde3855f, value = 1000000000000
+2019/09/03 16:02:27 start to poll execution transaction: 773d3a0d117bf7767ca0722d64f50018f5b13154c6765b6ea6dcb4b7d089dfeb
+2019/09/03 16:04:04 get recipients for 773d3a0d117bf7767ca0722d64f50018f5b13154c6765b6ea6dcb4b7d089dfeb: {"cumulative_gas":"987","epoch_num":"729104","success":true}
