@@ -242,8 +242,8 @@ func getReceiptForTransaction(provider2 *provider.Provider, transactionId string
 	result := response.Result.(map[string]interface{})
 	receipt := result["receipt"]
 	receiptMap := receipt.(map[string]interface{})
-	success := receiptMap["success"].(string)
-	if success == "false" {
+	success := receiptMap["success"].(bool)
+	if success == false {
 		return errors.New("receipt failure"), ""
 	}
 	b, err := json.Marshal(receipt)

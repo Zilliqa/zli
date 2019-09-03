@@ -2,13 +2,17 @@ package swap
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/FireStack-Lab/LaksaGo"
 	"github.com/FireStack-Lab/LaksaGo/account"
 	"github.com/FireStack-Lab/LaksaGo/bech32"
 	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
 	"github.com/FireStack-Lab/LaksaGo/provider"
 	"github.com/FireStack-Lab/LaksaGo/validator"
+	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
+	"log"
+	"os"
 	"strconv"
 	"strings"
 	"zli/core"
@@ -16,7 +20,6 @@ import (
 
 var fundWallet *core.Wallet
 var fundKeyStorePath string
-var fundPassword string
 
 func init() {
 	fundCmd.Flags().StringVarP(&api, "api", "u", "https://dev-api.zilliqa.com/", "api url")
@@ -25,8 +28,8 @@ func init() {
 	fundCmd.Flags().StringVarP(&gasPrice, "price", "p", "10000000000", "gas price")
 	fundCmd.Flags().StringVarP(&gasLimit, "limit", "l", "10000", "gas limit")
 	fundCmd.Flags().StringVarP(&amount, "amount", "m", "0", "token amount will be transfer to the smart contract")
-	fundCmd.Flags().StringVarP(&fundKeyStorePath,"fundkeystore","f","","fund keystore")
-	fundCmd.Flags().StringVarP(&fundPassword, "fundPassword", "s", "", "fundPassword to decrypt the keystore")
+	fundCmd.Flags().StringVarP(&fundKeyStorePath, "fundkeystore", "f", "", "fund keystore")
+	SwapCmd.AddCommand(fundCmd)
 }
 
 var fundCmd = &cobra.Command{
@@ -34,31 +37,44 @@ var fundCmd = &cobra.Command{
 	Short: "Add funds to fundWallet contract",
 	Long:  "Add funds to fundWallet contract",
 	PreRun: func(cmd *cobra.Command, args []string) {
+		logfile, _ := os.Create("fund.log")
+		log.SetOutput(logfile)
 		if fundKeyStorePath == "" {
 			panic("the path of the key store should not be empty")
 		}
-		if fundPassword == "" {
-			panic("fundPassword should not be empty")
+		fmt.Println("please type password to decrypt your keystore: ")
+		pass, err := gopass.GetPasswd()
+		if err != nil {
+			panic(err.Error())
 		}
-		p, err := core.LoadPirvateKeyFromKeyStore(fundKeyStorePath, fundPassword)
+		p, err := core.LoadPirvateKeyFromKeyStore(fundKeyStorePath, string(pass))
 		if err != nil {
 			panic("load private key from keystore error = " + err.Error())
 		}
-		w, err := core.NewWallet([]byte(p), chainId, api)
+		w, err := core.NewWallet(LaksaGo.DecodeHex(p), chainId, api)
 		if err != nil {
 			panic("init fundWallet error = " + err.Error())
 		}
 		fundWallet = w
 	},
 	Run: func(cmd *cobra.Command, args []string) {
-		var a []contract2.Value
+		a := []contract2.Value{}
 
 		if !validator.IsBech32(walletAddress) {
 			walletAddress, _ = bech32.ToBech32Address(walletAddress)
 		}
 
+		fmt.Printf("start to send %s qa to address %s\n", amount, walletAddress)
+		fmt.Println("please type Y to confirm: ")
+		var confirmed string
+		_, err := fmt.Scanln(&confirmed)
+		if err != nil || confirmed != "Y" {
+			fmt.Printf("transfer cancled")
+			return
+		}
+		log.Printf("start to send %s qa to address %s\n", amount, walletAddress)
 		p := provider.NewProvider(api)
-		result := p.GetBalance(fundWallet.API)
+		result := p.GetBalance(fundWallet.DefaultAccount.Address)
 		if result.Error != nil {
 			panic(result.Error.Message)
 		}
@@ -89,6 +105,9 @@ var fundCmd = &cobra.Command{
 			panic(err.Error())
 		}
 
+		log.Printf("start to poll transaction: %s", tx.ID)
 		tx.Confirm(tx.ID, 1000, 3, p)
+		err, recipients := getReceiptForTransaction(p, tx.ID)
+		log.Printf("get recipients for %s: %s\n", tx.ID, recipients)
 	},
 }

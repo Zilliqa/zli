@@ -2,3 +2,6 @@
 testAccounts.txt
 constants.xml
 genet.txt
+scripts/internalswap/fund.log
+scripts/internalswap/sign.log
+scripts/internalswap/submit.log
