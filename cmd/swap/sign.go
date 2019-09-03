@@ -6,10 +6,12 @@ import (
 	"fmt"
 	"github.com/FireStack-Lab/LaksaGo"
 	"github.com/FireStack-Lab/LaksaGo/account"
+	"github.com/FireStack-Lab/LaksaGo/bech32"
 	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
 	"github.com/FireStack-Lab/LaksaGo/provider"
 	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -37,6 +39,8 @@ var SignCmd = &cobra.Command{
 	Short: "sign transactions",
 	Long:  "sign transactions",
 	PreRun: func(cmd *cobra.Command, args []string) {
+		logfile, _ := os.Create("sign.log")
+		log.SetOutput(logfile)
 		if signKeyStore == "" {
 			panic("invalid sign keystore or password")
 		}
@@ -98,7 +102,7 @@ var SignCmd = &cobra.Command{
 
 		for _, value := range shouldBeProcess {
 			fmt.Printf("transaction id = %s should be process on, toAddr = %s, amount = %s\n", value.TxId, value.ToAddr, value.Amount)
-			fmt.Println("start to sign it")
+			log.Printf("start to sign id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
 			result := p.GetBalance(signWallet.DefaultAccount.Address)
 			if result.Error != nil {
 				panic(result.Error.Message)
@@ -122,18 +126,18 @@ var SignCmd = &cobra.Command{
 			}
 			err, tx := contract.Call("SignTransaction", a, params, false, 1000, 3)
 			if err != nil {
-				fmt.Printf("sign transaction error %s, please check\n", err.Error())
+				log.Printf("sign transaction error %s, please check\n", err.Error())
 				continue
 			}
-			tx.Confirm(tx.ID, 1000, 3, p)
+			log.Printf("start to poll sign transaction: %s\n", tx.ID)
 			tx.Confirm(tx.ID, 1000, 3, p)
 			err, recipients := getReceiptForTransaction(p, tx.ID)
 			if err != nil {
 				panic(err.Error())
 			}
-			fmt.Printf("recipients:\n%s\n", recipients)
+			log.Printf("get recipients for %s: %s\n", tx.ID, recipients)
 
-			fmt.Println("start to execute it")
+			log.Printf("start to execute id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
 			result = p.GetBalance(signWallet.DefaultAccount.Address)
 			if result.Error != nil {
 				panic(result.Error.Message)
@@ -157,17 +161,21 @@ var SignCmd = &cobra.Command{
 			}
 			err, tx = contract.Call("ExecuteTransaction", a, params, false, 1000, 3)
 			if err != nil {
-				fmt.Printf("sign transaction error %s, please check\n", err.Error())
+				log.Printf("execute transaction error %s, please check\n", err.Error())
 				continue
 			}
 
-			tx.Confirm(tx.ID, 1000, 3, p)
+			log.Printf("start to poll execution transaction: %s\n", tx.ID)
 			tx.Confirm(tx.ID, 1000, 3, p)
 			err, recipients = getReceiptForTransaction(p, tx.ID)
 			if err != nil {
-				panic(err.Error())
+				log.Printf("transaction failed")
+				continue
 			}
-			fmt.Printf("recipients:\n%s\n", recipients)
+			log.Printf("get recipients for %s: %s\n", tx.ID, recipients)
+
+			bech32Address, _ := bech32.ToBech32Address(value.ToAddr)
+			_ = core.AppendLine(bech32Address, "notoverride.csv")
 		}
 	},
 }

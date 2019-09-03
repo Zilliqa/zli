@@ -12,6 +12,7 @@ import (
 	"github.com/howeyc/gopass"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -21,6 +22,7 @@ import (
 var submitWallet *core.Wallet
 var submitKeyStore string
 var submitCSV string
+var notoverride string
 
 type Recipient struct {
 	Name    string
@@ -37,6 +39,7 @@ func init() {
 	SubmitCmd.Flags().StringVarP(&amount, "amount", "m", "0", "token amount will be transfer to the smart contract")
 	SubmitCmd.Flags().StringVarP(&submitKeyStore, "submitkeystore", "s", "", "submit key store")
 	SubmitCmd.Flags().StringVarP(&submitCSV, "recipient", "r", ".recipients", "the path of recipient file")
+	SubmitCmd.Flags().StringVarP(&notoverride, "notoverride", "n", "notoverride.csv", "not override")
 	SwapCmd.AddCommand(SubmitCmd)
 }
 
@@ -45,6 +48,8 @@ var SubmitCmd = &cobra.Command{
 	Short: "submit transactions",
 	Long:  "submit transactions",
 	PreRun: func(cmd *cobra.Command, args []string) {
+		logfile, _ := os.Create("submit.log")
+		log.SetOutput(logfile)
 		if submitKeyStore == "" {
 			panic("invalid submit keystore or password")
 		}
@@ -66,7 +71,7 @@ var SubmitCmd = &cobra.Command{
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		// the main process of internal token swap
-		fmt.Println("start to read submitCSV file...")
+		fmt.Println("start to read submit csv file...")
 		f, err := os.Open(submitCSV)
 		if err != nil {
 			panic("cannot read submit csv file = " + err.Error())
@@ -102,6 +107,24 @@ var SubmitCmd = &cobra.Command{
 		}
 		fmt.Printf("total load %d recipients\n", len(recipients))
 
+		fmt.Printf("start to read not override csv...")
+
+		notoverrides := make(map[string]interface{})
+		f, err = os.Open(notoverride)
+		if err != nil {
+			panic("cannot read notoverride csv file = " + err.Error())
+		}
+		scanner = bufio.NewScanner(f)
+		for scanner.Scan() {
+			line := scanner.Text()
+			fmt.Println("read line: " + line)
+			notoverrides[line] = nil
+		}
+		if err := scanner.Err(); err != nil {
+			panic(err.Error())
+		}
+		fmt.Printf("tital load %d notoverrides\n", len(notoverrides))
+
 		normalWalletAddress, _ := bech32.FromBech32Addr(walletAddress)
 		p := provider.NewProvider(api)
 		response := p.GetSmartContractState(normalWalletAddress)
@@ -112,10 +135,16 @@ var SubmitCmd = &cobra.Command{
 		transactionsBeforeSubmit := parseUnsignedTransactionsFromState(states)
 
 		for _, value := range recipients {
+			_, ok := notoverrides[value.Address]
+			if ok {
+				fmt.Printf("skip %s, address = %s\n", value.Name, value.Address)
+				continue
+			}
 			checksumAddress, _ := bech32.FromBech32Addr(value.Address)
 			toAddress := fmt.Sprintf("0x%s", strings.ToLower(checksumAddress))
+			fmt.Printf("start to submit transaction for %s, bech32 address is %s, normal address is %s, amount is %d", value.Name, value.Address, toAddress, value.Amount)
+			fmt.Println("please type Y to confirm: ")
 			var confirmed string
-			fmt.Printf("start to subcommit transaction for %s, bech32 address is %s, normal address is %s, amount is %d, please type Y to confirm: ", value.Name, value.Address, toAddress, value.Amount)
 			_, err := fmt.Scanln(&confirmed)
 			if err != nil {
 				fmt.Printf("confirm failed, skip send to %s\n", value.Name)
@@ -125,6 +154,7 @@ var SubmitCmd = &cobra.Command{
 				fmt.Printf("skip send to %s\n", value.Name)
 				continue
 			}
+			log.Printf("start to submit transaction for %s, bech32 address is %s, normal address is %s, amount is %d", value.Name, value.Address, toAddress, value.Amount)
 			a := []contract2.Value{
 				{
 					VName: "recipient",
@@ -142,7 +172,6 @@ var SubmitCmd = &cobra.Command{
 					Value: "",
 				},
 			}
-			fmt.Printf("start to sumbit transaction for %s\n", value.Name)
 			p := provider.NewProvider(api)
 			result := p.GetBalance(submitWallet.DefaultAccount.Address)
 			if result.Error != nil {
@@ -172,13 +201,14 @@ var SubmitCmd = &cobra.Command{
 				panic(err.Error())
 			}
 
+			log.Printf("start to poll transaction: %s\n", tx.ID)
 			tx.Confirm(tx.ID, 1000, 3, p)
 			err, recipients := getReceiptForTransaction(p, tx.ID)
 			if err != nil {
 				panic(err.Error())
 			}
-			fmt.Printf("recipients:\n%s\n", recipients)
-
+			log.Printf("get recipients for %s", tx.ID)
+			log.Printf("recipients:\n%s\n", recipients)
 		}
 
 		response = p.GetSmartContractState(normalWalletAddress)
@@ -211,6 +241,11 @@ func getReceiptForTransaction(provider2 *provider.Provider, transactionId string
 	}
 	result := response.Result.(map[string]interface{})
 	receipt := result["receipt"]
+	receiptMap := receipt.(map[string]interface{})
+	success := receiptMap["success"].(string)
+	if success == "false" {
+		return errors.New("receipt failure"), ""
+	}
 	b, err := json.Marshal(receipt)
 	if err != nil {
 		return errors.New(err.Error()), ""
