@@ -32,3 +32,20 @@ func WriteLines(lines []string, path string) error {
 	}
 	return w.Flush()
 }
+
+func AppendLine(line string, path string) error {
+	f, err := os.OpenFile(path,
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	if _, err := f.WriteString(line); err != nil {
+		return err
+	}
+	if _, err := f.WriteString("\n"); err != nil {
+		return err
+	}
+
+	return nil
+}
