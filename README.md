@@ -101,6 +101,50 @@ Use "zli [command] --help" for more information about a command.
 
 #### Example
 
+<h5> internal tokenswap </h5>
+
+1. Prepare two kinds of keystore, one for submitting transactions, another for signing and executing transactions:
+
+submitters.keystore
+
+```json
+{"address": "4d7f134042b1423bd4940792ab6494730fbf95d4", "crypto": {"cipher": "aes-128-ctr", "cipherparams": {"iv": "0c1f5a0f83377e684fe64b732386f324"}, "ciphertext": "2b6ff8ec89e73827f7d1657db7ed3493b1cf4e2eda2b4254823161ec7e835655", "kdf": "pbkdf2", "kdfparams": {"salt": "df97994dc19b8a4af8ed37912c67d83ec04207fc05a59d13f5c90c09a4da3094", "n": 8192, "c": 262144, "r": 8, "p": 1, "dklen": 32}, "mac": "3c68fe95c047e8cf8fb7c63c9c54d7261f0bcc80fdc7e71f6770607cfd0cbe56"}, "id": "8a422ca1-96ca-4f04-97de-93b796698009", "version": 3}
+```
+
+signer.keystore
+
+```json
+{"address": "98b1a91648c1097e4ca54a82811109a2fc42cb92", "crypto": {"cipher": "aes-128-ctr", "cipherparams": {"iv": "1a336982dc294beb538ba8727002ffa8"}, "ciphertext": "73ef4879dd2da1c573ed83e0914329a91c8c417969656b9c47d8b6728f39235a", "kdf": "pbkdf2", "kdfparams": {"salt": "b7cbd1bc3c33afebba03875cd20d68e92449acec066c988874fde14c933564b7", "n": 8192, "c": 262144, "r": 8, "p": 1, "dklen": 32}, "mac": "79b528f7c231dfca8cd66293370b1cf3fa0697de479e387dc6d6ee746604e6ea"}, "id": "532b702e-64c9-421e-8f5a-cdbb1f25461c", "version": 3}
+```
+
+
+2. Prepare one recipient file:
+
+```text
+amrit zil1vuvhslc7qmt2cgyn25ssqlz6d2a2ee9d0ku2re 1
+juzar zil1sk02c9s846qslj7nt32fw56e3nx78p2lxusrt7 1
+```
+
+3. Run submit command:
+
+```bash
+go-zli swap submit -a zil1xpw4kwk25t622667zj2qq3nvtqv5u62l3xv6f2 -u https://dev-api.zilliqa.com/  -c 333  -r recipients.csv -s submitter.keystore
+```
+
+this command will generate a `transaction file` which like (the third field means `zil` not `qa`):
+
+```text
+21 0x6719787f1e06d6ac20935521007c5a6abaace4ad 2
+```
+
+
+
+4. Feed the above `transaction file` to sign command:
+
+```bash
+go-zli swap sign -a zil1xpw4kwk25t622667zj2qq3nvtqv5u62l3xv6f2 -u https://dev-api.zilliqa.com/  -c 333  -r ./transactions.csv -w signer.keystore
+```
+
 <h5> test tiny contract for corner cases </h5>
 
 1. Prepare ~/.zilliqa by using `go-zli wallet init` or `go-zli wallet from -p [private_key]`:
