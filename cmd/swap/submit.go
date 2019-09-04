@@ -34,7 +34,7 @@ func init() {
 	SubmitCmd.Flags().StringVarP(&api, "api", "u", "https://dev-api.zilliqa.com/", "api url")
 	SubmitCmd.Flags().IntVarP(&chainId, "chainId", "c", 333, "the message version of the network")
 	SubmitCmd.Flags().StringVarP(&walletAddress, "address", "a", "zil1xpw4kwk25t622667zj2qq3nvtqv5u62l3xv6f2", "address of the fundWallet contract")
-	SubmitCmd.Flags().StringVarP(&gasPrice, "price", "p", "10000000000", "gas price")
+	SubmitCmd.Flags().StringVarP(&gasPrice, "price", "p", "1000000000", "gas price")
 	SubmitCmd.Flags().StringVarP(&gasLimit, "limit", "l", "10000", "gas limit")
 	SubmitCmd.Flags().StringVarP(&amount, "amount", "m", "0", "token amount will be transfer to the smart contract")
 	SubmitCmd.Flags().StringVarP(&submitKeyStore, "submitkeystore", "s", "", "submit key store")
