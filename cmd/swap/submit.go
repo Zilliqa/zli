@@ -156,7 +156,7 @@ var SubmitCmd = &cobra.Command{
 			}
 			states := response.Result.([]interface{})
 			transactionsBeforeSubmit := parseUnsignedTransactionsFromState(states)
-			log.Printf("start to submit transaction for %s, bech32 address is %s, normal address is %s, amount is %d", value.Name, value.Address, toAddress, value.Amount)
+			log.Printf("start to submit transaction for %s, bech32 address is %s, normal address is %s, amount is %d\n", value.Name, value.Address, toAddress, value.Amount)
 			a := []contract2.Value{
 				{
 					VName: "recipient",
@@ -209,7 +209,7 @@ var SubmitCmd = &cobra.Command{
 			if err != nil {
 				panic(err.Error())
 			}
-			log.Printf("get recipients for %s", tx.ID)
+			log.Printf("get recipients for %s\n", tx.ID)
 			log.Printf("recipients:\n%s\n", recipients)
 			response = p.GetSmartContractState(normalWalletAddress)
 			if response.Error != nil {
@@ -219,11 +219,14 @@ var SubmitCmd = &cobra.Command{
 			transactionsAfterSubmit := parseUnsignedTransactionsFromState(states)
 			//so we compare transactionsBeforeSubmit and transactionsAfterSubmit to get transactions should be process this time
 			transactions := compareTransactions(transactionsBeforeSubmit, transactionsAfterSubmit)
-			err = core.WriteLines(transactions, "transactions.csv")
-			if err != nil {
-				fmt.Println("write transactions to file failed: ", err.Error())
-				fmt.Println(transactions)
+			for _,transaction := range transactions {
+				err = core.AppendLine(transaction, "transactions.csv")
+				if err != nil {
+					fmt.Println("write transactions to file failed: ", err.Error())
+					fmt.Println(transactions)
+				}
 			}
+
 		}
 	},
 }
