@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"github.com/FireStack-Lab/LaksaGo"
 	"github.com/FireStack-Lab/LaksaGo/account"
-	"github.com/FireStack-Lab/LaksaGo/bech32"
 	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
 	"github.com/FireStack-Lab/LaksaGo/provider"
 	"github.com/howeyc/gopass"
@@ -63,7 +62,6 @@ var SignCmd = &cobra.Command{
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("start to read sign csv file...")
-		fmt.Println(signCSV)
 		f, err := os.Open(signCSV)
 		if err != nil {
 			panic("cannot read sign csv file = " + err.Error())
@@ -150,56 +148,11 @@ var SignCmd = &cobra.Command{
 			}
 			log.Printf("get recipients for %s: %s\n", tx.ID, recipients)
 
-			fmt.Printf("start to execute id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
-			fmt.Println("please type Y to confirm: ")
-			_, err = fmt.Scanln(&confirmed)
-			if err != nil {
-				fmt.Printf("confirm failed, skip execute tx %s\n", value.TxId)
-				continue
-			}
-			if confirmed != "Y" {
-				fmt.Printf("confirm failed, skip execute tx %s\n", value.TxId)
-				continue
-			}
-			log.Printf("start to execute id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
-			result = p.GetBalance(signWallet.DefaultAccount.Address)
-			if result.Error != nil {
-				panic(result.Error.Message)
-			}
-			balance = result.Result.(map[string]interface{})
-			nonce, _ = balance["nonce"].(json.Number).Int64()
-			params = contract2.CallParams{
-				Version:      strconv.FormatInt(int64(LaksaGo.Pack(chainId, 1)), 10),
-				Nonce:        strconv.FormatInt(nonce+1, 10),
-				GasPrice:     gasPrice,
-				GasLimit:     gasLimit,
-				SenderPubKey: strings.ToUpper(signWallet.DefaultAccount.PublicKey),
-				Amount:       "0",
-			}
-			a = []contract2.Value{
-				{
-					VName: "transactionId",
-					Type:  "Uint32",
-					Value: value.TxId,
-				},
-			}
-			err, tx = contract.Call("ExecuteTransaction", a, params, false, 1000, 3)
-			if err != nil {
-				log.Printf("execute transaction error %s, please check\n", err.Error())
-				continue
-			}
-
-			log.Printf("start to poll execution transaction: %s\n", tx.ID)
-			tx.Confirm(tx.ID, 1000, 3, p)
-			err, recipients = getReceiptForTransaction(p, tx.ID)
-			if err != nil {
-				log.Printf("transaction failed")
-				continue
-			}
-			log.Printf("get recipients for %s: %s\n", tx.ID, recipients)
-
-			bech32Address, _ := bech32.ToBech32Address(value.ToAddr)
-			_ = core.AppendLine(bech32Address, "notoverride.csv")
+			sb := strings.Builder{}
+			sb.WriteString(value.TxId)
+			sb.WriteString(" ")
+			sb.WriteString(value.ToAddr)
+			_ = core.AppendLine(sb.String(), "signed.csv")
 		}
 	},
 }
