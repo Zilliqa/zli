@@ -61,7 +61,7 @@ var ExecuteCmd = &cobra.Command{
 		}
 		siw, err := core.NewWallet(LaksaGo.DecodeHex(executePrivateKey), chainId, api)
 		if err != nil {
-			panic("construct sign wallet error: " + err.Error())
+			panic("construct exit wallet error: " + err.Error())
 		}
 		executeWallet = siw
 	},
@@ -141,7 +141,7 @@ var ExecuteCmd = &cobra.Command{
 					Value: value.ID,
 				},
 			}
-			err, tx := contract.Call("ExecuteTransaction", a, params, false, 1000, 3)
+			err, tx := contract.Call("ExecuteTransaction", a, params, priority, 1000, 3)
 			if err != nil {
 				log.Printf("execute transaction error %s, please check\n", err.Error())
 				continue

@@ -135,7 +135,7 @@ var SignCmd = &cobra.Command{
 					Value: value.TxId,
 				},
 			}
-			err, tx := contract.Call("SignTransaction", a, params, false, 1000, 3)
+			err, tx := contract.Call("SignTransaction", a, params, priority, 1000, 3)
 			if err != nil {
 				log.Printf("sign transaction error %s, please check\n", err.Error())
 				continue

@@ -197,7 +197,7 @@ var SubmitCmd = &cobra.Command{
 				Amount:       "0",
 			}
 
-			err, tx := contract.Call("SubmitTransaction", a, params, false, 1000, 3)
+			err, tx := contract.Call("SubmitTransaction", a, params, priority, 1000, 3)
 
 			if err != nil {
 				panic(err.Error())
