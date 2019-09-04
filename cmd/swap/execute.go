@@ -41,7 +41,7 @@ type Pair struct {
 }
 
 var ExecuteCmd = &cobra.Command{
-	Use:   "sign",
+	Use:   "execute",
 	Short: "execute transactions",
 	Long:  "execute transactions",
 	PreRun: func(cmd *cobra.Command, args []string) {
