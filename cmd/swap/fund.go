@@ -29,6 +29,7 @@ func init() {
 	fundCmd.Flags().StringVarP(&gasLimit, "limit", "l", "10000", "gas limit")
 	fundCmd.Flags().StringVarP(&amount, "amount", "m", "0", "token amount will be transfer to the smart contract")
 	fundCmd.Flags().StringVarP(&fundKeyStorePath, "fundkeystore", "f", "", "fund keystore")
+	fundCmd.Flags().BoolVarP(&priority, "priority", "f", true, "setup priority of transaction")
 	SwapCmd.AddCommand(fundCmd)
 }
 
@@ -100,7 +101,7 @@ var fundCmd = &cobra.Command{
 			Amount:       amount,
 		}
 
-		err, tx := contract.Call("AddFunds", a, params, false, 1000, 3)
+		err, tx := contract.Call("AddFunds", a, params, priority, 1000, 3)
 		if err != nil {
 			panic(err.Error())
 		}
