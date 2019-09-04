@@ -102,6 +102,16 @@ var SignCmd = &cobra.Command{
 
 		for _, value := range shouldBeProcess {
 			fmt.Printf("transaction id = %s should be process on, toAddr = %s, amount = %s\n", value.TxId, value.ToAddr, value.Amount)
+			var confirmed string
+			_, err := fmt.Scanln(&confirmed)
+			if err != nil {
+				fmt.Printf("confirm failed, skip sign tx %s\n", value.TxId)
+				continue
+			}
+			if confirmed != "Y" {
+				fmt.Printf("confirm failed, skip sign tx %s\n", value.TxId)
+				continue
+			}
 			log.Printf("start to sign id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
 			result := p.GetBalance(signWallet.DefaultAccount.Address)
 			if result.Error != nil {
@@ -137,6 +147,16 @@ var SignCmd = &cobra.Command{
 			}
 			log.Printf("get recipients for %s: %s\n", tx.ID, recipients)
 
+			fmt.Printf("start to execute id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
+			_, err = fmt.Scanln(&confirmed)
+			if err != nil {
+				fmt.Printf("confirm failed, skip execute tx %s\n", value.TxId)
+				continue
+			}
+			if confirmed != "Y" {
+				fmt.Printf("confirm failed, skip execute tx %s\n", value.TxId)
+				continue
+			}
 			log.Printf("start to execute id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
 			result = p.GetBalance(signWallet.DefaultAccount.Address)
 			if result.Error != nil {
