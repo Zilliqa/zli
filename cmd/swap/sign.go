@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/FireStack-Lab/LaksaGo"
 	"github.com/FireStack-Lab/LaksaGo/account"
+	"github.com/FireStack-Lab/LaksaGo/bech32"
 	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
 	"github.com/FireStack-Lab/LaksaGo/provider"
 	"github.com/howeyc/gopass"
@@ -100,8 +101,9 @@ var SignCmd = &cobra.Command{
 		}
 
 		for _, value := range shouldBeProcess {
+			bech32, _ := bech32.ToBech32Address(value.ToAddr)
 			fmt.Printf("transaction id = %s should be process on, toAddr = %s, amount = %s\n", value.TxId, value.ToAddr, value.Amount)
-			fmt.Printf("start to sign id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
+			fmt.Printf("start to sign id = %s, toAddr = %s, bech32 address = %s, value = %s\n", value.TxId, value.ToAddr, bech32, value.Amount)
 			fmt.Println("please type Y to confirm: ")
 			var confirmed string
 			_, err := fmt.Scanln(&confirmed)
@@ -113,7 +115,7 @@ var SignCmd = &cobra.Command{
 				fmt.Printf("confirm failed, skip sign tx %s\n", value.TxId)
 				continue
 			}
-			log.Printf("start to sign id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
+			log.Printf("start to sign id = %s, toAddr = %s, bech32 address = %s,value = %s\n", value.TxId, value.ToAddr, bech32, value.Amount)
 			result := p.GetBalance(signWallet.DefaultAccount.Address)
 			if result.Error != nil {
 				panic(result.Error.Message)

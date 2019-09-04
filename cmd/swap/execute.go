@@ -31,7 +31,7 @@ func init() {
 	ExecuteCmd.Flags().StringVarP(&amount, "amount", "m", "0", "token amount will be transfer to the smart contract")
 	ExecuteCmd.Flags().StringVarP(&executeKeyStore, "executekeystore", "w", "", "sign and execute key store")
 	ExecuteCmd.Flags().StringVarP(&executeCSV, "signed", "r", "", "the path of signed file")
-	ExecuteCmd	.Flags().BoolVarP(&priority, "priority", "g", true, "setup priority of transaction")
+	ExecuteCmd.Flags().BoolVarP(&priority, "priority", "g", true, "setup priority of transaction")
 	SwapCmd.AddCommand(ExecuteCmd)
 }
 
@@ -106,8 +106,8 @@ var ExecuteCmd = &cobra.Command{
 		}
 
 		for _, value := range shouldBeExecuted {
-
-			fmt.Printf("start to execute id = %s, toAddr = %s\n", value.ID, value.ToAddr)
+			bech32, _ := bech32.ToBech32Address(value.ToAddr)
+			fmt.Printf("start to execute id = %s, toAddr = %s, bech32 address = %s\n", value.ID, value.ToAddr, bech32)
 			fmt.Println("please type Y to confirm: ")
 			var confirmed string
 			_, err = fmt.Scanln(&confirmed)
@@ -119,7 +119,7 @@ var ExecuteCmd = &cobra.Command{
 				fmt.Printf("confirm failed, skip execute tx %s\n", value.ID)
 				continue
 			}
-			log.Printf("start to execute id = %s, toAddr = %s\n", value.ID, value.ToAddr)
+			log.Printf("start to execute id = %s, toAddr = %s, bech32 address = %s\n", value.ID, value.ToAddr,bech32)
 			result := p.GetBalance(signWallet.DefaultAccount.Address)
 			if result.Error != nil {
 				panic(result.Error.Message)
