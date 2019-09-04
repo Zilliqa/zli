@@ -29,8 +29,8 @@ var keystore string
 func init() {
 	deployCmd.Flags().StringVarP(&code, "code", "c", "", "file that contains contract code")
 	deployCmd.Flags().StringVarP(&initJson, "init", "i", "", "file that contains init json")
-	deployCmd.Flags().Int64VarP(&price, "price", "p", 10000000000, "set gas price")
-	deployCmd.Flags().Int32VarP(&limit, "limit", "l", 10000, "set gas limit")
+	deployCmd.Flags().Int64VarP(&price, "price", "p", 1000000000, "set gas price")
+	deployCmd.Flags().Int32VarP(&limit, "limit", "l", 10, "set gas limit")
 	deployCmd.Flags().IntVarP(&chainId, "chainId", "d", 0, "chain id")
 	deployCmd.Flags().StringVarP(&api, "api", "u", "", "api url")
 	deployCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to deploy the contract")
