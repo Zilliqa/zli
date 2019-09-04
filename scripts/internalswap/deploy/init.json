@@ -1,49 +1,59 @@
 [
-    { 
-        "vname" : "_scilla_version",
-        "type" : "Uint32",
-        "value" : "0"
-    },
-    {
-        "vname" : "initial_owners",
-        "type" : "List ByStr20",
-        "value" : {
-            "constructor" : "Cons",
-            "argtypes"    : [ "ByStr20" ],
-            "arguments"   : [
-                "0x4d7f134042b1423bd4940792ab6494730fbf95d4",
+  {
+    "vname": "_scilla_version",
+    "type": "Uint32",
+    "value": "0"
+  },
+  {
+    "vname": "owners_list",
+    "type": "List ByStr20",
+    "value": {
+      "constructor": "Cons",
+      "argtypes": [
+        "ByStr20"
+      ],
+      "arguments": [
+        "0x4d7f134042b1423bd4940792ab6494730fbf95d4",
+        {
+          "constructor": "Cons",
+          "argtypes": [
+            "ByStr20"
+          ],
+          "arguments": [
+            "0x98b1a91648c1097e4ca54a82811109a2fc42cb92",
+            {
+              "constructor": "Cons",
+              "argtypes": [
+                "ByStr20"
+              ],
+              "arguments": [
+                "0x8e7638bdc0b7b28e172a01fc7ddb65ccb3d67ded",
                 {
-                  "constructor" : "Cons",
-                  "argtypes"    : [ "ByStr20" ],
-                  "arguments"   : [
-                      "0x98b1a91648c1097e4ca54a82811109a2fc42cb92",
+                  "constructor": "Cons",
+                  "argtypes": [
+                    "ByStr20"
+                  ],
+                  "arguments": [
+                    "0xc57e04e20f452ff617de1f97c75ab14bff64bbe6",
                     {
-                      "constructor" : "Cons",
-                      "argtypes"    : [ "ByStr20" ],
-                      "arguments"   : [
-                          "0x8e7638bdc0b7b28e172a01fc7ddb65ccb3d67ded",
-                          {
-                            "constructor" : "Cons",
-                            "argtypes"    : [ "ByStr20" ],
-                            "arguments"   : [
-                                "0xc57e04e20f452ff617de1f97c75ab14bff64bbe6",
-                                {
-                                    "constructor" : "Nil",
-                                    "argtypes"    : [ "ByStr20" ],
-                                    "arguments"   : []
-                                }
-                            ]
-                        }
-                    ]
+                      "constructor": "Nil",
+                      "argtypes": [
+                        "ByStr20"
+                      ],
+                      "arguments": []
+                    }
+                  ]
                 }
-            ]
+              ]
+            }
+          ]
         }
-      ]  
+      ]
     }
-    },
-    {
-        "vname" : "required_signatures",
-        "type" : "Uint32",
-        "value" : "2"
-    }
+  },
+  {
+    "vname": "required_signatures",
+    "type": "Uint32",
+    "value": "2"
+  }
 ]

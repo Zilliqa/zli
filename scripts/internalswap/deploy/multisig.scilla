@@ -5,7 +5,7 @@ import ListUtils IntUtils BoolUtils
 (***************************************************)
 (*               Associated library                *)
 (***************************************************)
-library WalletLib
+library Wallet
 
 (* Event emitted when the contract is initialized *)
 let mk_contract_initialized_event =
@@ -36,7 +36,7 @@ type Error =
 (* Error events *)
 let mk_error_event =
   fun (err : Error) =>
-  let err_code = 
+  let err_code =
     match err with
     | NonOwnerCannotSign    => Int32 -1
     | UnknownTransactionId  => Int32 -2
@@ -105,8 +105,8 @@ let transaction_msg_as_list =
   fun (recipient : ByStr20) =>
   fun (amount : Uint128) =>
   fun (tag : String) =>
-    let one_msg = 
-      fun (msg : Message) => 
+    let one_msg =
+      fun (msg : Message) =>
         let nil_msg = Nil {Message} in
         Cons {Message} msg nil_msg in
     let msg = transaction_msg recipient amount tag in
@@ -126,7 +126,7 @@ field contract_valid   : Bool = False
 (* adr not in map indicates non-owner *)
 (* adr -> False is not used *)
 (* The initial owners will be added as owners when funds are *)
-(* initially added to the contract. *) 
+(* initially added to the contract. *)
 field owners           : Map ByStr20 Bool = Emp ByStr20 Bool
 
 field transactionCount : Uint32 = Uint32 0
@@ -134,7 +134,7 @@ field transactionCount : Uint32 = Uint32 0
 (* Collected signatures for transactions *)
 field signatures       : Map Uint32 (Map ByStr20 Bool) =
                            Emp Uint32 (Map ByStr20 Bool)
-(* Transactions *) 
+(* Transactions *)
 field transactions     : Map Uint32 Transaction =
                            Emp Uint32 Transaction
 
@@ -161,7 +161,7 @@ transition SubmitTransaction (recipient : ByStr20, amount : Uint128, tag : Strin
       (* Create new transaction *)
       transaction = Trans recipient amount tag;
       (* Add transaction to outstanding list of transactions *)
-      transactions[tc] := transaction; 
+      transactions[tc] := transaction;
       (* Sender implicitly signs *)
       signatures[tc][_sender] := t;
       (* Increment transaction counter *)
