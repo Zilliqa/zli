@@ -127,12 +127,7 @@ var SubmitCmd = &cobra.Command{
 
 		normalWalletAddress, _ := bech32.FromBech32Addr(walletAddress)
 		p := provider.NewProvider(api)
-		response := p.GetSmartContractState(normalWalletAddress)
-		if response.Error != nil {
-			panic(response.Error.Message)
-		}
-		states := response.Result.([]interface{})
-		transactionsBeforeSubmit := parseUnsignedTransactionsFromState(states)
+
 
 		for _, value := range recipients {
 			_, ok := notoverrides[value.Address]
@@ -154,6 +149,12 @@ var SubmitCmd = &cobra.Command{
 				fmt.Printf("skip send to %s\n", value.Name)
 				continue
 			}
+			response := p.GetSmartContractState(normalWalletAddress)
+			if response.Error != nil {
+				panic(response.Error.Message)
+			}
+			states := response.Result.([]interface{})
+			transactionsBeforeSubmit := parseUnsignedTransactionsFromState(states)
 			log.Printf("start to submit transaction for %s, bech32 address is %s, normal address is %s, amount is %d", value.Name, value.Address, toAddress, value.Amount)
 			a := []contract2.Value{
 				{
@@ -209,21 +210,19 @@ var SubmitCmd = &cobra.Command{
 			}
 			log.Printf("get recipients for %s", tx.ID)
 			log.Printf("recipients:\n%s\n", recipients)
-		}
-
-		response = p.GetSmartContractState(normalWalletAddress)
-		if response.Error != nil {
-			panic(response.Error.Message)
-		}
-		states = response.Result.([]interface{})
-		transactionsAfterSubmit := parseUnsignedTransactionsFromState(states)
-
-		//so we compare transactionsBeforeSubmit and transactionsAfterSubmit to get transactions should be process this time
-		transactions := compareTransactions(transactionsBeforeSubmit, transactionsAfterSubmit)
-		err = core.WriteLines(transactions, "transactions.csv")
-		if err != nil {
-			fmt.Println("write transactions to file failed: ", err.Error())
-			fmt.Println(transactions)
+			response = p.GetSmartContractState(normalWalletAddress)
+			if response.Error != nil {
+				panic(response.Error.Message)
+			}
+			states = response.Result.([]interface{})
+			transactionsAfterSubmit := parseUnsignedTransactionsFromState(states)
+			//so we compare transactionsBeforeSubmit and transactionsAfterSubmit to get transactions should be process this time
+			transactions := compareTransactions(transactionsBeforeSubmit, transactionsAfterSubmit)
+			err = core.WriteLines(transactions, "transactions.csv")
+			if err != nil {
+				fmt.Println("write transactions to file failed: ", err.Error())
+				fmt.Println(transactions)
+			}
 		}
 	},
 }
