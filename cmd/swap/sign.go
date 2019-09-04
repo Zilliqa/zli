@@ -103,6 +103,8 @@ var SignCmd = &cobra.Command{
 
 		for _, value := range shouldBeProcess {
 			fmt.Printf("transaction id = %s should be process on, toAddr = %s, amount = %s\n", value.TxId, value.ToAddr, value.Amount)
+			fmt.Printf("start to sign id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
+			fmt.Println("please type Y to confirm: ")
 			var confirmed string
 			_, err := fmt.Scanln(&confirmed)
 			if err != nil {
@@ -149,6 +151,7 @@ var SignCmd = &cobra.Command{
 			log.Printf("get recipients for %s: %s\n", tx.ID, recipients)
 
 			fmt.Printf("start to execute id = %s, toAddr = %s, value = %s\n", value.TxId, value.ToAddr, value.Amount)
+			fmt.Println("please type Y to confirm: ")
 			_, err = fmt.Scanln(&confirmed)
 			if err != nil {
 				fmt.Printf("confirm failed, skip execute tx %s\n", value.TxId)
