@@ -31,6 +31,7 @@ func init() {
 	SignCmd.Flags().StringVarP(&amount, "amount", "m", "0", "token amount will be transfer to the smart contract")
 	SignCmd.Flags().StringVarP(&signKeyStore, "signkeystore", "w", "", "sign and execute key store")
 	SignCmd.Flags().StringVarP(&signCSV, "recipient", "r", "", "the path of transaction file")
+	SwapCmd.Flags().BoolVarP(&priority, "priority", "f", true, "setup priority of transaction")
 	SwapCmd.AddCommand(SignCmd)
 }
 

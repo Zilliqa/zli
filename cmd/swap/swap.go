@@ -8,6 +8,8 @@ var walletAddress string
 var gasPrice string
 var gasLimit string
 var amount string
+var priority bool
+
 
 var SwapCmd = &cobra.Command{
 	Use:   "swap",
