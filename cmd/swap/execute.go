@@ -29,7 +29,7 @@ func init() {
 	ExecuteCmd.Flags().StringVarP(&gasPrice, "price", "p", "1000000000", "gas price")
 	ExecuteCmd.Flags().StringVarP(&gasLimit, "limit", "l", "10000", "gas limit")
 	ExecuteCmd.Flags().StringVarP(&amount, "amount", "m", "0", "token amount will be transfer to the smart contract")
-	ExecuteCmd.Flags().StringVarP(&executeKeyStore, "executekeystore", "w", "", "sign and execute key store")
+	ExecuteCmd.Flags().StringVarP(&executeKeyStore, "executekeystore", "w", "", "execute key store")
 	ExecuteCmd.Flags().StringVarP(&executeCSV, "signed", "r", "", "the path of signed file")
 	ExecuteCmd.Flags().BoolVarP(&priority, "priority", "g", true, "setup priority of transaction")
 	SwapCmd.AddCommand(ExecuteCmd)
@@ -120,7 +120,7 @@ var ExecuteCmd = &cobra.Command{
 				continue
 			}
 			log.Printf("start to execute id = %s, toAddr = %s, bech32 address = %s\n", value.ID, value.ToAddr,bech32)
-			result := p.GetBalance(signWallet.DefaultAccount.Address)
+			result := p.GetBalance(executeWallet.DefaultAccount.Address)
 			if result.Error != nil {
 				panic(result.Error.Message)
 			}
@@ -131,7 +131,7 @@ var ExecuteCmd = &cobra.Command{
 				Nonce:        strconv.FormatInt(nonce+1, 10),
 				GasPrice:     gasPrice,
 				GasLimit:     gasLimit,
-				SenderPubKey: strings.ToUpper(signWallet.DefaultAccount.PublicKey),
+				SenderPubKey: strings.ToUpper(executeWallet.DefaultAccount.PublicKey),
 				Amount:       "0",
 			}
 			a := []contract2.Value{
