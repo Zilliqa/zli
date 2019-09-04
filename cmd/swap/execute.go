@@ -31,7 +31,7 @@ func init() {
 	ExecuteCmd.Flags().StringVarP(&amount, "amount", "m", "0", "token amount will be transfer to the smart contract")
 	ExecuteCmd.Flags().StringVarP(&executeKeyStore, "executekeystore", "w", "", "sign and execute key store")
 	ExecuteCmd.Flags().StringVarP(&executeCSV, "signed", "r", "", "the path of signed file")
-	ExecuteCmd.Flags().BoolVarP(&priority, "priority", "f", true, "setup priority of transaction")
+	ExecuteCmd	.Flags().BoolVarP(&priority, "priority", "g", true, "setup priority of transaction")
 	SwapCmd.AddCommand(ExecuteCmd)
 }
 

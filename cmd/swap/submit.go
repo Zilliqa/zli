@@ -40,7 +40,7 @@ func init() {
 	SubmitCmd.Flags().StringVarP(&submitKeyStore, "submitkeystore", "s", "", "submit key store")
 	SubmitCmd.Flags().StringVarP(&submitCSV, "recipient", "r", ".recipients", "the path of recipient file")
 	SubmitCmd.Flags().StringVarP(&notoverride, "notoverride", "n", "notoverride.csv", "not override")
-	SubmitCmd.Flags().BoolVarP(&priority, "priority", "f", true, "setup priority of transaction")
+	SubmitCmd.Flags().BoolVarP(&priority, "priority", "g", true, "setup priority of transaction")
 	SwapCmd.AddCommand(SubmitCmd)
 }
 
