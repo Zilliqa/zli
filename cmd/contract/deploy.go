@@ -76,7 +76,7 @@ var deployCmd = &cobra.Command{
 			}
 			wallet.DefaultAccount = *account
 		}
-	},
+		},
 	Run: func(cmd *cobra.Command, args []string) {
 		c, err := ioutil.ReadFile(code)
 		if err != nil {
