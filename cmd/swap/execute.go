@@ -155,8 +155,7 @@ var ExecuteCmd = &cobra.Command{
 				continue
 			}
 			log.Printf("get recipients for %s: %s\n", tx.ID, recipients)
-			bech32Address, _ := bech32.ToBech32Address(value.ToAddr)
-			_ = core.AppendLine(bech32Address, "notoverride.csv")
+			_ = core.AppendLine(bech32, "notoverride.csv")
 
 		}
 
