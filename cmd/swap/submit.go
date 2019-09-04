@@ -137,7 +137,7 @@ var SubmitCmd = &cobra.Command{
 			}
 			checksumAddress, _ := bech32.FromBech32Addr(value.Address)
 			toAddress := fmt.Sprintf("0x%s", strings.ToLower(checksumAddress))
-			fmt.Printf("start to submit transaction for %s, bech32 address is %s, normal address is %s, amount is %d", value.Name, value.Address, toAddress, value.Amount)
+			fmt.Printf("start to submit transaction for %s, bech32 address is %s, normal address is %s, amount is %d\n", value.Name, value.Address, toAddress, value.Amount)
 			fmt.Println("please type Y to confirm: ")
 			var confirmed string
 			_, err := fmt.Scanln(&confirmed)
