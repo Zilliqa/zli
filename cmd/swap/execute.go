@@ -32,7 +32,7 @@ func init() {
 	ExecuteCmd.Flags().StringVarP(&executeKeyStore, "executekeystore", "w", "", "sign and execute key store")
 	ExecuteCmd.Flags().StringVarP(&executeCSV, "signed", "r", "", "the path of signed file")
 	ExecuteCmd.Flags().BoolVarP(&priority, "priority", "f", true, "setup priority of transaction")
-	ExecuteCmd.AddCommand(ExecuteCmd)
+	SwapCmd.AddCommand(ExecuteCmd)
 }
 
 type Pair struct {
