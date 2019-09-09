@@ -7,11 +7,11 @@
   {
     "vname": "initialAdmin",
     "type": "ByStr20",
-    "value": "0x31f33d13ad6aa724cde1f3d12d75fb344a1df9de"
+    "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
   },
   {
     "vname": "registry",
     "type": "ByStr20",
-    "value": "0xed950e2d66a99e2eaf1a3dc62ff9630bf4ea157e"
+    "value": "0x98F1398B3913CE539eb7Ce7C87148Ae6b23CA624"
   }
 ]

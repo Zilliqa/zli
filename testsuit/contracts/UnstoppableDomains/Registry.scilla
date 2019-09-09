@@ -119,7 +119,7 @@ field registrar: ByStr20 = zeroByStr20
 field approvals: Map ByStr32 ByStr20 = Emp ByStr32 ByStr20
 field operators: Map ByStr20 (List ByStr20) = Emp ByStr20 (List ByStr20)
 field admins: List ByStr20 = Cons {ByStr20} initialOwner nilByStr20
-transition setAdmin(address: ByStr20, isApproved: Bool)
+transition setAdmin(address: ByStr20,  : Bool)
   currentAdmins <- admins;
   isSenderAdmin = listByStr20Contains currentAdmins _sender;
   match isSenderAdmin with
