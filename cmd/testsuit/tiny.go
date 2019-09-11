@@ -81,7 +81,7 @@ var tinyCmd = &cobra.Command{
 			receipt := r["receipt"].(map[string]interface{})
 			success := receipt["success"].(bool)
 			if !success {
-				fmt.Println("test failed at transition ", index)
+				fmt.Println("test failed at transition ", index+1)
 				os.Exit(1)
 			}
 
