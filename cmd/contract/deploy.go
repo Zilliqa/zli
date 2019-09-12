@@ -3,10 +3,10 @@ package contract
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/account"
-	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
-	"github.com/FireStack-Lab/LaksaGo/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/account"
+	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
 	"io/ioutil"
@@ -112,7 +112,7 @@ var deployCmd = &cobra.Command{
 		}
 
 		deployParams := contract2.DeployParams{
-			Version:      strconv.FormatInt(int64(LaksaGo.Pack(wallet.ChainID, 1)), 10),
+			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
 			Nonce:        strconv.FormatInt(nonce+1, 10),
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(limit), 10),

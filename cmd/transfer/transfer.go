@@ -2,10 +2,10 @@ package transfer
 
 import (
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/account"
-	"github.com/FireStack-Lab/LaksaGo/provider"
-	"github.com/FireStack-Lab/LaksaGo/transaction"
+	"github.com/Zilliqa/gozilliqa-sdk/account"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/transaction"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/spf13/cobra"
 	"strconv"
 	"strings"
@@ -40,7 +40,7 @@ var TransferCmd = &cobra.Command{
 		p := provider.NewProvider(wallet.API)
 
 		tx := &transaction.Transaction{
-			Version:      strconv.FormatInt(int64(LaksaGo.Pack(wallet.ChainID, 1)), 10),
+			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
 			ToAddr:       toAddr,
 			Amount:       amount,

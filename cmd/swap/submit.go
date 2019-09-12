@@ -4,11 +4,11 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/account"
-	"github.com/FireStack-Lab/LaksaGo/bech32"
-	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
-	"github.com/FireStack-Lab/LaksaGo/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/account"
+	"github.com/Zilliqa/gozilliqa-sdk/bech32"
+	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/howeyc/gopass"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
@@ -63,7 +63,7 @@ var SubmitCmd = &cobra.Command{
 		if err != nil {
 			panic("load submit private key error: " + err.Error())
 		}
-		sw, err := core.NewWallet(LaksaGo.DecodeHex(submitPrivateKey), chainId, api)
+		sw, err := core.NewWallet(util.DecodeHex(submitPrivateKey), chainId, api)
 		if err != nil {
 			panic("construct submit wallet error: " + err.Error())
 		}
@@ -129,7 +129,6 @@ var SubmitCmd = &cobra.Command{
 		normalWalletAddress, _ := bech32.FromBech32Addr(walletAddress)
 		p := provider.NewProvider(api)
 
-
 		for _, value := range recipients {
 			_, ok := notoverrides[value.Address]
 			if ok {
@@ -189,7 +188,7 @@ var SubmitCmd = &cobra.Command{
 				Provider: p,
 			}
 			params := contract2.CallParams{
-				Version:      strconv.FormatInt(int64(LaksaGo.Pack(chainId, 1)), 10),
+				Version:      strconv.FormatInt(int64(util.Pack(chainId, 1)), 10),
 				Nonce:        strconv.FormatInt(nonce+1, 10),
 				GasPrice:     gasPrice,
 				GasLimit:     gasLimit,
@@ -219,7 +218,7 @@ var SubmitCmd = &cobra.Command{
 			transactionsAfterSubmit := parseUnsignedTransactionsFromState(states)
 			//so we compare transactionsBeforeSubmit and transactionsAfterSubmit to get transactions should be process this time
 			transactions := compareTransactions(transactionsBeforeSubmit, transactionsAfterSubmit)
-			for _,transaction := range transactions {
+			for _, transaction := range transactions {
 				err = core.AppendLine(transaction, "transactions.csv")
 				if err != nil {
 					fmt.Println("write transactions to file failed: ", err.Error())

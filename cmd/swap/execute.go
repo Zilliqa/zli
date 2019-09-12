@@ -4,11 +4,11 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/account"
-	"github.com/FireStack-Lab/LaksaGo/bech32"
-	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
-	"github.com/FireStack-Lab/LaksaGo/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/account"
+	"github.com/Zilliqa/gozilliqa-sdk/bech32"
+	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
 	"log"
@@ -59,7 +59,7 @@ var ExecuteCmd = &cobra.Command{
 		if err != nil {
 			panic(err.Error())
 		}
-		siw, err := core.NewWallet(LaksaGo.DecodeHex(executePrivateKey), chainId, api)
+		siw, err := core.NewWallet(util.DecodeHex(executePrivateKey), chainId, api)
 		if err != nil {
 			panic("construct exit wallet error: " + err.Error())
 		}
@@ -127,7 +127,7 @@ var ExecuteCmd = &cobra.Command{
 			balance := result.Result.(map[string]interface{})
 			nonce, _ := balance["nonce"].(json.Number).Int64()
 			params := contract2.CallParams{
-				Version:      strconv.FormatInt(int64(LaksaGo.Pack(chainId, 1)), 10),
+				Version:      strconv.FormatInt(int64(util.Pack(chainId, 1)), 10),
 				Nonce:        strconv.FormatInt(nonce+1, 10),
 				GasPrice:     gasPrice,
 				GasLimit:     gasLimit,

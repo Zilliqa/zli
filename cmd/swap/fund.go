@@ -3,12 +3,12 @@ package swap
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/account"
-	"github.com/FireStack-Lab/LaksaGo/bech32"
-	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
-	"github.com/FireStack-Lab/LaksaGo/provider"
-	"github.com/FireStack-Lab/LaksaGo/validator"
+	"github.com/Zilliqa/gozilliqa-sdk/account"
+	"github.com/Zilliqa/gozilliqa-sdk/bech32"
+	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
+	"github.com/Zilliqa/gozilliqa-sdk/validator"
 	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
 	"log"
@@ -52,7 +52,7 @@ var fundCmd = &cobra.Command{
 		if err != nil {
 			panic("load private key from keystore error = " + err.Error())
 		}
-		w, err := core.NewWallet(LaksaGo.DecodeHex(p), chainId, api)
+		w, err := core.NewWallet(util.DecodeHex(p), chainId, api)
 		if err != nil {
 			panic("init fundWallet error = " + err.Error())
 		}
@@ -93,7 +93,7 @@ var fundCmd = &cobra.Command{
 		}
 
 		params := contract2.CallParams{
-			Version:      strconv.FormatInt(int64(LaksaGo.Pack(fundWallet.ChainID, 1)), 10),
+			Version:      strconv.FormatInt(int64(util.Pack(fundWallet.ChainID, 1)), 10),
 			Nonce:        strconv.FormatInt(nonce+1, 10),
 			GasPrice:     gasPrice,
 			GasLimit:     gasLimit,

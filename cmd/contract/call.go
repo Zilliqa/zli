@@ -2,12 +2,12 @@ package contract
 
 import (
 	"encoding/json"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/account"
-	"github.com/FireStack-Lab/LaksaGo/bech32"
-	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
-	"github.com/FireStack-Lab/LaksaGo/provider"
-	"github.com/FireStack-Lab/LaksaGo/validator"
+	"github.com/Zilliqa/gozilliqa-sdk/account"
+	"github.com/Zilliqa/gozilliqa-sdk/bech32"
+	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
+	"github.com/Zilliqa/gozilliqa-sdk/validator"
 	"github.com/spf13/cobra"
 	"strconv"
 	"strings"
@@ -96,7 +96,7 @@ var callCmd = &cobra.Command{
 		}
 
 		params := contract2.CallParams{
-			Version:      strconv.FormatInt(int64(LaksaGo.Pack(wallet.ChainID, 1)), 10),
+			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
 			Nonce:        strconv.FormatInt(nonce+1, 10),
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(invokeLimit), 10),

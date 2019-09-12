@@ -2,8 +2,8 @@ package wallet
 
 import (
 	"encoding/json"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/validator"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
+	"github.com/Zilliqa/gozilliqa-sdk/validator"
 	"github.com/spf13/cobra"
 	"os"
 	"zli/core"
@@ -33,7 +33,7 @@ var fromCmd = &cobra.Command{
 			panic("invalid private key")
 		}
 
-		wallet, err := core.FromPrivateKey(LaksaGo.DecodeHex(private))
+		wallet, err := core.FromPrivateKey(util.DecodeHex(private))
 		if err != nil {
 			panic(err)
 		}
