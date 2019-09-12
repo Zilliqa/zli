@@ -3,7 +3,7 @@ package rpc
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
 	"github.com/spf13/cobra"
 	wallet2 "zli/cmd/wallet"
 	"zli/core"
