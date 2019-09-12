@@ -3,10 +3,10 @@ package testsuit
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/account"
-	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
-	"github.com/FireStack-Lab/LaksaGo/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/account"
+	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/spf13/cobra"
 	"os"
 	"strconv"
@@ -62,7 +62,7 @@ var tinyCmd = &cobra.Command{
 			balance := result.Result.(map[string]interface{})
 			nonce, _ := balance["nonce"].(json.Number).Int64()
 			params := contract2.CallParams{
-				Version:      strconv.FormatInt(int64(LaksaGo.Pack(wallet.ChainID, 1)), 10),
+				Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
 				Nonce:        strconv.FormatInt(nonce+1, 10),
 				GasPrice:     "10000000000",
 				GasLimit:     "100000",

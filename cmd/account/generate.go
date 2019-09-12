@@ -3,7 +3,7 @@ package account
 import (
 	"bufio"
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/spf13/cobra"
 	"os"
 	"zli/core"
@@ -42,7 +42,7 @@ var generateCmd = &cobra.Command{
 		for i+1 < len(keys) {
 			k1 := keys[i]
 			k2 := keys[i+1]
-			line := fmt.Sprintf("%s %s", LaksaGo.EncodeHex(k1[:]), LaksaGo.EncodeHex(k2[:]))
+			line := fmt.Sprintf("%s %s", util.EncodeHex(k1[:]), util.EncodeHex(k2[:]))
 			_, err := fmt.Fprintln(w, line)
 			if err != nil {
 				panic(err.Error())

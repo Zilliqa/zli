@@ -3,10 +3,10 @@ package spam
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/FireStack-Lab/LaksaGo"
-	"github.com/FireStack-Lab/LaksaGo/account"
-	contract2 "github.com/FireStack-Lab/LaksaGo/contract"
-	"github.com/FireStack-Lab/LaksaGo/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/account"
+	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/spf13/cobra"
 	"math/rand"
 	"strconv"
@@ -59,7 +59,7 @@ var invokeCmd = &cobra.Command{
 			wg := &sync.WaitGroup{}
 			wg.Add(len(value))
 			for _, w := range value {
-				wallet, err := core.FromPrivateKeyAndChain(LaksaGo.DecodeHex(w.PrivateKey[:]), chainId, api)
+				wallet, err := core.FromPrivateKeyAndChain(util.DecodeHex(w.PrivateKey[:]), chainId, api)
 				if err != nil {
 					panic(err.Error())
 				}
@@ -117,7 +117,7 @@ func invoke(wallet *core.Wallet, group *sync.WaitGroup) {
 		Provider: p,
 	}
 	params := contract2.CallParams{
-		Version:      strconv.FormatInt(int64(LaksaGo.Pack(wallet.ChainID, 1)), 10),
+		Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
 		Nonce:        strconv.FormatInt(nonce+1, 10),
 		GasPrice:     strconv.FormatInt(invokePrice, 10),
 		GasLimit:     strconv.FormatInt(int64(invokeLimit), 10),

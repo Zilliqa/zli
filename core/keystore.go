@@ -1,7 +1,7 @@
 package core
 
 import (
-	"github.com/FireStack-Lab/LaksaGo/crypto"
+	"github.com/Zilliqa/gozilliqa-sdk/crypto"
 	"io/ioutil"
 )
 

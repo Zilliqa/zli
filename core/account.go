@@ -2,9 +2,9 @@ package core
 
 import (
 	"bufio"
-	"github.com/FireStack-Lab/LaksaGo"
-	bech322 "github.com/FireStack-Lab/LaksaGo/bech32"
-	"github.com/FireStack-Lab/LaksaGo/keytools"
+	"github.com/Zilliqa/gozilliqa-sdk/bech32"
+	"github.com/Zilliqa/gozilliqa-sdk/keytools"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"os"
 	"strings"
 )
@@ -70,11 +70,11 @@ func GeneratePrivateKeys(number int64) ([]keytools.PrivateKey, error) {
 func fromPrivateKeys(privates []string) ([]Account, error) {
 	var accounts Accounts
 	for _, v := range privates {
-		private := LaksaGo.DecodeHex(v)
+		private := util.DecodeHex(v)
 		publicKey := keytools.GetPublicKeyFromPrivateKey(private, true)
-		public := LaksaGo.EncodeHex(publicKey)
+		public := util.EncodeHex(publicKey)
 		address := keytools.GetAddressFromPublic(publicKey)
-		bech32, err := bech322.ToBech32Address(address)
+		bech32, err := bech32.ToBech32Address(address)
 		if err != nil {
 			return nil, err
 		}

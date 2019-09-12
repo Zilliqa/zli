@@ -2,9 +2,9 @@ package core
 
 import (
 	"encoding/json"
-	"github.com/FireStack-Lab/LaksaGo"
-	bech322 "github.com/FireStack-Lab/LaksaGo/bech32"
-	"github.com/FireStack-Lab/LaksaGo/keytools"
+	"github.com/Zilliqa/gozilliqa-sdk/bech32"
+	"github.com/Zilliqa/gozilliqa-sdk/keytools"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"io/ioutil"
 )
 
@@ -23,10 +23,10 @@ type Account struct {
 }
 
 func NewAccount(privateKey string) (*Account, error) {
-	publicKey := keytools.GetPublicKeyFromPrivateKey(LaksaGo.DecodeHex(privateKey), true)
-	public := LaksaGo.EncodeHex(publicKey)
+	publicKey := keytools.GetPublicKeyFromPrivateKey(util.DecodeHex(privateKey), true)
+	public := util.EncodeHex(publicKey)
 	address := keytools.GetAddressFromPublic(publicKey)
-	bech32, err := bech322.ToBech32Address(address)
+	bech32, err := bech32.ToBech32Address(address)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func NewAccount(privateKey string) (*Account, error) {
 
 func NewWallet(privateKey []byte, chainId int, api string) (*Wallet, error) {
 
-	defaultAccount, err := NewAccount(LaksaGo.EncodeHex(privateKey))
+	defaultAccount, err := NewAccount(util.EncodeHex(privateKey))
 	if err != nil {
 		return nil, err
 	}
