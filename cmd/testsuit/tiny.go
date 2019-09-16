@@ -64,7 +64,7 @@ var tinyCmd = &cobra.Command{
 			params := contract2.CallParams{
 				Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
 				Nonce:        strconv.FormatInt(nonce+1, 10),
-				GasPrice:     "10000000000",
+				GasPrice:     "1000000000",
 				GasLimit:     "100000",
 				SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
 				Amount:       "0",
