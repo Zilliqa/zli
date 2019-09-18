@@ -3,7 +3,9 @@ package contract
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/Zilliqa/gozilliqa-sdk/bech32"
 	"github.com/Zilliqa/gozilliqa-sdk/provider"
+	"github.com/Zilliqa/gozilliqa-sdk/validator"
 	"github.com/spf13/cobra"
 )
 
@@ -19,7 +21,15 @@ var stateCmd = &cobra.Command{
 	Long:  "get state data for specific smart contract",
 	Run: func(cmd *cobra.Command, args []string) {
 		p := provider.NewProvider(api)
-		response := p.GetSmartContractState(invokeAddress)
+		contractAddr := invokeAddress
+		if validator.IsBech32(invokeAddress) {
+			a, err := bech32.FromBech32Addr(invokeAddress)
+			if err != nil {
+				panic("invalid address format: " + err.Error())
+			}
+			contractAddr = a
+		}
+		response := p.GetSmartContractState(contractAddr)
 		if response == nil {
 			fmt.Println("get response error")
 			return
