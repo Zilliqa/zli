@@ -44,7 +44,7 @@ sh install.sh
 
 #### Commands
 
-You can use `go-zli -h` to see all help messages:
+Currently, we provide four kinds of command, You can use `go-zli -h` to see all help messages:
 
 ```bash
 A convenient command line tool to generate accounts, run integration testings or run http server .etc
@@ -74,13 +74,16 @@ Use "zli [command] --help" for more information about a command.
 
 * go-zli wallet init: generate new wallet for zli to use, with random generated private key as default account, ca be modified later
 * go-zli wallet echo: try to load wallet from file system, then print it
-* go-zli wallet from [flags]: generate new wallet from specific private key
+* **go-zli wallet from [flags]** : generate new wallet from specific private key
+
 
 <h5> contract </h5>
 
 * go-zli contract deploy [flags]: deploy new contract
 * go-zli contract call [flags]: call a exist contract
 * go-zli contract state [flags]: get state data for a specific smart contract
+
+First, `contract` command will load config file from default configuration directory (~/.zilliqa)
 
 <h5> account </h5>
 
