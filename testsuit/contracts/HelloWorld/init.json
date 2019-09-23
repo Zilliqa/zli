@@ -1,0 +1,12 @@
+[
+  {
+    "vname": "_scilla_version",
+    "type": "Uint32",
+    "value": "0"
+  },
+  {
+    "vname": "owner",
+    "type": "ByStr20",
+    "value": "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
+  }
+]
