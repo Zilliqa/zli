@@ -16,10 +16,12 @@ import (
 var amount string
 var toAddr string
 var wallet *core.Wallet
+var privateKey string
 
 func init() {
 	TransferCmd.Flags().StringVarP(&amount, "amount", "a", "0", "amount to transfer")
 	TransferCmd.Flags().StringVarP(&toAddr, "toAddr", "t", "", "to address")
+	TransferCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to do this transfer")
 }
 
 var TransferCmd = &cobra.Command{
@@ -33,6 +35,13 @@ var TransferCmd = &cobra.Command{
 			panic(err.Error())
 		}
 		wallet = w
+		if privateKey != "" {
+			account, err := core.NewAccount(privateKey)
+			if err != nil {
+				panic(err.Error())
+			}
+			wallet.DefaultAccount = *account
+		}
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		signer := account.NewWallet()
