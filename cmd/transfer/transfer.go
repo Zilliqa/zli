@@ -6,6 +6,7 @@ import (
 	"github.com/Zilliqa/gozilliqa-sdk/provider"
 	"github.com/Zilliqa/gozilliqa-sdk/transaction"
 	"github.com/Zilliqa/gozilliqa-sdk/util"
+	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
 	"strconv"
 	"strings"
@@ -17,11 +18,13 @@ var amount string
 var toAddr string
 var wallet *core.Wallet
 var privateKey string
+var keystore string
 
 func init() {
 	TransferCmd.Flags().StringVarP(&amount, "amount", "a", "0", "amount to transfer")
 	TransferCmd.Flags().StringVarP(&toAddr, "toAddr", "t", "", "to address")
 	TransferCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to do this transfer")
+	TransferCmd.Flags().StringVarP(&keystore, "keystore", "s", "", "keystore used to do this transfer")
 }
 
 var TransferCmd = &cobra.Command{
@@ -37,6 +40,22 @@ var TransferCmd = &cobra.Command{
 		wallet = w
 		if privateKey != "" {
 			account, err := core.NewAccount(privateKey)
+			if err != nil {
+				panic(err.Error())
+			}
+			wallet.DefaultAccount = *account
+		}
+		if keystore != "" {
+			fmt.Println("please type password to decrypt your keystore: ")
+			pass, err := gopass.GetPasswd()
+			if err != nil {
+				panic(err.Error())
+			}
+			p, err := core.LoadPirvateKeyFromKeyStore(keystore, string(pass))
+			if err != nil {
+				panic(err.Error())
+			}
+			account, err := core.NewAccount(p)
 			if err != nil {
 				panic(err.Error())
 			}
