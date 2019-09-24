@@ -7,7 +7,7 @@
   {
     "vname" : "owner",
     "type" : "ByStr20",
-    "value" : "0x82aa26971ae03b85f42384cf382a25b25a796fdd"
+    "value" : "0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a"
   },
   {
     "vname" : "total_tokens",
