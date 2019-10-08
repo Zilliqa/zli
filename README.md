@@ -203,3 +203,20 @@ go-zli contract call -a 305d5b3acaa2f4a56b5e149400466c58194e695f -t SubmitTransa
 
 Currently, `go-zli` now support pass private key as a parameter to `go-zli contract deploy or call` command, so, every time
 you want to switch a different private key to send transactions, just use `-k private_key` option.
+
+#### Run `go-zli` as docker container
+
+If you do not want to run `go-zli` using the native binary, just build a docker image(or download from our repository later) 
+then run it! But make sure you have installed docker environment correctly, if not, just refer `https://docs.docker.com/install/`
+
+1. Build image:
+
+```bash
+sh build_docker_image.sh
+```
+
+2. Run inner a container environment
+
+```bash
+docker run --rm  -it go-zli bash
+```
