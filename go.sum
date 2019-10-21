@@ -9,6 +9,8 @@ github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/Zilliqa/gozilliqa-sdk v0.0.0-20190912083634-926f6456a04f h1:faRGBuu89I4XMvjWWrH+Q4eM3HVcIZ6y1R4BvhbhWiY=
 github.com/Zilliqa/gozilliqa-sdk v0.0.0-20190912083634-926f6456a04f/go.mod h1:WRqEatuXbur+GfUCiM8ixII1kpIm8R3jUBm9isrr1bM=
+github.com/Zilliqa/gozilliqa-sdk v0.0.0-20191017020851-c838a49a8d56 h1:h0BNwXkHuc7sRElNQasIjy89CUz8VJo6D6h4arl6BWg=
+github.com/Zilliqa/gozilliqa-sdk v0.0.0-20191017020851-c838a49a8d56/go.mod h1:WRqEatuXbur+GfUCiM8ixII1kpIm8R3jUBm9isrr1bM=
 github.com/aead/siphash v1.0.1/go.mod h1:Nywa3cDsYNNK3gaciGTWPwHt0wlpNV15vwmswBAUSII=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=
