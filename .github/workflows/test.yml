@@ -6,4 +6,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build the Docker image
-      run: docker build .
+      run: docker build . -t  docker.pkg.github.com/zilliqa/zli/go-zli:latest
