@@ -6,11 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build the Docker image
-        run: docker -t  docker.pkg.github.com/zilliqa/zli/go-zli:latest .
+        run: docker build -t docker.pkg.github.com/zilliqa/zli/go-zli:latest .
       - name: Publish to Registry
-        uses: renlulu/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/zilliqa/zli/go-zli
-          username: ${{ secrets.DOCKER_GITHUB_USERNAME }}
+          username: xiaohuo
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
