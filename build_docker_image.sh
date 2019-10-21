@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker build . -t  go-zli:latest
+docker build . -t  docker.pkg.github.com/zilliqa/zli/go-zli:latest
