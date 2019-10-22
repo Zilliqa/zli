@@ -8,7 +8,7 @@ jobs:
       - name: Build the Docker image
         run: docker build -t docker.pkg.github.com/zilliqa/zli/go-zli .
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: renlulu/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/zilliqa/zli/go-zli
           username: xiaohuo
