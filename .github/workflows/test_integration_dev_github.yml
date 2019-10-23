@@ -1,4 +1,4 @@
-name: Integration Dev Test Github
+name: Push dev
 on:
   push:
     branches:

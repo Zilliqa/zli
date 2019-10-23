@@ -1,4 +1,4 @@
-name: Integration Master Test Github
+name: Push master
 on:
   push:
     branches:
