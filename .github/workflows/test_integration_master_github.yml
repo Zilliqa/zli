@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build the Docker image
-        run: docker build -t docker.pkg.github.com/zilliqa/zli/go-zli:dev .
+        run: docker build -t docker.pkg.github.com/zilliqa/zli/go-zli:master .
       - name: Publish to Registry
         uses: renlulu/Publish-Docker-Github-Action@master
         with:
