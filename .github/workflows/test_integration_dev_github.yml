@@ -8,12 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Build the Docker image
-        run: docker build -t docker.pkg.github.com/zilliqa/zli/go-zli:dev .
       - name: Publish to Registry
         uses: renlulu/Publish-Docker-Github-Action@master
         with:
-          name: docker.pkg.github.com/zilliqa/zli/go-zli:dev
+          name: docker.pkg.github.com/zilliqa/zli/go-zli
           username: xiaohuo
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
