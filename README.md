@@ -22,10 +22,10 @@ go get ./...
 
 <h5> build </h5>
 
-In order to distinguish it from the already existing zilliqa-cli, we use the following command to generate a binary called zli-golang:
+we use the following command to generate a binary called zli:
 
 ```go
-go build -o go-zli main.go
+go build -o zli main.go
 ```
 
 <h5> install </h5>
@@ -33,7 +33,7 @@ go build -o go-zli main.go
 Or you can install the binary:
 
 ```go
-go build -o $GOPATH/bin/go-zli main.go
+go build -o $GOPATH/bin/zli main.go
 ```
 
 or just run the script:
@@ -44,7 +44,7 @@ sh install.sh
 
 #### Commands
 
-Currently, we provide four kinds of command, You can use `go-zli -h` to see all help messages:
+Currently, we provide four kinds of command, You can use `zli -h` to see all help messages:
 
 ```bash
 A convenient command line tool to generate accounts, run integration testings or run http server .etc
@@ -72,41 +72,41 @@ Use "zli [command] --help" for more information about a command.
 
 <h5> wallet </h5>
 
-* go-zli wallet init: generate new wallet for zli to use, with random generated private key as default account, ca be modified later
-* go-zli wallet echo: try to load wallet from file system, then print it
-* **go-zli wallet from [flags]** : generate new wallet from specific private key
+* zli wallet init: generate new wallet for zli to use, with random generated private key as default account, ca be modified later
+* zli wallet echo: try to load wallet from file system, then print it
+* **zli wallet from [flags]** : generate new wallet from specific private key
 
 
 <h5> contract </h5>
 
-* go-zli contract deploy [flags]: deploy new contract
-* go-zli contract call [flags]: call a exist contract
-* go-zli contract state [flags]: get state data for a specific smart contract
+* zli contract deploy [flags]: deploy new contract
+* zli contract call [flags]: call a exist contract
+* zli contract state [flags]: get state data for a specific smart contract
 
 First, `contract` command will load config file from default configuration directory (~/.zilliqa)
 
 <h5> account </h5>
 
-* go-zli account generate [flags]: randomly generate some private keys
+* zli account generate [flags]: randomly generate some private keys
 
 <h5> transfer </h5>
 
-* go-zli transfer [flags]: transfer zilliqa token to a specific account
+* zli transfer [flags]: transfer zilliqa token to a specific account
 
 <h5> spam </h5>
 
-* go-zli spam transfer [flags]: send a large number of transactions to a specific account
-* go-zli spam invoke [flags]: invoke a large number of transactions on a exist smart contract
+* zli spam transfer [flags]: send a large number of transactions to a specific account
+* zli spam invoke [flags]: invoke a large number of transactions on a exist smart contract
 
 <h5> rpc </h5>
 
-* go-zli rpc transaction [flags]: get transaction detail by transaction id
+* zli rpc transaction [flags]: get transaction detail by transaction id
 
 #### Example
 
 <h5> test tiny contract for corner cases </h5>
 
-1. Prepare ~/.zilliqa by using `go-zli wallet init` or `go-zli wallet from -p [private_key]`:
+1. Prepare ~/.zilliqa by using `zli wallet init` or `zli wallet from -p [private_key]`:
 
 ```json
 {
@@ -129,40 +129,40 @@ First, `contract` command will load config file from default configuration direc
 
 2. Deploy `tiny contract` using `sh scripts/deploy-tiny-contract.sh`
 
-3. Run `go-zli testsuit tiny -a [contract_address]` like `go-zli testsuit tiny -a zil1yvnhvcage9w0yncuqj3wjp3vkg5qw5yuw4j6p5` or `sh scripts/test-tiny-contract.sh` to do the tests.
+3. Run `zli testsuit tiny -a [contract_address]` like `zli testsuit tiny -a zil1yvnhvcage9w0yncuqj3wjp3vkg5qw5yuw4j6p5` or `sh scripts/test-tiny-contract.sh` to do the tests.
 
 if the receipt of any transaction returns false, the whole tests will be stopped.
 
 <h5> invoke contract </h5>
 
-1. First, you have to generate a wallet configuration (~/.zilliqa) which contains a private key, go-zli will use this private key to sign
+1. First, you have to generate a wallet configuration (~/.zilliqa) which contains a private key, zli will use this private key to sign
 transactions, there are two ways to generate wallet file:
 
-    * go-zli wallet init: randomly generate a private key with no balance
-    * go-zli wallet from -p <private key>: using a exist private key (may have balance) to generate wallet file
+    * zli wallet init: randomly generate a private key with no balance
+    * zli wallet from -p <private key>: using a exist private key (may have balance) to generate wallet file
 
-like `go-zli wallet init` and `go-zli wallet from  -p  3B6674116AF2B954675E6373AC27E6A5CE03BCC8675ECDB7915AC8EE68B7ADCF`
+like `zli wallet init` and `zli wallet from  -p  3B6674116AF2B954675E6373AC27E6A5CE03BCC8675ECDB7915AC8EE68B7ADCF`
 
 2. Then, you can use following command to invoke a smart contract:
 
 ```bash
-go-zli contract call -a <smart contract address> -t <transition name> -r <parameter>
+zli contract call -a <smart contract address> -t <transition name> -r <parameter>
 ```
 
 for instance:
 
 ```bash
-go-zli contract call -a 305d5b3acaa2f4a56b5e149400466c58194e695f -t SubmitTransaction -r "[{\"vname\":\"recipient\",\"type\":\"ByStr20\",\"value\":\"0x381f4008505e940ad7681ec3468a719060caf796\"},{\"vname\":\"amount\",\"type\":\"Uint128\",\"value\":\"10\"},{\"vname\":\"tag\",\"type\":\"String\",\"value\":\"a\"}]"
+zli contract call -a 305d5b3acaa2f4a56b5e149400466c58194e695f -t SubmitTransaction -r "[{\"vname\":\"recipient\",\"type\":\"ByStr20\",\"value\":\"0x381f4008505e940ad7681ec3468a719060caf796\"},{\"vname\":\"amount\",\"type\":\"Uint128\",\"value\":\"10\"},{\"vname\":\"tag\",\"type\":\"String\",\"value\":\"a\"}]"
 ```
 
 **warning**
 
-Currently, `go-zli` now support pass private key as a parameter to `go-zli contract deploy or call` command, so, every time
+Currently, `zli` now support pass private key as a parameter to `zli contract deploy or call` command, so, every time
 you want to switch a different private key to send transactions, just use `-k private_key` option.
 
-#### Run `go-zli` inside a docker container
+#### Run `zli` inside a docker container
 
-If you do not want to run `go-zli` using the native binary, just build a docker image(or download from our repository later) 
+If you do not want to run `zli` using the native binary, just build a docker image(or download from our repository later) 
 then run it! But make sure you have installed docker environment correctly, if not, just refer `https://docs.docker.com/install/`
 
 1. Build image:
@@ -174,5 +174,5 @@ sh build_docker_image.sh
 2. Run inner a container environment
 
 ```bash
-docker run --rm  -it go-zli bash
+docker run --rm  -it zli bash
 ```
