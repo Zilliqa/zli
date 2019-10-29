@@ -22,7 +22,7 @@ init state
 
 
 transition1:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -83,7 +83,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\
 }
 
 transition2:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"2\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"2\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -143,7 +143,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\
         }
     }
 }
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -207,7 +207,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\
 }
 
 transition3:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -272,7 +272,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom
 }
 
 transition4:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t balanceOf -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t balanceOf -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -341,7 +341,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t balanceOf -r
 }
 
 transition5:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t balanceOf -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t balanceOf -r "[{\"vname\":\"address\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567891\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -410,7 +410,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t balanceOf -r
 }
 
 transition6:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t ownerOf -r "[{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t ownerOf -r "[{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -470,7 +470,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t ownerOf -r "
 }
 
 transition7:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"4\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"4\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -535,7 +535,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\
     }
 }
 
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"4\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"4\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -603,7 +603,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "
 }
 
 transition8:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -671,7 +671,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\
     }
 }
 
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"6\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"6\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -740,7 +740,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\
     }
 }
 
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -818,7 +818,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalF
 }
 
 transition9:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -901,7 +901,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalF
 }
 
 transition9:
-go-zli transfer -a 1000000000000 -t zil1n0lvw9dxh4jcljmzkruvexl69t08zs62ds9ats
+zli transfer -a 1000000000000 -t zil1n0lvw9dxh4jcljmzkruvexl69t08zs62ds9ats
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -922,7 +922,7 @@ go-zli transfer -a 1000000000000 -t zil1n0lvw9dxh4jcljmzkruvexl69t08zs62ds9ats
         "version": "131073"
     }
 }
-go-zli transfer -a 259999341169000000000 -t zil1n0lvw9dxh4jcljmzkruvexl69t08zs62ds9ats
+zli transfer -a 259999341169000000000 -t zil1n0lvw9dxh4jcljmzkruvexl69t08zs62ds9ats
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -944,7 +944,7 @@ go-zli transfer -a 259999341169000000000 -t zil1n0lvw9dxh4jcljmzkruvexl69t08zs62
     }
 }
 
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -1028,7 +1028,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom
 }
 
 transition10:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"6\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"6\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -1113,7 +1113,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom
 }
 
 transition11:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"5\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -1199,7 +1199,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "
 }
 
 transition12:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"7\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"7\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -1240,7 +1240,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\
 }
 
 transition13:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x1234567890123456789012345678901234567892\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -1281,7 +1281,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t mint -r "[{\
 }
 
 transition14:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x0f168fda7796d07735d2cf5763c7511e88a37fc0\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"3\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -1322,7 +1322,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t transferFrom
 }
 
 transition15:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokenId\",\"type\":\"Uint256\",\"value\":\"1\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -1363,7 +1363,7 @@ go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t approve -r "
 }
 
 transition16:
-go-zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
+zli contract call -a 657a36a5f536d165169bfb99df5e14eb2bcb15b8 -t setApprovalForAll -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"approved\",\"type\":\"Bool\",\"value\":{\"constructor\":\"True\",\"argtypes\":[],\"arguments\":[]}}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
