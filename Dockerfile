@@ -6,4 +6,4 @@ WORKDIR /app
 
 COPY ./ .
 
-RUN go build  -o $GOPATH/bin/go-zli main/main.go
+RUN go build  -o $GOPATH/bin/zli main/main.go

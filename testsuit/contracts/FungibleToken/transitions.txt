@@ -33,7 +33,7 @@ ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d
 }
 
 transaction0:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t BalanceOf -r "[{\"vname\":\"tokenOwner\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"}]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t BalanceOf -r "[{\"vname\":\"tokenOwner\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -85,7 +85,7 @@ go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t BalanceOf -r
 }
 
 transaction1:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TotalSupply -r "[]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TotalSupply -r "[]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -138,7 +138,7 @@ go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TotalSupply 
 
 
 transaction2:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Transfer -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"20\"}]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Transfer -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"20\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -197,7 +197,7 @@ go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Transfer -r 
 
 
 transaction3:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Transfer -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"10001\"}]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Transfer -r "[{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"10001\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -255,7 +255,7 @@ go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Transfer -r 
 }
 
 transaction4:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Approve -r "[{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"500\"}]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Approve -r "[{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"500\"}]"
 
 {
     "id": "1",
@@ -318,7 +318,7 @@ go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Approve -r "
 }
 
 transaction5:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Approve -r "[{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"600\"}]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Approve -r "[{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"600\"}]"
 
 {
     "id": "1",
@@ -381,7 +381,7 @@ go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Approve -r "
 }
 
 transaction6:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TransferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x78345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"580\"}]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TransferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x78345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"580\"}]"
 
 {
     "id": "1",
@@ -445,7 +445,7 @@ go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TransferFrom
 }
 
 transaction7:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TransferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x78345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"21\"}]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TransferFrom -r "[{\"vname\":\"from\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"to\",\"type\":\"ByStr20\",\"value\":\"0x78345678901234567890123456789012345678cd\"},{\"vname\":\"tokens\",\"type\":\"Uint128\",\"value\":\"21\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
@@ -508,7 +508,7 @@ go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t TransferFrom
 }
 
 transaction8:
-go-zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Allowance -r "[{\"vname\":\"tokenOwner\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"}]"
+zli contract call -a ec10d42d33b2fcb76f5d17c98d4d3b490e236c7d -t Allowance -r "[{\"vname\":\"tokenOwner\",\"type\":\"ByStr20\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"spender\",\"type\":\"ByStr20\",\"value\":\"0x9bfec715a6bd658fcb62b0f8cc9bfa2ade71434a\"}]"
 {
     "id": "1",
     "jsonrpc": "2.0",
