@@ -1,8 +1,8 @@
-name: Push dev
+name: Push master
 on:
   push:
     branches:
-      - dev
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
