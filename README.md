@@ -58,7 +58,6 @@ Available Commands:
   contract    Deploy or call zilliqa smart contract
   help        Help about any command
   rpc         readonly json rpc of zilliqa
-  spam        Send a large number of transactions
   transfer    Transfer zilliqa token to a specific account
   version     Print the version number of zli
   wallet      Init a new wallet or get exist wallet info
@@ -92,11 +91,6 @@ First, `contract` command will load config file from default configuration direc
 <h5> transfer </h5>
 
 * zli transfer [flags]: transfer zilliqa token to a specific account
-
-<h5> spam </h5>
-
-* zli spam transfer [flags]: send a large number of transactions to a specific account
-* zli spam invoke [flags]: invoke a large number of transactions on a exist smart contract
 
 <h5> rpc </h5>
 
