@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-zli spam invoke -c /Users/xiaohuo/zilliqa/zli/testAccounts.txt -b 100 -a zil1v5ftwdvmddnwv95ywyeag4k3wr0njv8fzpw9zs -i https://delta-api.dev.z7a.xyz -d 2  -t put -r "[{\"vname\":\"k\",\"type\":\"String\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"v\",\"type\":\"String\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"}]"
