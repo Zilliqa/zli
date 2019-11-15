@@ -2,12 +2,3 @@
 testAccounts.txt
 constants.xml
 genet.txt
-scripts/internalswap/fund.log
-scripts/internalswap/sign.log
-scripts/internalswap/submit.log
-scripts/internalswap/call/execute/execute.log
-scripts/internalswap/call/execute/executer.keystore
-scripts/internalswap/call/execute/signed.csv
-scripts/internalswap/call/submit/submit.log
-scripts/internalswap/call/submit/transactions.csv
-scripts/internalswap/call/submit/recipients.csv
