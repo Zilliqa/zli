@@ -168,5 +168,6 @@ sh build_docker_image.sh
 2. Run inner a container environment
 
 ```bash
-docker run --rm  -it zli bash
+docker run --rm  -it -v ~/contract:/contract docker.pkg.github.com/zilliqa/zli/zli bash
 ```
+
