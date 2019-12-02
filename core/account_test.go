@@ -22,7 +22,7 @@ import (
 )
 
 func TestLoadFrom(t *testing.T) {
-	accounts, err := LoadFrom("../testsuit/accounts/testAccounts.txt")
+	accounts, err := LoadFrom("../testsuite/accounts/testAccounts.txt")
 	if err != nil {
 		fmt.Println(err.Error())
 	}

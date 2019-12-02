@@ -14,12 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package testsuit
+package testsuite
 
 import "github.com/spf13/cobra"
 
-var TestsultCmd = &cobra.Command{
-	Use:   "testsuit",
+var TestSuite = &cobra.Command{
+	Use:   "testsuite",
 	Short: "Automatically running tests of specific smart",
 	Long: "Automatically running tests of specific smart",
 	Run: func(cmd *cobra.Command, args []string) {

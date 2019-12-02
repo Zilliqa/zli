@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-zli contract deploy -c ../testsuit/contracts/Delta/delta.scilla -i ../testsuit/contracts/Delta/init.json
+zli contract deploy -c ../testsuite/contracts/Delta/delta.scilla -i ../testsuite/contracts/Delta/init.json

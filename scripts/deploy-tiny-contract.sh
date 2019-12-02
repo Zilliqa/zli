@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-zli contract deploy -c ../testsuit/contracts/TinyContract/tiny.scilla -i ../testsuit/contracts/TinyContract/init.json 1000000000 -l 100000
+zli contract deploy -c ../testsuite/contracts/TinyContract/tiny.scilla -i ../testsuite/contracts/TinyContract/init.json 1000000000 -l 40000
 

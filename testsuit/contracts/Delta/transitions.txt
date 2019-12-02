@@ -1,2 +1,0 @@
-zli contract call -a 6f840bcdf6993154b81f46a90a5436995ee2b58d -t put -r "[{\"vname\":\"k\",\"type\":\"String\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"},{\"vname\":\"v\",\"type\":\"String\",\"value\":\"0x82aa26971ae03b85f42384cf382a25b25a796fdd\"}]"
-6512b7359b6b66e616847133d456d170df3930e9

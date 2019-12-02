@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-zli contract deploy -c ../testsuit/contracts/Auction/auction.scilla -i ../testsuit/contracts/Auction/init.json
+zli contract deploy -c ../testsuite/contracts/Auction/auction.scilla -i ../testsuite/contracts/Auction/init.json

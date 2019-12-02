@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-zli contract deploy -c ../testsuit/contracts/UnstoppableDomains/Holding.scilla -i ../testsuit/contracts/UnstoppableDomains/holdinginit.json -l 10000
+zli contract deploy -c ../testsuite/contracts/UnstoppableDomains/Holding.scilla -i ../testsuite/contracts/UnstoppableDomains/holdinginit.json -l 10000

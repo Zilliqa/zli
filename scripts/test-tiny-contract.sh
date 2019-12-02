@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
- zli testsuit tiny -a zil19p4xdzjtcm6hy62vuadqe5urnutl9x9fxm89ln
+zli testsuite tiny -a zil1xzvg9sru5wtcnjks3yqx0zcv3v6hgv838ua59u
