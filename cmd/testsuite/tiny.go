@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package testsuit
+package testsuite
 
 import (
 	"encoding/json"
@@ -40,7 +40,7 @@ var invokePriority bool
 func init() {
 	tinyCmd.Flags().StringVarP(&address, "address", "a", "", "the address of tiny contract")
 	tinyCmd.Flags().BoolVarP(&invokePriority, "priority", "f", false, "setup priority of transaction")
-	TestsultCmd.AddCommand(tinyCmd)
+	TestSuite.AddCommand(tinyCmd)
 }
 
 var tinyCmd = &cobra.Command{

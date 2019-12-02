@@ -1,5 +1,7 @@
 ### ZLI
 
+<a href="https://github.com/Zilliqa/zilliqa/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-GPL%20v3-green.svg" /></a>
+
 Zli is a command line tool based on zilliqa golang sdk
 
 #### Requirements
@@ -123,7 +125,7 @@ First, `contract` command will load config file from default configuration direc
 
 2. Deploy `tiny contract` using `sh scripts/deploy-tiny-contract.sh`
 
-3. Run `zli testsuit tiny -a [contract_address]` like `zli testsuit tiny -a zil1yvnhvcage9w0yncuqj3wjp3vkg5qw5yuw4j6p5` or `sh scripts/test-tiny-contract.sh` to do the tests.
+3. Run `zli testsuite tiny -a [contract_address]` like `zli testsuite tiny -a zil1yvnhvcage9w0yncuqj3wjp3vkg5qw5yuw4j6p5` or `sh scripts/test-tiny-contract.sh` to do the tests.
 
 if the receipt of any transaction returns false, the whole tests will be stopped.
 
@@ -168,5 +170,6 @@ sh build_docker_image.sh
 2. Run inner a container environment
 
 ```bash
-docker run --rm  -it zli bash
+docker run --rm  -it -v ~/contract:/contract docker.pkg.github.com/zilliqa/zli/zli bash
 ```
+
