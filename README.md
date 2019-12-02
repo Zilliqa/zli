@@ -1,5 +1,7 @@
 ### ZLI
 
+<a href="https://github.com/Zilliqa/zilliqa/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-GPL%20v3-green.svg" /></a>
+
 Zli is a command line tool based on zilliqa golang sdk
 
 #### Requirements
