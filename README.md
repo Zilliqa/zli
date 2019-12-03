@@ -2,7 +2,7 @@
 
 <a href="https://github.com/Zilliqa/zilliqa/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-GPL%20v3-green.svg" /></a>
 
-Zli is a command line tool based on zilliqa golang sdk
+Zli is a command line tool based on zilliqa's [gozilliqa-sdk](https://github.com/Zilliqa/gozilliqa-sdk)
 
 #### Requirements
 
@@ -56,7 +56,7 @@ Usage:
   zli [command]
 
 Available Commands:
-  account     Generate or load a large number of accounts
+  account     Generate or load mulitple accounts
   contract    Deploy or call zilliqa smart contract
   help        Help about any command
   rpc         readonly json rpc of zilliqa
