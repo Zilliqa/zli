@@ -123,7 +123,7 @@ var deployCmd = &cobra.Command{
 		contract := contract2.Contract{
 			Code:     string(c),
 			Init:     initArray,
-			Singer:   signer,
+			Signer:   signer,
 			Provider: p,
 		}
 

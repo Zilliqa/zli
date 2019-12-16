@@ -107,7 +107,7 @@ var callCmd = &cobra.Command{
 
 		contract := contract2.Contract{
 			Address:  invokeAddress,
-			Singer:   signer,
+			Signer:   signer,
 			Provider: p,
 		}
 
