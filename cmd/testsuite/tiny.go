@@ -67,7 +67,7 @@ var tinyCmd = &cobra.Command{
 
 		contract := contract2.Contract{
 			Address:  address,
-			Singer:   signer,
+			Signer:   signer,
 			Provider: p,
 		}
 		a := []contract2.Value{}
