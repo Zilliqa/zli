@@ -13,6 +13,8 @@ github.com/Zilliqa/gozilliqa-sdk v0.0.0-20191017020851-c838a49a8d56 h1:h0BNwXkHu
 github.com/Zilliqa/gozilliqa-sdk v0.0.0-20191017020851-c838a49a8d56/go.mod h1:WRqEatuXbur+GfUCiM8ixII1kpIm8R3jUBm9isrr1bM=
 github.com/Zilliqa/gozilliqa-sdk v0.0.0-20191205041507-c938c49fa947 h1:ZeN17rDzLr8C3Wz/EB2mTrz23BijVaLbFiTS8AU6ejw=
 github.com/Zilliqa/gozilliqa-sdk v0.0.0-20191205041507-c938c49fa947/go.mod h1:SIJrgKZs1IJG8dUtVYFIUQtBZDzWYY0sJbV9AInyBF4=
+github.com/Zilliqa/gozilliqa-sdk v0.0.0-20200116083157-24f20f954742 h1:oe/M7gg94lVTw9jh9CryHy3CS+BKv6WUDWeFwoXD9Gs=
+github.com/Zilliqa/gozilliqa-sdk v0.0.0-20200116083157-24f20f954742/go.mod h1:o+YpwHxrU4nFnj0L+wS+bR+jl6h+IYBIR7wchcdGASE=
 github.com/aead/siphash v1.0.1/go.mod h1:Nywa3cDsYNNK3gaciGTWPwHt0wlpNV15vwmswBAUSII=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=
@@ -84,6 +86,7 @@ github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+
 github.com/googleapis/gax-go/v2 v2.0.4/go.mod h1:0Wqv26UfaUD9n4G6kQubkQ+KchISgw+vpHVxEJEs9eg=
 github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5mhpdKc/us6bOk=
 github.com/gorilla/websocket v1.4.0/go.mod h1:E7qHFY5m1UJ88s3WnNqhKjPHQ0heANvMoAMk2YaljkQ=
+github.com/gorilla/websocket v1.4.1/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/grpc-ecosystem/go-grpc-middleware v1.0.0/go.mod h1:FiyG127CGDf3tlThmgyCl78X/SZQqEOJBCDaAfeWzPs=
 github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0/go.mod h1:8NvIoxWQoOIhqOTXgfV/d3M/q6VIi02HzZEHgUlZvzk=
 github.com/grpc-ecosystem/grpc-gateway v1.9.0/go.mod h1:vNeuVxBJEsws4ogUvrchl83t/GYV9WGTSLVdBhOQFDY=
