@@ -15,6 +15,8 @@ github.com/Zilliqa/gozilliqa-sdk v0.0.0-20191205041507-c938c49fa947 h1:ZeN17rDzL
 github.com/Zilliqa/gozilliqa-sdk v0.0.0-20191205041507-c938c49fa947/go.mod h1:SIJrgKZs1IJG8dUtVYFIUQtBZDzWYY0sJbV9AInyBF4=
 github.com/Zilliqa/gozilliqa-sdk v0.0.0-20200116083157-24f20f954742 h1:oe/M7gg94lVTw9jh9CryHy3CS+BKv6WUDWeFwoXD9Gs=
 github.com/Zilliqa/gozilliqa-sdk v0.0.0-20200116083157-24f20f954742/go.mod h1:o+YpwHxrU4nFnj0L+wS+bR+jl6h+IYBIR7wchcdGASE=
+github.com/Zilliqa/gozilliqa-sdk v0.0.0-20200116084503-880fb5871671 h1:1oS2kVkND013ggzfhrIqcVy/pKGiLfX0FRBhBYbaIII=
+github.com/Zilliqa/gozilliqa-sdk v0.0.0-20200116084503-880fb5871671/go.mod h1:o+YpwHxrU4nFnj0L+wS+bR+jl6h+IYBIR7wchcdGASE=
 github.com/aead/siphash v1.0.1/go.mod h1:Nywa3cDsYNNK3gaciGTWPwHt0wlpNV15vwmswBAUSII=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=

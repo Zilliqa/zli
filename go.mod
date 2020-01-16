@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	cloud.google.com/go v0.44.3 // indirect
-	github.com/Zilliqa/gozilliqa-sdk v0.0.0-20200116083157-24f20f954742
+	github.com/Zilliqa/gozilliqa-sdk v0.0.0-20200116084503-880fb5871671
 	github.com/coreos/bbolt v1.3.3 // indirect
 	github.com/coreos/etcd v3.3.13+incompatible // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
