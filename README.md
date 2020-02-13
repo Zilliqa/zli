@@ -2,7 +2,7 @@
 
 <a href="https://github.com/Zilliqa/zilliqa/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-GPL%20v3-green.svg" /></a>
 
-`zli` is a command line tool based on the Zilliqa Golang SDK.
+`zli` is a command line tool based on the Zilliqa [Golang SDK](https://github.com/Zilliqa/gozilliqa-sdk).
 
 ## Requirements
 
@@ -54,11 +54,10 @@ Usage:
   zli [command]
 
 Available Commands:
-  account     Generate or load a large number of accounts
+  account     Generate or load multiple accounts
   contract    Deploy or call zilliqa smart contract
   help        Help about any command
   rpc         readonly json rpc of zilliqa
-  spam        Send a large number of transactions
   transfer    Transfer zilliqa token to a specific account
   version     Print the version number of zli
   wallet      Init a new wallet or get exist wallet info
@@ -92,11 +91,6 @@ Run `zli [command] --help` to see the usage details for each available command. 
 ### transfer
 
 * `zli transfer [flags]`: Transfer Zilliqa tokens to a specific account.
-
-### spam
-
-* `zli spam transfer [flags]`: Send a large number of transactions to a specific account.
-* `zli spam invoke [flags]`: Invoke a large number of transactions on an existing smart contract.
 
 ### rpc
 
@@ -164,5 +158,5 @@ sh build_docker_image.sh
 2. Run `zli` inside a container environment:
 
 ```bash
-docker run --rm  -it zli bash
+docker run --rm -it -v ~/contract:/contract docker.pkg.github.com/zilliqa/zli/zli bash
 ```
