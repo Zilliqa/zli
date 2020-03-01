@@ -28,9 +28,11 @@ import (
 )
 
 var number int64
+var file string
 
 func init() {
 	generateCmd.Flags().Int64VarP(&number, "number", "n", 2, "the number of generated keys")
+	generateCmd.Flags().StringVarP(&file, "file", "f", "generatedAccounts.json", "name of the intended output file")
 	AccountCmd.AddCommand(generateCmd)
 }
 
@@ -40,7 +42,7 @@ var generateCmd = &cobra.Command{
 	Long:  "Randomly generate some private keys",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("start to generate ", number, " accounts")
-		file, err := os.Create("./testAccounts.txt")
+		file, err := os.Create(file)
 		if err != nil {
 			panic(err)
 		}
