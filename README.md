@@ -25,7 +25,7 @@ go get ./...
 Run the following command to generate the `zli` binary:
 
 ```go
-go build -o zli main.go
+go build -o zli main/main.go
 ```
 
 ### Install
@@ -147,9 +147,9 @@ zli contract call -a 305d5b3acaa2f4a56b5e149400466c58194e695f -t SubmitTransacti
 
 ### Running zli inside a Docker container
 
-An alternative to running `zli` as a native binary is to build (or download) the `go-zli` Docker image, and to run `zli` from inside the container. This option requires prior installation of Docker (refer to the [Docker installation page](https://docs.docker.com/install/)).
+An alternative to running `zli` as a native binary is to build (or download) the `zli` Docker image, and to run `zli` from inside the container. This option requires prior installation of Docker (refer to the [Docker installation page](https://docs.docker.com/install/)).
 
-1. Build the `go-zli` Docker image:
+1. Build the `zli` Docker image:
 
 ```bash
 sh build_docker_image.sh
