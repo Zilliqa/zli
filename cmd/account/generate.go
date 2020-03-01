@@ -18,11 +18,13 @@ package account
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
-	"github.com/Zilliqa/gozilliqa-sdk/util"
-	"github.com/spf13/cobra"
 	"os"
 	"zli/core"
+
+	"github.com/Zilliqa/gozilliqa-sdk/util"
+	"github.com/spf13/cobra"
 )
 
 var number int64
@@ -37,33 +39,32 @@ var generateCmd = &cobra.Command{
 	Short: "Randomly generate some private keys",
 	Long:  "Randomly generate some private keys",
 	Run: func(cmd *cobra.Command, args []string) {
-		if number%2 != 0 {
-			panic("number should be even")
-		}
 		fmt.Println("start to generate ", number, " accounts")
-		f, err := os.Create("./testAccounts.txt")
+		file, err := os.Create("./testAccounts.txt")
 		if err != nil {
 			panic(err)
 		}
-		defer f.Close()
+		defer file.Close()
 
 		keys, err := core.GeneratePrivateKeys(number)
 		if err != nil {
 			panic(err)
 		}
 
-		i := 0
-		w := bufio.NewWriter(f)
-
-		for i+1 < len(keys) {
-			k1 := keys[i]
-			k2 := keys[i+1]
-			line := fmt.Sprintf("%s %s", util.EncodeHex(k1[:]), util.EncodeHex(k2[:]))
-			_, err := fmt.Fprintln(w, line)
+		accounts := []core.Account{}
+		for _, key := range keys {
+			account, err := core.NewAccount(util.EncodeHex(key[:]))
 			if err != nil {
 				panic(err.Error())
 			}
-			i += 2
+			accounts = append(accounts, *account)
+		}
+
+		w := bufio.NewWriter(file)
+		encoder := json.NewEncoder(w)
+		encoder.SetIndent("", "    ")
+		if err := encoder.Encode(&accounts); err != nil {
+			panic(err.Error())
 		}
 
 		err = w.Flush()
