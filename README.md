@@ -33,7 +33,7 @@ go build -o zli main/main.go
 Option 1: Install the `zli` binary by specifying the output path during the build:
 
 ```go
-go build -o $GOPATH/bin/zli main.go
+go build -o $GOPATH/bin/zli main/main.go
 ```
 
 Option 2: Run the installation script:
