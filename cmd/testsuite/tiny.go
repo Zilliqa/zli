@@ -36,7 +36,6 @@ var wallet *core.Wallet
 var transitions = []string{"t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12", "t13", "t14", "t15", "t16", "t17", "t18"}
 var invokePriority bool
 
-
 func init() {
 	tinyCmd.Flags().StringVarP(&address, "address", "a", "", "the address of tiny contract")
 	tinyCmd.Flags().BoolVarP(&invokePriority, "priority", "f", false, "setup priority of transaction")
@@ -74,7 +73,10 @@ var tinyCmd = &cobra.Command{
 
 		for index, value := range transitions {
 			fmt.Println("start to invoke transition ", index+1)
-			result := p.GetBalance(wallet.DefaultAccount.Address)
+			result, err := p.GetBalance(wallet.DefaultAccount.Address)
+			if err != nil {
+				panic(err)
+			}
 			if result.Error != nil {
 				panic(result.Error.Message)
 			}
@@ -88,12 +90,16 @@ var tinyCmd = &cobra.Command{
 				SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
 				Amount:       "0",
 			}
-			err, tx := contract.Call(value, a, params, invokePriority, 1000, 3)
+			tx, err := contract.Call(value, a, params, invokePriority)
 			if err != nil {
 				panic(err.Error())
 			}
 			tx.Confirm(tx.ID, 1000, 3, p)
-			r, ok := p.GetTransaction(tx.ID).Result.(map[string]interface{})
+			result, err = p.GetTransaction(tx.ID)
+			if err != nil {
+				panic(err)
+			}
+			r, ok := result.Result.(map[string]interface{})
 			if !ok {
 				panic("get transaction result failed")
 			}

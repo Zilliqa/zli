@@ -94,7 +94,11 @@ var callCmd = &cobra.Command{
 		}
 
 		p := provider.NewProvider(wallet.API)
-		result := p.GetBalance(wallet.DefaultAccount.Address)
+		result, err := p.GetBalance(wallet.DefaultAccount.Address)
+		if err != nil {
+			panic(err)
+		}
+
 		if result.Error != nil {
 			panic(result.Error.Message)
 		}
@@ -120,7 +124,7 @@ var callCmd = &cobra.Command{
 			Amount:       invokeAmount,
 		}
 
-		err, tx := contract.Call(invokeTransition, a, params, invokePriority, 1000, 3)
+		tx, err := contract.Call(invokeTransition, a, params, invokePriority)
 
 		if err != nil {
 			panic(err.Error())

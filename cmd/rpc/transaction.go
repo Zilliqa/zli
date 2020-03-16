@@ -62,7 +62,10 @@ var transactionCmd = &cobra.Command{
 		}
 
 		p := provider.NewProvider(a)
-		response := p.GetTransaction(transactionId)
+		response,err := p.GetTransaction(transactionId)
+		if err != nil {
+			panic(err)
+		}
 		if response == nil {
 			panic("cannot get response")
 		}
