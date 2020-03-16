@@ -45,7 +45,10 @@ var stateCmd = &cobra.Command{
 			}
 			contractAddr = a
 		}
-		response := p.GetSmartContractState(contractAddr)
+		response, err := p.GetSmartContractState(contractAddr)
+		if err != nil {
+			panic(err)
+		}
 		if response == nil {
 			fmt.Println("get response error")
 			return

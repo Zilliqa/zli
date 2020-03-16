@@ -127,7 +127,10 @@ var TransferCmd = &cobra.Command{
 			panic(err.Error())
 		}
 
-		rsp := p.CreateTransaction(tx.ToTransactionPayload())
+		rsp, err := p.CreateTransaction(tx.ToTransactionPayload())
+		if err != nil {
+			panic(err.Error())
+		}
 		if rsp.Error != nil {
 			panic(rsp.Error)
 		} else {
