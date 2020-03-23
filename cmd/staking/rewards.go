@@ -10,8 +10,8 @@ import (
 var ssn string
 
 func init() {
-	rewardsCmd.Flags().StringVarP(&api, "api", "a", "https://staking7-l2api.dev.z7a.xyz", "zilliqa api endpoint")
-	rewardsCmd.Flags().StringVarP(&contractAddress, "contract address", "c", "343407558c9bb1f7ae737af80b90e1edf741a37a", "taking contract address")
+	rewardsCmd.Flags().StringVarP(&api, "api", "a", "", "zilliqa api endpoint")
+	rewardsCmd.Flags().StringVarP(&contractAddress, "contract address", "c", "", "taking contract address")
 	rewardsCmd.Flags().StringVarP(&ssn, "ssn", "s", "", "ssn operator address")
 
 	StakingCmd.AddCommand(rewardsCmd)
