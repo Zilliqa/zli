@@ -76,7 +76,10 @@ var externalLib = &cobra.Command{
 
 		p := provider.NewProvider(wallet.API)
 		fmt.Println(wallet.DefaultAccount.Address)
-		result := p.GetBalance(wallet.DefaultAccount.Address)
+		result, err := p.GetBalance(wallet.DefaultAccount.Address)
+		if err != nil {
+			panic(err.Error())
+		}
 		if result.Error != nil {
 			panic(result.Error.Message)
 		}
@@ -158,7 +161,10 @@ var externalLib = &cobra.Command{
 			},
 		}
 
-		result = p.GetBalance(wallet.DefaultAccount.Address)
+		result,err = p.GetBalance(wallet.DefaultAccount.Address)
+		if err != nil {
+			panic(err.Error())
+		}
 		if result.Error != nil {
 			panic(result.Error.Message)
 		}
@@ -231,7 +237,10 @@ var externalLib = &cobra.Command{
 			},
 		}
 
-		result = p.GetBalance(wallet.DefaultAccount.Address)
+		result,err = p.GetBalance(wallet.DefaultAccount.Address)
+		if err != nil {
+			panic(err.Error())
+		}
 		if result.Error != nil {
 			panic(result.Error.Message)
 		}
@@ -268,7 +277,10 @@ var externalLib = &cobra.Command{
 			return
 		}
 
-		result = p.GetBalance(wallet.DefaultAccount.Address)
+		result, err = p.GetBalance(wallet.DefaultAccount.Address)
+		if err != nil {
+			panic(err)
+		}
 		if result.Error != nil {
 			panic(result.Error.Message)
 		}
@@ -295,7 +307,7 @@ var externalLib = &cobra.Command{
 
 		a := make([]contract2.Value, 0)
 
-		err4, tx := contract.Call("Hi", a, callParams, false, 1000, 3)
+		tx, err4 := contract.Call("Hi", a, callParams, false)
 		if err4 != nil {
 			panic(err4.Error())
 		}

@@ -110,7 +110,11 @@ var deployCmd = &cobra.Command{
 		p := provider.NewProvider(wallet.API)
 		fmt.Println(wallet.DefaultAccount.Address)
 
-		result := p.GetBalance(wallet.DefaultAccount.Address)
+		result, err := p.GetBalance(wallet.DefaultAccount.Address)
+		if err != nil {
+			panic(err)
+		}
+
 		if result.Error != nil {
 			panic(result.Error.Message)
 		}

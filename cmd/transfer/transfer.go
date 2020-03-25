@@ -18,16 +18,17 @@ package transfer
 
 import (
 	"fmt"
+	"strconv"
+	"strings"
+	wallet2 "zli/cmd/wallet"
+	"zli/core"
+
 	"github.com/Zilliqa/gozilliqa-sdk/account"
 	"github.com/Zilliqa/gozilliqa-sdk/provider"
 	"github.com/Zilliqa/gozilliqa-sdk/transaction"
 	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
-	"strconv"
-	"strings"
-	wallet2 "zli/cmd/wallet"
-	"zli/core"
 )
 
 var amount string
@@ -35,12 +36,14 @@ var toAddr string
 var wallet *core.Wallet
 var privateKey string
 var keystore string
+var unit string
 
 func init() {
 	TransferCmd.Flags().StringVarP(&amount, "amount", "a", "0", "amount to transfer")
 	TransferCmd.Flags().StringVarP(&toAddr, "toAddr", "t", "", "to address")
 	TransferCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to do this transfer")
 	TransferCmd.Flags().StringVarP(&keystore, "keystore", "s", "", "keystore used to do this transfer")
+	TransferCmd.Flags().StringVarP(&unit, "unit", "u", "qa", "provide either zil, li or qa")
 }
 
 var TransferCmd = &cobra.Command{
@@ -48,6 +51,16 @@ var TransferCmd = &cobra.Command{
 	Short: "Transfer zilliqa token to a specific account",
 	Long:  "Transfer zilliqa token to a specific account by using default account or a batch of accounts",
 	PreRun: func(cmd *cobra.Command, args []string) {
+		_, err := strconv.ParseFloat(amount, 64)
+		if err != nil {
+			panic(err.Error())
+		}
+
+		unit = strings.ToLower(unit)
+		if unit != "zil" && unit != "li" && unit != "qa" {
+			panic(fmt.Errorf("unit needs to be either zil, li or qa"))
+		}
+
 		home := core.UserHomeDir()
 		w, err := core.LoadFromFile(home + "/" + wallet2.DefaultConfigName)
 		if err != nil {
@@ -79,6 +92,20 @@ var TransferCmd = &cobra.Command{
 		}
 	},
 	Run: func(cmd *cobra.Command, args []string) {
+		strAmount, _ := strconv.ParseFloat(amount, 64)
+
+		var qaFloat float64
+		switch unit {
+		case "zil":
+			qaFloat = util.ToQa(strAmount, util.ZIL)
+		case "li":
+			qaFloat = util.ToQa(strAmount, util.LI)
+		default:
+			qaFloat = util.ToQa(strAmount, util.QA)
+		}
+
+		qaAmount := strconv.FormatFloat(qaFloat, 'f', 0, 64)
+
 		signer := account.NewWallet()
 		signer.AddByPrivateKey(wallet.DefaultAccount.PrivateKey)
 		p := provider.NewProvider(wallet.API)
@@ -87,7 +114,7 @@ var TransferCmd = &cobra.Command{
 			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
 			ToAddr:       toAddr,
-			Amount:       amount,
+			Amount:       qaAmount,
 			GasPrice:     "1000000000",
 			GasLimit:     "1",
 			Code:         "",
@@ -100,7 +127,10 @@ var TransferCmd = &cobra.Command{
 			panic(err.Error())
 		}
 
-		rsp := p.CreateTransaction(tx.ToTransactionPayload())
+		rsp, err := p.CreateTransaction(tx.ToTransactionPayload())
+		if err != nil {
+			panic(err.Error())
+		}
 		if rsp.Error != nil {
 			panic(rsp.Error)
 		} else {
@@ -109,6 +139,5 @@ var TransferCmd = &cobra.Command{
 			fmt.Printf("hash is %s", hash)
 			tx.Confirm(hash, 1000, 3, p)
 		}
-
 	},
 }
