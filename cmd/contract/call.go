@@ -18,12 +18,14 @@ package contract
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/Zilliqa/gozilliqa-sdk/account"
 	"github.com/Zilliqa/gozilliqa-sdk/bech32"
 	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
 	"github.com/Zilliqa/gozilliqa-sdk/provider"
 	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/Zilliqa/gozilliqa-sdk/validator"
+	"github.com/howeyc/gopass"
 	"github.com/spf13/cobra"
 	"strconv"
 	"strings"
@@ -50,6 +52,7 @@ func init() {
 	callCmd.Flags().StringVarP(&invokeAmount, "amount", "m", "0", "token amount to transfer to the contract")
 	callCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to call to the contract")
 	callCmd.Flags().BoolVarP(&invokePriority, "priority", "f", false, "setup priority of transaction")
+	callCmd.Flags().StringVarP(&keystore, "keystore", "s", "", "keystore used to deploy the contract")
 	ContractCmd.AddCommand(callCmd)
 }
 
@@ -71,6 +74,22 @@ var callCmd = &cobra.Command{
 
 		if privateKey != "" {
 			account, err := core.NewAccount(privateKey)
+			if err != nil {
+				panic(err.Error())
+			}
+			wallet.DefaultAccount = *account
+		}
+		if keystore != "" {
+			fmt.Println("please type password to decrypt your keystore: ")
+			pass, err := gopass.GetPasswd()
+			if err != nil {
+				panic(err.Error())
+			}
+			p, err := core.LoadPirvateKeyFromKeyStore(keystore, string(pass))
+			if err != nil {
+				panic(err.Error())
+			}
+			account, err := core.NewAccount(p)
 			if err != nil {
 				panic(err.Error())
 			}
