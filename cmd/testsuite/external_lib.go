@@ -1,13 +1,12 @@
 package testsuite
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/Zilliqa/gozilliqa-sdk/account"
 	"github.com/Zilliqa/gozilliqa-sdk/bech32"
 	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	core2 "github.com/Zilliqa/gozilliqa-sdk/core"
 	"github.com/Zilliqa/gozilliqa-sdk/provider"
-	"github.com/Zilliqa/gozilliqa-sdk/transaction"
 	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/spf13/cobra"
 	"io/ioutil"
@@ -61,7 +60,7 @@ var externalLib = &cobra.Command{
 			Arguments:   arguments,
 		}
 
-		initStruct1 := []contract2.Value{
+		initStruct1 := []core2.ContractValue{
 			{
 				VName: "_scilla_version",
 				Type:  "Uint32",
@@ -77,15 +76,6 @@ var externalLib = &cobra.Command{
 		p := provider.NewProvider(wallet.API)
 		fmt.Println(wallet.DefaultAccount.Address)
 		result, err := p.GetBalance(wallet.DefaultAccount.Address)
-		if err != nil {
-			panic(err.Error())
-		}
-		if result.Error != nil {
-			panic(result.Error.Message)
-		}
-
-		balance := result.Result.(map[string]interface{})
-		nonce, _ := balance["nonce"].(json.Number).Int64()
 
 		signer := account.NewWallet()
 		signer.AddByPrivateKey(wallet.DefaultAccount.PrivateKey)
@@ -99,7 +89,7 @@ var externalLib = &cobra.Command{
 
 		deployParams := contract2.DeployParams{
 			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
-			Nonce:        strconv.FormatInt(nonce+1, 10),
+			Nonce:        strconv.FormatInt(result.Nonce+1, 10),
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(limit), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
@@ -115,7 +105,7 @@ var externalLib = &cobra.Command{
 
 		tx.Confirm(tx.ID, 1000, 3, p)
 
-		if tx.Status == transaction.Rejected {
+		if tx.Status == core2.Rejected {
 			fmt.Println("deploy lib1 failed")
 			return
 		}
@@ -137,7 +127,7 @@ var externalLib = &cobra.Command{
 			"0x" + tx.ContractAddress,
 		}
 
-		initStruct3 := []contract2.Value{
+		initStruct3 := []core2.ContractValue{
 			{
 				VName: "_scilla_version",
 				Type:  "Uint32",
@@ -161,15 +151,10 @@ var externalLib = &cobra.Command{
 			},
 		}
 
-		result,err = p.GetBalance(wallet.DefaultAccount.Address)
+		result, err = p.GetBalance(wallet.DefaultAccount.Address)
 		if err != nil {
 			panic(err.Error())
 		}
-		if result.Error != nil {
-			panic(result.Error.Message)
-		}
-		balance = result.Result.(map[string]interface{})
-		nonce, _ = balance["nonce"].(json.Number).Int64()
 
 		contract = contract2.Contract{
 			Code:     string(lib3),
@@ -180,7 +165,7 @@ var externalLib = &cobra.Command{
 
 		deployParams = contract2.DeployParams{
 			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
-			Nonce:        strconv.FormatInt(nonce+1, 10),
+			Nonce:        strconv.FormatInt(result.Nonce+1, 10),
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(limit), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
@@ -196,7 +181,7 @@ var externalLib = &cobra.Command{
 
 		tx.Confirm(tx.ID, 1000, 3, p)
 
-		if tx.Status == transaction.Rejected {
+		if tx.Status == core2.Rejected {
 			fmt.Println("deploy lib2 failed")
 			return
 		}
@@ -218,7 +203,7 @@ var externalLib = &cobra.Command{
 			"0x" + tx.ContractAddress,
 		}
 
-		initHello := []contract2.Value{
+		initHello := []core2.ContractValue{
 			{
 				VName: "_scilla_version",
 				Type:  "Uint32",
@@ -237,15 +222,10 @@ var externalLib = &cobra.Command{
 			},
 		}
 
-		result,err = p.GetBalance(wallet.DefaultAccount.Address)
+		result, err = p.GetBalance(wallet.DefaultAccount.Address)
 		if err != nil {
 			panic(err.Error())
 		}
-		if result.Error != nil {
-			panic(result.Error.Message)
-		}
-		balance = result.Result.(map[string]interface{})
-		nonce, _ = balance["nonce"].(json.Number).Int64()
 
 		contract = contract2.Contract{
 			Code:     string(hello),
@@ -256,7 +236,7 @@ var externalLib = &cobra.Command{
 
 		deployParams = contract2.DeployParams{
 			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
-			Nonce:        strconv.FormatInt(nonce+1, 10),
+			Nonce:        strconv.FormatInt(result.Nonce+1, 10),
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(limit), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
@@ -272,7 +252,7 @@ var externalLib = &cobra.Command{
 
 		tx.Confirm(tx.ID, 1000, 3, p)
 
-		if tx.Status == transaction.Rejected {
+		if tx.Status == core2.Rejected {
 			fmt.Println("deploy hello contract failed")
 			return
 		}
@@ -281,11 +261,6 @@ var externalLib = &cobra.Command{
 		if err != nil {
 			panic(err)
 		}
-		if result.Error != nil {
-			panic(result.Error.Message)
-		}
-		balance = result.Result.(map[string]interface{})
-		nonce, _ = balance["nonce"].(json.Number).Int64()
 
 		addr, _ := bech32.ToBech32Address(tx.ContractAddress)
 
@@ -298,14 +273,14 @@ var externalLib = &cobra.Command{
 		}
 		callParams := contract2.CallParams{
 			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
-			Nonce:        strconv.FormatInt(nonce+1, 10),
+			Nonce:        strconv.FormatInt(result.Nonce+1, 10),
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(limit), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
 			Amount:       "0",
 		}
 
-		a := make([]contract2.Value, 0)
+		a := make([]core2.ContractValue, 0)
 
 		tx, err4 := contract.Call("Hi", a, callParams, false)
 		if err4 != nil {
@@ -313,7 +288,7 @@ var externalLib = &cobra.Command{
 		}
 
 		tx.Confirm(tx.ID, 1000, 3, p)
-		if tx.Status == transaction.Rejected {
+		if tx.Status == core2.Rejected {
 			fmt.Println("call hello contract failed")
 			return
 		}
