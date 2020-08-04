@@ -21,6 +21,7 @@ import (
 	"fmt"
 	"github.com/Zilliqa/gozilliqa-sdk/account"
 	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	core2 "github.com/Zilliqa/gozilliqa-sdk/core"
 	"github.com/Zilliqa/gozilliqa-sdk/provider"
 	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/howeyc/gopass"
@@ -104,7 +105,7 @@ var deployCmd = &cobra.Command{
 			panic(err.Error())
 		}
 
-		var initArray []contract2.Value
+		var initArray []core2.ContractValue
 		_ = json.Unmarshal(i, &initArray)
 
 		p := provider.NewProvider(wallet.API)
@@ -114,13 +115,6 @@ var deployCmd = &cobra.Command{
 		if err != nil {
 			panic(err)
 		}
-
-		if result.Error != nil {
-			panic(result.Error.Message)
-		}
-
-		balance := result.Result.(map[string]interface{})
-		nonce, _ := balance["nonce"].(json.Number).Int64()
 
 		signer := account.NewWallet()
 		signer.AddByPrivateKey(wallet.DefaultAccount.PrivateKey)
@@ -133,7 +127,7 @@ var deployCmd = &cobra.Command{
 
 		deployParams := contract2.DeployParams{
 			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
-			Nonce:        strconv.FormatInt(nonce+1, 10),
+			Nonce:        strconv.FormatInt(result.Nonce+1, 10),
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(limit), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),

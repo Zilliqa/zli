@@ -62,18 +62,9 @@ var transactionCmd = &cobra.Command{
 		}
 
 		p := provider.NewProvider(a)
-		response,err := p.GetTransaction(transactionId)
-		if err != nil {
-			panic(err)
-		}
-		if response == nil {
-			panic("cannot get response")
-		}
-		if response.Error != nil {
-			panic(response.Error)
-		}
+		txn, err := p.GetTransaction(transactionId)
 
-		res, err := json.Marshal(response.Result)
+		res, err := json.Marshal(txn)
 		if err != nil {
 			panic(err.Error())
 		}

@@ -17,10 +17,10 @@
 package testsuite
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/Zilliqa/gozilliqa-sdk/account"
 	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	core2 "github.com/Zilliqa/gozilliqa-sdk/core"
 	"github.com/Zilliqa/gozilliqa-sdk/provider"
 	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/spf13/cobra"
@@ -69,7 +69,7 @@ var tinyCmd = &cobra.Command{
 			Signer:   signer,
 			Provider: p,
 		}
-		a := []contract2.Value{}
+		a := []core2.ContractValue{}
 
 		for index, value := range transitions {
 			fmt.Println("start to invoke transition ", index+1)
@@ -77,14 +77,9 @@ var tinyCmd = &cobra.Command{
 			if err != nil {
 				panic(err)
 			}
-			if result.Error != nil {
-				panic(result.Error.Message)
-			}
-			balance := result.Result.(map[string]interface{})
-			nonce, _ := balance["nonce"].(json.Number).Int64()
 			params := contract2.CallParams{
 				Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
-				Nonce:        strconv.FormatInt(nonce+1, 10),
+				Nonce:        strconv.FormatInt(result.Nonce+1, 10),
 				GasPrice:     "1000000000",
 				GasLimit:     "10000",
 				SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
@@ -95,17 +90,11 @@ var tinyCmd = &cobra.Command{
 				panic(err.Error())
 			}
 			tx.Confirm(tx.ID, 1000, 3, p)
-			result, err = p.GetTransaction(tx.ID)
+			txn, err := p.GetTransaction(tx.ID)
 			if err != nil {
 				panic(err)
 			}
-			r, ok := result.Result.(map[string]interface{})
-			if !ok {
-				panic("get transaction result failed")
-			}
-			receipt := r["receipt"].(map[string]interface{})
-			success := receipt["success"].(bool)
-			if !success {
+			if !txn.Receipt.Success {
 				fmt.Println("test failed at transition ", index+1)
 				os.Exit(1)
 			}

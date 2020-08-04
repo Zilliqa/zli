@@ -20,7 +20,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
 var WalletCmd = &cobra.Command{
 	Use:   "wallet",
 	Short: "Init a new wallet or get exist wallet info",
