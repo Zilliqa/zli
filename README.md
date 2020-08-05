@@ -83,6 +83,7 @@ Run `zli [command] --help` to see the usage details for each available command. 
 * `zli contract deploy [flags]`: Deploy a new contract.
 * `zli contract call [flags]`: Call an existing contract.
 * `zli contract state [flags]`: Get the state data for a specific smart contract.
+* `zli contract compact [flags]`: Compact smart contract
 
 ### account
 

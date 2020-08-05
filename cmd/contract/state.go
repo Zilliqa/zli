@@ -33,8 +33,8 @@ func init() {
 
 var stateCmd = &cobra.Command{
 	Use:   "state",
-	Short: "get state data for specific smart contract",
-	Long:  "get state data for specific smart contract",
+	Short: "Get state data for specific smart contract",
+	Long:  "Get state data for specific smart contract",
 	Run: func(cmd *cobra.Command, args []string) {
 		p := provider.NewProvider(api)
 		contractAddr := invokeAddress
