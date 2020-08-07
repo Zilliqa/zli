@@ -73,7 +73,7 @@ func NewWallet(privateKey []byte, chainId int, api string) (*Wallet, error) {
 }
 
 func FromPrivateKeyAndChain(privateKey []byte, chainId int, api string) (*Wallet, error) {
-	return NewWallet(privateKey, chainId, api);
+	return NewWallet(privateKey, chainId, api)
 }
 func FromPrivateKey(privateKey []byte) (*Wallet, error) {
 	return FromPrivateKeyAndChain(privateKey, 333, "https://dev-api.zilliqa.com/")

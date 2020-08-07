@@ -27,17 +27,16 @@ import (
 
 type Accounts []Account
 
-
 func Split(accounts Accounts, lim int) [][]Account {
 	var chunk []Account
-	chunks := make([][]Account,0,len(accounts)/lim+1)
+	chunks := make([][]Account, 0, len(accounts)/lim+1)
 	for len(accounts) >= lim {
-		chunk,accounts = accounts[:lim],accounts[lim:]
-		chunks = append(chunks,chunk)
+		chunk, accounts = accounts[:lim], accounts[lim:]
+		chunks = append(chunks, chunk)
 	}
 
 	if len(accounts) > 0 {
-		chunks = append(chunks,accounts[:len(accounts)])
+		chunks = append(chunks, accounts[:len(accounts)])
 	}
 
 	return chunks

@@ -23,7 +23,7 @@ var rewardsCmd = &cobra.Command{
 	Long:  "Get rewards for specific ssn operator",
 	Run: func(cmd *cobra.Command, args []string) {
 		p := provider.NewProvider(api)
-		response, err := p.GetSmartContractSubState(contractAddress, "ssnlist", []string{ssn})
+		response, err := p.GetSmartContractSubState(contractAddress, "ssnlist.scilla", []string{ssn})
 		if err != nil {
 			panic(err)
 		}

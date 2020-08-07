@@ -22,6 +22,7 @@ import (
 	"github.com/Zilliqa/gozilliqa-sdk/account"
 	"github.com/Zilliqa/gozilliqa-sdk/bech32"
 	contract2 "github.com/Zilliqa/gozilliqa-sdk/contract"
+	core2 "github.com/Zilliqa/gozilliqa-sdk/core"
 	"github.com/Zilliqa/gozilliqa-sdk/provider"
 	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/Zilliqa/gozilliqa-sdk/validator"
@@ -101,7 +102,7 @@ var callCmd = &cobra.Command{
 			panic("invalid transition")
 		}
 
-		var a []contract2.Value
+		var a []core2.ContractValue
 		err := json.Unmarshal([]byte(invokeArgs), &a)
 
 		if !validator.IsBech32(invokeAddress) {
@@ -113,17 +114,10 @@ var callCmd = &cobra.Command{
 		}
 
 		p := provider.NewProvider(wallet.API)
-		result, err := p.GetBalance(wallet.DefaultAccount.Address)
+		balAndNonce, err := p.GetBalance(wallet.DefaultAccount.Address)
 		if err != nil {
 			panic(err)
 		}
-
-		if result.Error != nil {
-			panic(result.Error.Message)
-		}
-
-		balance := result.Result.(map[string]interface{})
-		nonce, _ := balance["nonce"].(json.Number).Int64()
 
 		signer := account.NewWallet()
 		signer.AddByPrivateKey(wallet.DefaultAccount.PrivateKey)
@@ -136,7 +130,7 @@ var callCmd = &cobra.Command{
 
 		params := contract2.CallParams{
 			Version:      strconv.FormatInt(int64(util.Pack(wallet.ChainID, 1)), 10),
-			Nonce:        strconv.FormatInt(nonce+1, 10),
+			Nonce:        strconv.FormatInt(balAndNonce.Nonce+1, 10),
 			GasPrice:     strconv.FormatInt(price, 10),
 			GasLimit:     strconv.FormatInt(int64(invokeLimit), 10),
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
