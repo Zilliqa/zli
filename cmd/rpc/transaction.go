@@ -31,6 +31,7 @@ var wallet *core.Wallet
 
 func init() {
 	transactionCmd.Flags().StringVarP(&transactionId, "transaction", "t", "", "transaction id")
+	transactionCmd.Flags().StringVarP(&api, "api", "u", "", "api endpoint")
 	RPCCmd.AddCommand(transactionCmd)
 }
 

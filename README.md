@@ -96,6 +96,7 @@ Run `zli [command] --help` to see the usage details for each available command. 
 ### rpc
 
 * `zli rpc transaction [flags]`: Get the transaction details for a specific transaction ID.
+* `zli rpc balance [flags]`:  Get balance and nonce by address(base16 or bech32).
 
 ## Examples
 
