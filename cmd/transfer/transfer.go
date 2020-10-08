@@ -115,7 +115,7 @@ var TransferCmd = &cobra.Command{
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
 			ToAddr:       toAddr,
 			Amount:       qaAmount,
-			GasPrice:     "1000000000",
+			GasPrice:     "2000000000",
 			GasLimit:     "1",
 			Code:         "",
 			Data:         "",
