@@ -5,6 +5,34 @@ scilla_version 0
 
 import BoolUtils
 
+library MapCornersTest
+
+let iota : Uint32 -> Uint32 -> List Uint32 =
+  fun (m : Uint32) => fun (n : Uint32) =>
+    let m_lt_n = builtin lt m n in
+    match m_lt_n with
+    | True =>
+        let delta = builtin sub n m in
+        let delta_nat = builtin to_nat delta in
+        let fold = @nat_fold (List Uint32) in
+        let nil = Nil {Uint32} in
+        let acc_init = Pair {(List Uint32) Uint32} nil n in
+        let one = Uint32 1 in
+        let step = fun (xs_n : Pair (List Uint32) Uint32) => fun (ignore : Nat) =>
+          match xs_n with
+          | Pair xs n =>
+              let new_n = builtin sub n one in
+              let new_xs = Cons {Uint32} new_n xs in
+              Pair {(List Uint32) Uint32} new_xs new_n
+          end in
+        let fold = @nat_fold (Pair (List Uint32) Uint32) in
+        let xs_m = fold step acc_init delta_nat in
+        match xs_m with
+        | Pair xs m => xs
+        end
+    | False => Nil {Uint32}
+    end
+
 (* The test sequence here is based on the unit tests in Test_ScillaIPCServer.cpp. *)
 contract MapCornersTest ()
 
@@ -13,6 +41,7 @@ field f_m1 : Map String String = Emp String String
 field f_m2 : Map String (Map String String) = Emp String (Map String String)
 field f_m3 : Map String (Map String (Map String String)) = Emp String (Map String (Map String String))
 field f_m : Map String (Map String String) = Emp String (Map String String)
+field f_m4 : Map Uint32 Uint32 = Emp Uint32 Uint32
 
 procedure fail (tname : String)
   e = { _exception : "Test Failed"; test_name : tname };
@@ -23,6 +52,11 @@ procedure fail_msg (tname : String, msg : String)
   e = { _exception : "Test Failed"; test_name : tname; message: msg };
   throw e
 end
+
+procedure MapOperate(element: Uint32)
+  f_m4[element] := element
+end
+
 
 (* test_query_simple *)
 transition t1 ()
@@ -640,4 +674,10 @@ transition t18 ()
     fail tname
   | False =>
   end
+end
+
+transition t19(n: Uint32)
+  m = Uint32 1;
+  map_list = iota m n;
+  forall map_list MapOperate
 end
