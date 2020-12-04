@@ -20,7 +20,7 @@ var price int64
 var limit int32
 
 func init() {
-	externalLib.Flags().Int64VarP(&price, "price", "p", 1000000000, "set gas price")
+	externalLib.Flags().Int64VarP(&price, "price", "p", 2000000000, "set gas price")
 	externalLib.Flags().Int32VarP(&limit, "limit", "l", 10000, "set gas limit")
 	TestSuite.AddCommand(externalLib)
 }

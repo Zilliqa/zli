@@ -45,7 +45,7 @@ var invokePriority bool
 func init() {
 	callCmd.Flags().StringVarP(&invokeTransition, "transition", "t", "", "transition will be called")
 	callCmd.Flags().StringVarP(&invokeArgs, "args", "r", "", "args will be passed to transition")
-	callCmd.Flags().Int64VarP(&invokePrice, "price", "p", 1000000000, "set gas price")
+	callCmd.Flags().Int64VarP(&invokePrice, "price", "p", 2000000000, "set gas price")
 	callCmd.Flags().Int32VarP(&invokeLimit, "limit", "l", 10000, "set gas limit")
 	callCmd.Flags().StringVarP(&invokeAddress, "address", "a", "", "smart contract address")
 	callCmd.Flags().IntVarP(&chainId, "chainId", "d", 0, "chain id")
