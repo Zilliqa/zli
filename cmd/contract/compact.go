@@ -34,13 +34,13 @@ var compactCmd = &cobra.Command{
 			return
 		}
 
-		code,err := ioutil.ReadFile(input)
+		code, err := ioutil.ReadFile(input)
 		if err != nil {
 			fmt.Println(err.Error())
 			return
 		}
 
-		w,err1 := os.Create(output)
+		w, err1 := os.Create(output)
 		if err1 != nil {
 			fmt.Println(err1.Error())
 			return
@@ -51,7 +51,7 @@ var compactCmd = &cobra.Command{
 		// trim all comments
 		c := string(code)
 		m := regexp.MustCompile("\\(\\*(.*?)\\*\\)")
-		newCode := m.ReplaceAllString(c,"")
+		newCode := m.ReplaceAllString(c, "")
 
 		sb := strings.Builder{}
 		m = regexp.MustCompile("^(\n)*$")
@@ -65,6 +65,6 @@ var compactCmd = &cobra.Command{
 			}
 		}
 
-		_= ioutil.WriteFile(output,[]byte(sb.String()),0640)
+		_ = ioutil.WriteFile(output, []byte(sb.String()), 0640)
 	},
 }

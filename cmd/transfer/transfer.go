@@ -37,6 +37,7 @@ var wallet *core.Wallet
 var privateKey string
 var keystore string
 var unit string
+var gasPrice string
 
 func init() {
 	TransferCmd.Flags().StringVarP(&amount, "amount", "a", "0", "amount to transfer")
@@ -44,6 +45,7 @@ func init() {
 	TransferCmd.Flags().StringVarP(&privateKey, "private_key", "k", "", "private key used to do this transfer")
 	TransferCmd.Flags().StringVarP(&keystore, "keystore", "s", "", "keystore used to do this transfer")
 	TransferCmd.Flags().StringVarP(&unit, "unit", "u", "qa", "provide either zil, li or qa")
+	TransferCmd.Flags().StringVarP(&gasPrice, "gas_price", "g", "2000000000", "gas price using for sending transaction")
 }
 
 var TransferCmd = &cobra.Command{
@@ -115,11 +117,11 @@ var TransferCmd = &cobra.Command{
 			SenderPubKey: strings.ToUpper(wallet.DefaultAccount.PublicKey),
 			ToAddr:       toAddr,
 			Amount:       qaAmount,
-			GasPrice:     "2000000000",
+			GasPrice:     gasPrice,
 			GasLimit:     "1",
 			Code:         "",
 			Data:         "",
-			Priority:     false,
+			Priority:     true,
 		}
 
 		err := signer.Sign(tx, *p)
