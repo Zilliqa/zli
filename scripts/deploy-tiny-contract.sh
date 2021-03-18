@@ -13,5 +13,5 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #!/usr/bin/env bash
-zli contract deploy -c ../testsuite/contracts/TinyContract/tiny.scilla -i ../testsuite/contracts/TinyContract/init.json 1000000000 -l 40000
+zli contract deploy -c ../testsuite/contracts/TinyContract/tiny.scilla -i ../testsuite/contracts/TinyContract/init.json -p 2000000000 -l 40000
 
