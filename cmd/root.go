@@ -23,6 +23,7 @@ import (
 	"zli/cmd/account"
 	"zli/cmd/contract"
 	"zli/cmd/converter"
+	"zli/cmd/keystore"
 	"zli/cmd/rpc"
 	"zli/cmd/staking"
 	"zli/cmd/testsuite"
@@ -40,6 +41,7 @@ func init() {
 	RootCmd.AddCommand(testsuite.TestSuite)
 	RootCmd.AddCommand(converter.ConverterCmd)
 	RootCmd.AddCommand(staking.StakingCmd)
+	RootCmd.AddCommand(keystore.KeystoreCmd)
 }
 
 var RootCmd = &cobra.Command{
