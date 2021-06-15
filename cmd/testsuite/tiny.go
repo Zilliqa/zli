@@ -95,11 +95,19 @@ var tinyCmd = &cobra.Command{
 			if err != nil {
 				panic(err)
 			}
-			if !txn.Receipt.Success {
-				fmt.Println("test failed at transition ", index+1)
-				os.Exit(1)
+			// expected to be true
+			if strings.Contains(value, "t") {
+				if !txn.Receipt.Success {
+					fmt.Println("test failed at transition ", index+1)
+					os.Exit(1)
+				}
+			} else {
+				// expected to be false
+				if txn.Receipt.Success {
+					fmt.Println("test failed at transition ", index+1)
+					os.Exit(1)
+				}
 			}
-
 		}
 
 	},
