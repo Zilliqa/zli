@@ -34,7 +34,7 @@ import (
 var address string
 var wallet *core.Wallet
 var transitions = []string{"t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12", "t13", "t14",
-	"t15", "t16", "t17", "t18", "f1", "t19", "f2", "t20", "f3", "t21", "f4", "t22", "f5", "t23", "f6", "24"}
+	"t15", "t16", "t17", "t18", "f1", "t19", "f2", "t20", "f3", "t21", "f4", "t22", "f5", "t23", "f6", "t24"}
 var invokePriority bool
 
 func init() {
