@@ -118,7 +118,7 @@ var TransferCmd = &cobra.Command{
 			ToAddr:       toAddr,
 			Amount:       qaAmount,
 			GasPrice:     gasPrice,
-			GasLimit:     "1",
+			GasLimit:     "50",
 			Code:         "",
 			Data:         "",
 			Priority:     true,
