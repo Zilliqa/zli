@@ -15,34 +15,31 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package keystore
+package account
 
 import (
 	"fmt"
-	"github.com/Zilliqa/gozilliqa-sdk/account"
+	bech322 "github.com/Zilliqa/gozilliqa-sdk/bech32"
+	"github.com/Zilliqa/gozilliqa-sdk/keytools"
+	"github.com/Zilliqa/gozilliqa-sdk/util"
 	"github.com/spf13/cobra"
-	"strings"
 )
 
 var privateKey string
-var password string
 
 func init() {
-	toCmd.Flags().StringVarP(&privateKey, "privateKey", "k", "", "private key to be converted")
-	toCmd.Flags().StringVarP(&password, "password", "p", "", "password to encrypt the json keystore")
-	KeystoreCmd.AddCommand(toCmd)
+	addressCmd.Flags().StringVarP(&privateKey, "key", "k", "", "private key")
+	AccountCmd.AddCommand(addressCmd)
 }
 
-var toCmd = &cobra.Command{
-	Use:   "to",
-	Short: "convert private key to keystore",
-	Long:  "convert private key to keystore",
+var addressCmd = &cobra.Command{
+	Use:   "address",
+	Short: "Get address from a private key",
+	Long:  "Get address from a private key",
 	Run: func(cmd *cobra.Command, args []string) {
-		privateKey = strings.TrimPrefix(privateKey, "0x")
-		keystore, err := account.ToFile(privateKey, password, 0)
-		if err != nil {
-			panic(err.Error())
-		}
-		fmt.Println(keystore)
+		addr := keytools.GetAddressFromPrivateKey(util.DecodeHex(privateKey))
+		bech32, _ := bech322.ToBech32Address(addr)
+		fmt.Println("0x" + addr)
+		fmt.Println(bech32)
 	},
 }
