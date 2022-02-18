@@ -1,0 +1,16 @@
+scilla_version 0
+
+import Polynetwork BoolUtils
+
+contract CCM ()
+
+transition VerifyHeaderAndExecuteTx(curKeepers: List ByStr20, proof: Proof, rawHeader: ByStr, headerProof: Proof, curRawHeader: ByStr, headerSig: List Signature)
+  header_o = deserialize_Header rawHeader zero_uint32;
+  n = lengther_address curKeepers;
+  m = compute_m n;
+  signed = verifySig curRawHeader headerSig curKeepers m;
+  match signed with
+  | True => throw
+  | False =>
+  end
+end
