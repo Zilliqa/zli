@@ -45,6 +45,9 @@ var polysig = &cobra.Command{
 		p := provider.NewProvider(wallet.API)
 		fmt.Println(wallet.DefaultAccount.Address)
 		result, err := p.GetBalance(wallet.DefaultAccount.Address)
+		if err != nil {
+			panic(err.Error())
+		}
 
 		signer := account.NewWallet()
 		signer.AddByPrivateKey(wallet.DefaultAccount.PrivateKey)
